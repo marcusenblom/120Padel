@@ -36,11 +36,37 @@ const serieSchema = new Schema({
             type: Number,
             default: 0
         }
+    }],
+    playedMatches: [{
+        matchId: {
+            type: Number,
+            required: true
+        },
+        serie: {
+            type: Number,
+            default: this.serieId
+        },
+        winners: {
+            players: [{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            }],
+            setWon: {
+                type: Number,
+                required: true
+            }
+        },
+        losers: {
+            players: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            },
+            setWon: {
+                type: Number,
+                required: true
+            }
+        }
     }]
-    // ,
-    // gamesPlayed: [{
-
-    // }]
 
 });
 
@@ -61,28 +87,46 @@ serieSchema.methods.addPlayer = function(user){
 
 };
 
-// serieSchema.methods.addGame = function(){
+serieSchema.methods.addMatch = function(listOfWinners, listOfLosers, winnersSetWon, losersSetWon){
 
-//     this.gamesPlayed.push();
-    
-//     return this.save();
+    let matchId = (this.playedMatches.length + 1);
+    let newMatch = {
+        matchId: matchId,
+        winners: {
+            players: listOfWinners,
+            setWon: winnersSetWon
+        },
+        losers: {
+            players: listOfLosers,
+            setWon: losersSetWon
+        }
+    };
 
-// };
+    this.playedMatches.push(newMatch);
 
+    this.updateScoreBoard();
 
+    return this.save();
+};
 
+// Fortsätt här
+serieSchema.methods.updateScoreBoard = function(){
 
+    this.playedMatches.forEach(match => {
+        
+    });
+
+    return this.save();
+};
 
 
 
 const Serie = mongoose.model("Serie", serieSchema);
 
-
 function validateSerie(serie) {
     const schema = {
         serieId: joi.number().unique().required(),
         name: joi.string().min(1).max(100).required(),
-        // players: joi.string().min(1).max(100).required(),
     }
 
     return joi.validate(serie, schema);

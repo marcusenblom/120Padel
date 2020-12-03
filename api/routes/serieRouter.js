@@ -32,12 +32,26 @@ router.post("/addPlayer", async (req, res) => {
     const playerToAdd = await User.findOne({
         userId: req.body.userId
     });
-    console.log(playerToAdd);
 
     const serie = await Serie.findOne({
         serieId: req.body.serieId
     }).populate("players.user");
-    console.log(serie);
+
+    await serie.addPlayer(playerToAdd);
+
+    res.send(serie);
+
+});
+
+router.post("/addGame", async (req, res) => {
+
+    const playerToAdd = await User.findOne({
+        userId: req.body.userId
+    });
+
+    const serie = await Serie.findOne({
+        serieId: req.body.serieId
+    }).populate("players.user");
 
     await serie.addPlayer(playerToAdd);
 
