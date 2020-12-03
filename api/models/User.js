@@ -20,7 +20,7 @@ const userSchema = new Schema({
         minlength: 1,
         maxlength: 100
     },
-    email: {
+    userName: {
         type: String,
         required: true,
         unique: true,
@@ -43,7 +43,7 @@ function validateUser(user) {
         userId: joi.number().unique().required(),
         firstName: joi.string().min(1).max(100).required(),
         lastName: joi.string().min(1).max(100).required(),
-        email: joi.string().min(2).max(100).required().email(),
+        userName: joi.string().min(2).max(100).required().unique(),
         password: joi.string().max(100).required()
     }
 

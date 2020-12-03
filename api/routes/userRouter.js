@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const {User, validateUser} = require('../models/User');
 
-router.get("/login", async (req, res) => {
-    res.send("Inloggningssida")
+router.get("/profile", async (req, res) => {
+    res.send("Här kommer profilen att synas")
 });
 
-router.post("/login", async (req, res) => {
-    res.send("Inloggad")
+router.get("/allUsers", async (req, res) =>{
+    const allUsers = await User.find();
+    res.send(allUsers);
 });
 
 router.post("/createUser", async (req, res) => {
@@ -16,11 +17,11 @@ router.post("/createUser", async (req, res) => {
         userId: req.body.userId,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email,
+        userName: req.body.userName,
         password: req.body.password
     });
 
-    await newUser.save((error, success) => {
+    newUser.save((error, success) => {
         if (error){
             res.send(error.message)
         } else {

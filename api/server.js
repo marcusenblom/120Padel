@@ -6,6 +6,8 @@ const db = require("./config/config").databaseURI;
 const cors = require("cors");
 
 const userRouter = require('./routes/userRouter');
+const serieRouter = require('./routes/serieRouter');
+const loginRouter = require('./routes/loginRouter');
 
 
 
@@ -18,7 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Use routes
 app.use(
-    userRouter
+    userRouter,
+    serieRouter,
+    loginRouter
 );
 
 
