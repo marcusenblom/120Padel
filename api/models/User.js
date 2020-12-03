@@ -24,6 +24,12 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
+        minlength: 2,
+        maxlength: 100
+    },
+    password: {
+        type: String,
+        required: true,
         maxlength: 100
     }
 });
@@ -38,6 +44,7 @@ function validateUser(user) {
         firstName: joi.string().min(1).max(100).required(),
         lastName: joi.string().min(1).max(100).required(),
         email: joi.string().min(2).max(100).required().email(),
+        password: joi.string().max(100).required()
     }
 
     return joi.validate(user, schema);
