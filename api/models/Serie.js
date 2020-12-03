@@ -20,6 +20,10 @@ const serieSchema = new Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
+        gamesPlayed: {
+            type: Number,
+            default: 0
+        },
         points: {
             type: Number,
             default: 0
@@ -31,7 +35,7 @@ const serieSchema = new Schema({
         setLost: {
             type: Number,
             default: 0
-        },
+        }
     }]
     // ,
     // gamesPlayed: [{
