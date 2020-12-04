@@ -57,10 +57,10 @@ const serieSchema = new Schema({
             }
         },
         losers: {
-            players: {
+            players: [{
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User"
-            },
+            }],
             setWon: {
                 type: Number,
                 required: true
@@ -69,6 +69,52 @@ const serieSchema = new Schema({
     }]
 
 });
+
+serieSchema.methods.updateScoreBoard = function(){
+
+    this.players.forEach(player => {
+        // Clear all data from players
+        player.gamesPlayed = 0;
+        player.points = 0;
+        player.setWon = 0;
+        player.setLost = 0;
+    });
+
+    this.playedMatches.forEach(match => {
+
+        // How many set the winners won (consequently losers lost) and vice versa
+        let winningSetWon = match.winners.setWon;
+        let losingSetWon = match.losers.setWon;
+
+        // How much each game won is worth. This will be added to the winners total points
+        let winPoints = 2;
+
+        match.winners.players.forEach(winnerOfMatch => {
+            this.players.forEach(playerInSerie => {
+                if (playerInSerie.user.userId == winnerOfMatch.userId) {
+                    // Add games played, points, set won and set lost to winners
+                    playerInSerie.points += winPoints;
+                    playerInSerie.setWon += winningSetWon;
+                    playerInSerie.setLost += losingSetWon;
+                    playerInSerie.gamesPlayed += 1;
+                }
+            });
+        });
+
+        match.losers.players.forEach(loserOfMatch => {
+            this.players.forEach(playerInSerie => {
+                if (playerInSerie.user.userId == loserOfMatch.userId) {
+                    // Add games played, set won and loss to losers
+                    playerInSerie.setWon += losingSetWon;
+                    playerInSerie.setLost += winningSetWon;
+                    playerInSerie.gamesPlayed += 1;
+                }
+            });
+        });
+
+    });
+    return this.save();
+};
 
 serieSchema.methods.addPlayer = function(user){
 
@@ -87,18 +133,18 @@ serieSchema.methods.addPlayer = function(user){
 
 };
 
-serieSchema.methods.addMatch = function(listOfWinners, listOfLosers, winnersSetWon, losersSetWon){
+serieSchema.methods.addMatch = function(gameStats){
 
     let matchId = (this.playedMatches.length + 1);
     let newMatch = {
         matchId: matchId,
         winners: {
-            players: listOfWinners,
-            setWon: winnersSetWon
+            players: gameStats.winners,
+            setWon: gameStats.winningSets
         },
         losers: {
-            players: listOfLosers,
-            setWon: losersSetWon
+            players: gameStats.losers,
+            setWon: gameStats.losingSets
         }
     };
 
@@ -106,18 +152,10 @@ serieSchema.methods.addMatch = function(listOfWinners, listOfLosers, winnersSetW
 
     this.updateScoreBoard();
 
-    return this.save();
+    
 };
 
-// Fortsätt här
-serieSchema.methods.updateScoreBoard = function(){
 
-    this.playedMatches.forEach(match => {
-        
-    });
-
-    return this.save();
-};
 
 
 

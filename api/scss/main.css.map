@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAMA,AAAA,IAAI,CAAC;EACD,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;CACb",
+    "sources": [
+        "main.scss",
+        "_footer.scss",
+        "_navbar.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}
