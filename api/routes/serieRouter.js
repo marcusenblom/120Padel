@@ -12,7 +12,10 @@ router.get("/series", async (req, res) => {
     .populate("players.user")
     .populate("playedMatches.winners.players")
     .populate("playedMatches.losers.players");
+
+    //Update scoreboard (for testing purposes, this will happen in serie.add/remove/editMatch)
     serie.updateScoreBoard();
+
     res.send(serie);
 });
 

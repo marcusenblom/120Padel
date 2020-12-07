@@ -70,6 +70,7 @@ const serieSchema = new Schema({
 
 });
 
+// Function which updates scoreboard by clearing player data and loops through all games played and rebuild the scoring data
 serieSchema.methods.updateScoreBoard = function(){
 
     this.players.forEach(player => {
@@ -113,6 +114,7 @@ serieSchema.methods.updateScoreBoard = function(){
         });
 
     });
+
     return this.save();
 };
 
@@ -130,7 +132,6 @@ serieSchema.methods.addPlayer = function(user){
     }
 
     return this.save();
-
 };
 
 serieSchema.methods.addMatch = function(gameStats){
@@ -151,12 +152,8 @@ serieSchema.methods.addMatch = function(gameStats){
     this.playedMatches.push(newMatch);
 
     this.updateScoreBoard();
-
     
 };
-
-
-
 
 
 const Serie = mongoose.model("Serie", serieSchema);
