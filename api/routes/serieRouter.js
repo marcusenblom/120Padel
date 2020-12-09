@@ -3,15 +3,16 @@ const router = express.Router();
 const {Serie, validateSerie} = require('../models/Serie');
 const {User, validateUser} = require('../models/User');
 
-router.get("/series", async (req, res) => {
+router.get("/serie/:serieId", async (req, res) => {
 
     // Fetch a serie and populate the nested user models
     const serie = await Serie.findOne({
-        serieId: 1
+        serieId: req.params.serieId
     })
     .populate("players.user")
     .populate("playedMatches.winners.players")
     .populate("playedMatches.losers.players");
+
 
     //Update scoreboard (for testing purposes, this will happen in serie.add/remove/editMatch)
     serie.updateScoreBoard();
