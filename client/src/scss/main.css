@@ -1,10 +1,8 @@
 footer {
+  margin-top: 100px;
   width: 100%;
   height: 100px;
   background-color: lightgray;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,16 +12,12 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  display: none;
 }
 
 .navbar {
   width: 100%;
   height: 70px;
   background-color: lightgray;
-  position: fixed;
-  top: 0;
-  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,7 +27,6 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  display: none;
 }
 
 body {
