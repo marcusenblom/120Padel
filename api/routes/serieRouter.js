@@ -48,6 +48,24 @@ router.post("/addPlayer", async (req, res) => {
     }).populate("players.user");
 
     await serie.addPlayer(playerToAdd);
+    await playerToAdd.addSerie(serie);
+
+    res.send(serie);
+
+});
+
+router.post("/removePlayer", async (req, res) => {
+
+    const playerToRemove = await User.findOne({
+        userId: req.body.userId
+    });
+
+    const serie = await Serie.findOne({
+        serieId: req.body.serieId
+    }).populate("players.user");
+
+    await serie.removePlayer(playerToRemove);
+    await playerToRemove.removeSerie(serie);
 
     res.send(serie);
 

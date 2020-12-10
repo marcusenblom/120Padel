@@ -31,8 +31,47 @@ const userSchema = new Schema({
         type: String,
         required: true,
         maxlength: 100
-    }
+    },
+    series: [{
+        type: Number
+    }],
 });
+
+
+// Add serie to user
+userSchema.methods.addSerie = function(serie){
+
+    let listOfSeries = this.series;
+    let alreadyExists = false;
+
+    listOfSeries.forEach(serieId => {
+        if (serieId == serie.serieId) {
+            alreadyExists = true;
+        }
+    });
+    // Add serie to user
+    if (!alreadyExists) {
+        listOfSeries.push(serie.serieId);
+    }
+
+    this.save();
+};
+
+// Remove serie from user
+userSchema.methods.removeSerie = function(serie){
+
+    let listOfSeries = this.series;
+
+    // Remove serie from user
+    listOfSeries.forEach(function(serieId, index){
+        if (serieId == serie.serieId) {
+            console.log("logging listofseries: " + listOfSeries);
+            listOfSeries.splice(index, 1);
+        }
+    });
+
+    this.save();
+};
 
 
 const User = mongoose.model("User", userSchema);

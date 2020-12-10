@@ -73,7 +73,9 @@ const serieSchema = new Schema({
 // Function which updates scoreboard by clearing player data and loops through all games played and rebuild the scoring data
 serieSchema.methods.updateScoreBoard = function(){
 
-    this.players.forEach(player => {
+    let listOfPlayers = this.players;
+
+    listOfPlayers.forEach(player => {
         // Clear all data from players
         player.gamesPlayed = 0;
         player.points = 0;
@@ -91,7 +93,7 @@ serieSchema.methods.updateScoreBoard = function(){
         let winPoints = 2;
 
         match.winners.players.forEach(winnerOfMatch => {
-            this.players.forEach(playerInSerie => {
+            listOfPlayers.forEach(playerInSerie => {
                 if (playerInSerie.user.userId == winnerOfMatch.userId) {
                     // Add games played, points, set won and set lost to winners
                     playerInSerie.points += winPoints;
@@ -103,7 +105,7 @@ serieSchema.methods.updateScoreBoard = function(){
         });
 
         match.losers.players.forEach(loserOfMatch => {
-            this.players.forEach(playerInSerie => {
+            listOfPlayers.forEach(playerInSerie => {
                 if (playerInSerie.user.userId == loserOfMatch.userId) {
                     // Add games played, set won and loss to losers
                     playerInSerie.setWon += losingSetWon;
@@ -120,16 +122,34 @@ serieSchema.methods.updateScoreBoard = function(){
 
 serieSchema.methods.addPlayer = function(user){
 
-    let playerExists = false;
+    let playerExistsInSerie = false;
+    let listOfPlayers = this.players;
     
-    this.players.forEach(player => {
+    listOfPlayers.forEach(player => {
+        
         if (player.user.userId == user.userId) {
-            playerExists = true;
+            playerExistsInSerie = true;
         }
     });
-    if (!playerExists) {
-        this.players.push({user: user});
+    if (!playerExistsInSerie) {
+        // Add user to serie
+        listOfPlayers.push({user: user});
+
     }
+
+    return this.save();
+};
+serieSchema.methods.removePlayer = function(user){
+
+    let listOfPlayers = this.players;
+    
+    listOfPlayers.forEach(function(player, index){
+
+        if (player.user.userId == user.userId) {
+
+            listOfPlayers.splice(index, 1);
+        }
+    });
 
     return this.save();
 };
