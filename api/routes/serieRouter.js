@@ -20,6 +20,27 @@ router.get("/serie/:serieId", async (req, res) => {
     res.send(serie);
 });
 
+router.get("/userSeries/:userId", async (req, res) => {
+
+    const user = await User.findOne({
+        userId: req.params.userId
+    });
+
+    let userSeries = [];
+    for (let i = 0; i < user.series.length; i++) {
+        const serie = await Serie.findOne({
+            serieId: user.series[i]
+        })
+        .populate("players.user")
+        .populate("playedMatches.winners.players")
+        .populate("playedMatches.losers.players");
+        
+        userSeries.push(serie);
+    }
+
+    res.send(userSeries);
+});
+
 router.post("/createSerie", async (req, res) => {
 
     const newSerie = new Serie({

@@ -1,0 +1,33 @@
+$greyed-font: #929292;
+
+#single-standing{
+    height: 40px;
+
+    .standing{
+        color: $greyed-font;
+    }
+    .hot-streak{
+
+    }
+    .player{
+        color: black;
+        font-weight: 600;
+    }
+    .games-played{
+        width: 40px;
+        color: $greyed-font;
+    }
+    .games-won{
+        width: 40px;
+        color: $greyed-font;
+    }
+    .set{
+        width: 40px;
+        color: $greyed-font;
+    }
+    .points{
+        width: 40px;
+        color: black;
+    }
+
+}

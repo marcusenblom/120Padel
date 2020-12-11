@@ -65,7 +65,7 @@ userSchema.methods.removeSerie = function(serie){
     // Remove serie from user
     listOfSeries.forEach(function(serieId, index){
         if (serieId == serie.serieId) {
-            console.log("logging listofseries: " + listOfSeries);
+
             listOfSeries.splice(index, 1);
         }
     });

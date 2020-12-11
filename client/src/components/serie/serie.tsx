@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
-import '../../scss/_footer.scss';
+import '../../scss/_serie.scss';
 import axios from "axios";
+import { PlayersModel, PlayedMatchesModel, SerieModel } from "../../models/serieModel";
+import UserModel from "../../models/userModel";
+import Standings from "./standings/standings";
+import MatchesPlayed from "./matchesPlayed/matchesPlayed";
+
 
 export default function Serie() {
 
   const [id, setId] = useState(1);
   const [name, setName] = useState("");
-  const [players, setPlayers] = useState("");
+  const [players, setPlayers] = useState([new PlayersModel(0,0,0,0,0,new UserModel(0, "", "", "",""))]);
   const [playedMatches, setPlayedMatches] = useState("");
 
   useEffect(() => {
@@ -24,10 +29,22 @@ export default function Serie() {
   }, [id]);
 
   return (
-    <div >
-      <p>Name: {JSON.stringify(name)}</p>
-      <p>Players: {JSON.stringify(players)}</p>
-      <p>Played Matches: {JSON.stringify(playedMatches)}</p>
+    <div id="serie">
+      <section className="serie-header-section">
+        <div className="serie-header-container">
+          <h1 className="serie-header">{name}</h1>
+        </div>
+        <div className="serie-button-container">
+          <button className="serie-button">Poängställning</button>
+          <button className="serie-button">Spelade matcher</button>
+        </div>
+      </section>
+      
+      <section>
+        <Standings players={players}/>
+
+      </section>
+
     </div>
   );
 }

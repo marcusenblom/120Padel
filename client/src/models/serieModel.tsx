@@ -1,20 +1,36 @@
 import UserModel from "./userModel";
 
-class PlayersModel{
+export class PlayersModel{
     gamesPlayed: number;
+    gamesWon: number;
     points: number;
     setWon: number;
     setLost: number;
     user: UserModel;
+
+    constructor(gamesPlayed: number, gamesWon: number, points: number, setWon: number, setLost: number, user: UserModel){
+        this.gamesPlayed = gamesPlayed;
+        this.gamesWon = gamesWon;
+        this.points = points;
+        this.setWon = setWon;
+        this.setLost = setLost;
+        this.user = user;
+    }
 }
 
-class PlayedMatchesModel{
+export class PlayedMatchesModel{
     winners: [];
     losers: [];
     matchId: number;
+
+    constructor(winners: [], losers: [], matchId: number){
+        this.winners = winners;
+        this.losers = losers;
+        this.matchId = matchId;
+    }
 }
 
-class SerieModel{
+export class SerieModel{
     serieId: number;
     serieName: string;
     players: PlayersModel[];
@@ -27,5 +43,3 @@ class SerieModel{
         this.playedMatches = playedMatches;
     }
 }
-
-export default SerieModel;

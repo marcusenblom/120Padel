@@ -24,6 +24,10 @@ const serieSchema = new Schema({
             type: Number,
             default: 0
         },
+        gamesWon: {
+            type: Number,
+            default: 0
+        },
         points: {
             type: Number,
             default: 0
@@ -78,6 +82,7 @@ serieSchema.methods.updateScoreBoard = function(){
     listOfPlayers.forEach(player => {
         // Clear all data from players
         player.gamesPlayed = 0;
+        player.gamesWon = 0;
         player.points = 0;
         player.setWon = 0;
         player.setLost = 0;
@@ -100,6 +105,7 @@ serieSchema.methods.updateScoreBoard = function(){
                     playerInSerie.setWon += winningSetWon;
                     playerInSerie.setLost += losingSetWon;
                     playerInSerie.gamesPlayed += 1;
+                    playerInSerie.gamesWon += 1;
                 }
             });
         });
