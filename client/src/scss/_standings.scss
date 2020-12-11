@@ -1,6 +1,7 @@
+@import "variables";
+
 #standings{
-    width: calc(100% - 10px);
-    padding: 0 5px;
+    width: 100%;
     
     table{
         width: 100%;
@@ -12,7 +13,7 @@
 
         thead{
             color: white;
-            background-color: #12326e;
+            background-color: $blue-color;
             font-size: 15px;
 
             tr{

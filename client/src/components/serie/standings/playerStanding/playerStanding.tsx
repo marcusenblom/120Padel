@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import '../../../../scss/_playerStanding.scss';
-import UserModel from "../../../../models/userModel";
 
-interface ISingleStandingProps{
+interface IPlayerStandingProps{
   userName: string;
   gamesPlayed: number;
   gamesWon: number;
@@ -11,7 +10,7 @@ interface ISingleStandingProps{
   points: number;
 }
 
-export default function SingleStanding(props: ISingleStandingProps) {
+export default function PlayerStanding(props: IPlayerStandingProps) {
 
 
   return (

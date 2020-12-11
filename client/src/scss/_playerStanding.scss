@@ -1,4 +1,4 @@
-$greyed-font: #929292;
+@import "variables";
 
 #single-standing{
     height: 40px;
@@ -14,19 +14,19 @@ $greyed-font: #929292;
         font-weight: 600;
     }
     .games-played{
-        width: 40px;
+        width: 30px;
         color: $greyed-font;
     }
     .games-won{
-        width: 40px;
+        width: 30px;
         color: $greyed-font;
     }
     .set{
-        width: 40px;
+        width: 30px;
         color: $greyed-font;
     }
     .points{
-        width: 40px;
+        width: 30px;
         color: black;
     }
 

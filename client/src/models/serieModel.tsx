@@ -18,14 +18,26 @@ export class PlayersModel{
     }
 }
 
-export class PlayedMatchesModel{
-    winners: [];
-    losers: [];
+export class MatchPlayersModel{
+    players: UserModel[];
+    setWon: number;
+
+    constructor(players: UserModel[], setWon: number){
+        this.players = players;
+        this.setWon = setWon;
+    }
+}
+
+export class PlayedMatchModel{
+    winners: MatchPlayersModel;
+    losers: MatchPlayersModel;
+    serie: number;
     matchId: number;
 
-    constructor(winners: [], losers: [], matchId: number){
+    constructor(winners: MatchPlayersModel, losers: MatchPlayersModel, serie: number, matchId: number){
         this.winners = winners;
         this.losers = losers;
+        this.serie = serie;
         this.matchId = matchId;
     }
 }
@@ -34,9 +46,9 @@ export class SerieModel{
     serieId: number;
     serieName: string;
     players: PlayersModel[];
-    playedMatches: PlayedMatchesModel[];
+    playedMatches: PlayedMatchModel[];
 
-    constructor(serieId: number, serieName: string, players: PlayersModel[], playedMatches: PlayedMatchesModel[]){
+    constructor(serieId: number, serieName: string, players: PlayersModel[], playedMatches: PlayedMatchModel[]){
         this.serieId = serieId;
         this.serieName = serieName;
         this.players = players;

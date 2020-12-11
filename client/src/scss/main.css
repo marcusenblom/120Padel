@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 footer {
   margin-top: 100px;
   width: 100%;
@@ -84,8 +85,7 @@ footer {
 }
 
 #standings {
-  width: calc(100% - 10px);
-  padding: 0 5px;
+  width: 100%;
 }
 
 #standings table {
@@ -145,28 +145,142 @@ footer {
 }
 
 #single-standing .games-played {
-  width: 40px;
+  width: 30px;
   color: #929292;
 }
 
 #single-standing .games-won {
-  width: 40px;
+  width: 30px;
   color: #929292;
 }
 
 #single-standing .set {
-  width: 40px;
+  width: 30px;
   color: #929292;
 }
 
 #single-standing .points {
-  width: 40px;
+  width: 30px;
   color: black;
+}
+
+#played-matches {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#singlePlayedMatch {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #12326e;
+  -webkit-box-shadow: 0px 10px 14px -2px rgba(227, 227, 227, 0.25);
+  box-shadow: 0px 10px 14px -2px rgba(227, 227, 227, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#singlePlayedMatch .team {
+  width: 47%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#singlePlayedMatch .team .team-players {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#singlePlayedMatch .team .team-players .player {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#singlePlayedMatch .team .team-players .player .player-image {
+  padding: 10px;
+}
+
+#singlePlayedMatch .team .team-players .player .player-info {
+  font-size: 12px;
+}
+
+#singlePlayedMatch .team .team-score {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+#singlePlayedMatch .team-one .team-one-players .player {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#singlePlayedMatch .team-separator {
+  width: 6%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+#singlePlayedMatch .team-two .team-two-players .player {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 /*# sourceMappingURL=main.css.map */

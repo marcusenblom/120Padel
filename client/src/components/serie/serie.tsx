@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import '../../scss/_serie.scss';
 import axios from "axios";
-import { PlayersModel, PlayedMatchesModel, SerieModel } from "../../models/serieModel";
+import { PlayersModel, MatchPlayersModel, PlayedMatchModel } from "../../models/serieModel";
 import UserModel from "../../models/userModel";
 import Standings from "./standings/standings";
-import MatchesPlayed from "./matchesPlayed/matchesPlayed";
+import PlayedMatches from "./playedMatches/playedMatches";
 
 
 export default function Serie() {
@@ -12,7 +12,7 @@ export default function Serie() {
   const [id, setId] = useState(1);
   const [name, setName] = useState("");
   const [players, setPlayers] = useState([new PlayersModel(0,0,0,0,0,new UserModel(0, "", "", "",""))]);
-  const [playedMatches, setPlayedMatches] = useState("");
+  const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel(new MatchPlayersModel([new UserModel(0,"","","","")],0),new MatchPlayersModel([new UserModel(0,"","","","")],0),0,0)]);
 
   useEffect(() => {
     axios
@@ -42,6 +42,7 @@ export default function Serie() {
       
       <section>
         <Standings players={players}/>
+        <PlayedMatches playedMatches={playedMatches}/>
 
       </section>
 

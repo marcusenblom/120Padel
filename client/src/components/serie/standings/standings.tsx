@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import '../../../scss/_standings.scss';
 import { PlayersModel } from "../../../models/serieModel";
 import PlayerStanding from "./playerStanding/playerStanding";
