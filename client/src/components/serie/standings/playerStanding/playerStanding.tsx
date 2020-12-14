@@ -8,16 +8,22 @@ interface IPlayerStandingProps{
   setWon: number;
   setLost: number;
   points: number;
+  hotStreak: boolean;
 }
 
 export default function PlayerStanding(props: IPlayerStandingProps) {
 
+  let fire;
+  // Change the if statement to hotStreak === true
+  if (props.userName === "Vreve" || props.userName === "Burt") {
+    fire = <i className="fab fa-hotjar"></i>;
+  }
 
   return (
     <>
       <tr id="single-standing">
         <td className="standing">1</td>
-        <td className="hot-streak"></td>
+        <td className="hot-streak">{fire}</td>
         <td className="player">{props.userName}</td>
         <td className="games-played">{props.gamesPlayed}</td>
         <td className="games-won">{props.gamesWon}</td>

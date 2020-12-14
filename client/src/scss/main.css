@@ -16,6 +16,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  display: none;
 }
 
 .navbar {
@@ -129,16 +130,20 @@ footer {
   text-align: center;
 }
 
-#standings table tbody tr td:nth-child(2) {
-  text-align: center;
-}
-
 #single-standing {
   height: 40px;
 }
 
 #single-standing .standing {
   color: #929292;
+}
+
+#single-standing .hot-streak {
+  width: 25px;
+}
+
+#single-standing .hot-streak i {
+  color: #e73204;
 }
 
 #single-standing .player {

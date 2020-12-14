@@ -11,7 +11,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
 
   let listOfMatches = props.playedMatches.map(match => {
     return (
-    <SinglePlayedMatch winners={match.winners.players} losers={match.losers.players} winnersSet={match.winners.setWon} losersSet={match.losers.setWon}/>
+    <SinglePlayedMatch key={match.matchId} winners={match.winners.players} losers={match.losers.players} winnersSet={match.winners.setWon} losersSet={match.losers.setWon}/>
     );
   });
 

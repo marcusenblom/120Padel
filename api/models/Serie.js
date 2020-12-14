@@ -39,6 +39,10 @@ const serieSchema = new Schema({
         setLost: {
             type: Number,
             default: 0
+        },
+        pointsPerGame: {
+            type: Number,
+            default: 0
         }
     }],
     playedMatches: [{
@@ -86,6 +90,7 @@ serieSchema.methods.updateScoreBoard = function(){
         player.points = 0;
         player.setWon = 0;
         player.setLost = 0;
+        player.pointsPerGame = 0;
     });
 
     this.playedMatches.forEach(match => {
@@ -120,8 +125,13 @@ serieSchema.methods.updateScoreBoard = function(){
                 }
             });
         });
-
     });
+
+    listOfPlayers.forEach(player => {
+        player.pointsPerGame = (player.points / player.gamesPlayed);
+    });
+
+
 
     return this.save();
 };

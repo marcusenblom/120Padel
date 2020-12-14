@@ -1,6 +1,5 @@
 import React from "react";
 import '../../scss/_navbar.scss';
-import axios from "axios";
 
 export default function Navbar() {
 

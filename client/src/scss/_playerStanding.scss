@@ -7,7 +7,11 @@
         color: $greyed-font;
     }
     .hot-streak{
+        width: 25px;
 
+        i{
+            color: rgb(231, 50, 4);
+        }
     }
     .player{
         color: black;

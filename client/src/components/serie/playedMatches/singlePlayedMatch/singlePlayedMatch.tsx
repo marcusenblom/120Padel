@@ -14,12 +14,12 @@ export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
 
   let teamOnePlayers = props.winners.map(player => {
     return (
-    <MatchPlayerCard imageUrl={"bild"} reversed={false} name={player.userName}/>
+    <MatchPlayerCard key={player.userName} imageUrl={"bild"} reversed={false} name={player.userName}/>
     );
   });
   let teamTwoPlayers = props.losers.map(player => {
     return (
-    <MatchPlayerCard imageUrl={"bild"} reversed={true} name={player.userName}/>
+    <MatchPlayerCard key={player.userName} imageUrl={"bild"} reversed={true} name={player.userName}/>
     );
   });
 
