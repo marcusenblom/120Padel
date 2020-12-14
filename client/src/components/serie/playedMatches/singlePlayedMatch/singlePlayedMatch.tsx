@@ -1,5 +1,4 @@
 import React from "react";
-import { MatchPlayersModel } from "../../../../models/serieModel";
 import UserModel from "../../../../models/userModel";
 import '../../../../scss/_singlePlayedMatch.scss';
 import MatchPlayerCard from "./matchPlayerCard/matchPlayerCard";

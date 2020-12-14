@@ -36,6 +36,7 @@ footer {
 #serie {
   width: auto;
   padding: 0 20px;
+  margin: 0px auto;
   max-width: 500px;
 }
 
@@ -53,7 +54,7 @@ footer {
 
 #serie .serie-header-section .serie-header-container {
   width: 100%;
-  height: 200px;
+  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,6 +87,7 @@ footer {
 
 #standings {
   width: 100%;
+  margin-bottom: 50px;
 }
 
 #standings table {
@@ -247,16 +249,32 @@ footer {
 }
 
 #singlePlayedMatch .team .team-players .player .player-image {
-  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 6px 10px 3px 10px;
+}
+
+#singlePlayedMatch .team .team-players .player .player-image img {
+  height: 50px;
 }
 
 #singlePlayedMatch .team .team-players .player .player-info {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#singlePlayedMatch .team .team-players .player:nth-child(2) .player-image {
+  padding: 3px 10px 6px 10px;
 }
 
 #singlePlayedMatch .team .team-score {
   font-size: 22px;
   font-weight: 600;
+  color: #12326e;
 }
 
 #singlePlayedMatch .team-one .team-one-players .player {

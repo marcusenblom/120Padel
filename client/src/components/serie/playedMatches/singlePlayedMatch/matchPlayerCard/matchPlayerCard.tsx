@@ -1,4 +1,5 @@
 import React from "react";
+import profileImg from "../../../../../images/profile.png";
 
 interface IMatchPlayerCardProps{
     imageUrl: string;
@@ -11,7 +12,7 @@ export default function MatchPlayerCard(props: IMatchPlayerCardProps) {
     if (!props.reversed) {
        return(
             <div className="player">
-                <div className="player-image"><img src={props.imageUrl} alt=""/></div>
+                <div className="player-image"><img src={profileImg} alt=""/></div>
                 <div className="player-info">{props.name}</div>
             </div> 
        ); 
@@ -19,7 +20,7 @@ export default function MatchPlayerCard(props: IMatchPlayerCardProps) {
         return(
             <div className="player">
                 <div className="player-info">{props.name}</div>
-                <div className="player-image"><img src={props.imageUrl} alt=""/></div>
+                <div className="player-image"><img src={profileImg} alt=""/></div>
             </div> 
         );
     }

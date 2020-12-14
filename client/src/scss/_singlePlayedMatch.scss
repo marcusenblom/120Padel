@@ -33,18 +33,32 @@
                 align-items: center;
 
                 .player-image{
-                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    padding: 6px 10px 3px 10px;
+
+                    img{
+                        height: 50px;
+                    }
                 }
                 .player-info{
-                    font-size: 12px;
+                    font-size: 13px;
+                    font-weight: 600;
+                }
+            }
+            // If two players on one team > set padding reverse on img
+            .player:nth-child(2){
+
+                .player-image{
+                    padding: 3px 10px 6px 10px;
                 }
             }
         }
         .team-score{
             font-size: 22px;
             font-weight: 600;
+            color: $blue-color;
         }
-
     }
     //Team 1
     .team-one{
