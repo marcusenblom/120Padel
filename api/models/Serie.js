@@ -90,7 +90,6 @@ serieSchema.methods.updateScoreBoard = function(){
         player.points = 0;
         player.setWon = 0;
         player.setLost = 0;
-        player.pointsPerGame = 0;
     });
 
     this.playedMatches.forEach(match => {
@@ -126,12 +125,18 @@ serieSchema.methods.updateScoreBoard = function(){
             });
         });
     });
-
-    listOfPlayers.forEach(player => {
-        player.pointsPerGame = (player.points / player.gamesPlayed);
+    // Set ppg
+    this.players.forEach(player => {
+        if (player.gamesPlayed > 0) {
+            player.pointsPerGame = (player.points/player.gamesPlayed);
+        }
+        else {
+            player.pointsPerGame = 0;
+        }
     });
 
-
+    // Rearragne based on ppg
+    this.players.sort((a, b) => (a.pointsPerGame < b.pointsPerGame) ? 1 : -1)
 
     return this.save();
 };
