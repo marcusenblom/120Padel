@@ -137,7 +137,7 @@ serieSchema.methods.updateScoreBoard = function(){
 
     // Rearragne based on ppg
     this.players.sort((a, b) => (a.pointsPerGame < b.pointsPerGame) ? 1 : -1)
-
+    
     return this.save();
 };
 

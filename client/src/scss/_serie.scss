@@ -1,9 +1,11 @@
+@import "variables";
+
 #serie{
     width: auto ;
     padding: 0 20px;
     margin: 0px auto;
     max-width: 500px;
-
+    
     .serie-header-section{
         width: 100%;
         display: flex;
@@ -29,9 +31,31 @@
             justify-content: space-evenly;
 
             .serie-button{
-                height: 30px;
+                height: 40px;
+                background-color: white;
+                border: 1px solid $blue-color;
+                border-radius: 3px;
+                padding: 0 40px;
+                cursor: pointer;
+                font-weight: 600;
+                font-family: inherit;
+            }
+            .serie-button:focus {
+                outline: none;
+                box-shadow: none;
+            }
+            .serie-button:hover{
+                background-color: $blue-color;
+                color: white;
+            }
+            .serie-button-active{
+                background-color: $blue-color;
+                color: white;
             }
         }
+    }
 
+    #rendered-component{
+        margin-top: 40px;
     }
 }

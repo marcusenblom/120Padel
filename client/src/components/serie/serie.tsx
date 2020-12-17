@@ -61,7 +61,7 @@ export default function Serie() {
         </div>
       </section>
       
-      <section>
+      <section id="rendered-component">
         {renderComponent()}
       </section>
 
