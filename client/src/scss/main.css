@@ -199,6 +199,47 @@ footer {
   color: black;
 }
 
+#add-match-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#add-match-container .register-match {
+  width: 100%;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#add-match-container .register-match h3 {
+  margin-right: 10px;
+}
+
+#add-match-container .register-match button {
+  background-color: white;
+  width: 50px;
+  height: 30px;
+  border: 1px solid #12326e;
+  border-radius: 3px;
+}
+
 #played-matches {
   width: 100%;
   display: -webkit-box;
@@ -327,6 +368,60 @@ footer {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+#add-match {
+  width: 100%;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: 1px solid #12326e;
+}
+
+#add-match .add-team {
+  width: 50%;
+  padding: 10px;
+}
+
+#add-match .add-team .player-select-container {
+  width: 50%;
+}
+
+#add-match .add-team .player-select-container .player-select {
+  width: 100%;
+}
+
+#add-match .add-team-one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#add-match .add-team-one .set-select-container {
+  width: 50%;
+  text-align: right;
+}
+
+#add-match .add-team-two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#add-match .add-team-two .set-select-container {
+  width: 50%;
+  text-align: left;
 }
 
 body {

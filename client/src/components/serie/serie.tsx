@@ -44,7 +44,7 @@ export default function Serie() {
     }
     if (displaySection === "matchesPlayed") {
       return(
-        <PlayedMatches playedMatches={playedMatches}/>
+        <PlayedMatches playedMatches={playedMatches} players={players}/>
       );
     }
   };

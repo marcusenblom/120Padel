@@ -1,0 +1,42 @@
+@import "variables";
+
+#add-match{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid $blue-color;
+
+    .add-team{
+        width: 50%;
+        padding: 10px;
+
+        .player-select-container{
+            width: 50%;
+
+            .player-select{
+                width: 100%;
+            }
+        }
+    }
+
+    .add-team-one{
+        display: flex;
+        justify-content: flex-start;
+
+        .set-select-container{
+            width: 50%;
+            text-align: right;
+        }
+    }
+
+    .add-team-two{
+        display: flex;
+        justify-content: flex-end;
+
+        .set-select-container{
+            width: 50%;
+            text-align: left;
+        }
+    }
+}
