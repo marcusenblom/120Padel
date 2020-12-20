@@ -15,7 +15,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
 
   let listOfMatches = props.playedMatches.map(match => {
     return (
-    <SinglePlayedMatch key={match.matchId} winners={match.winners.players} losers={match.losers.players} winnersSet={match.winners.setWon} losersSet={match.losers.setWon}/>
+    <SinglePlayedMatch key={match.matchId} winners={match.winners.players} losers={match.losers.players} winnersGame={match.winners.gameWon} losersGame={match.losers.gameWon}/>
     );
   });
 
@@ -30,8 +30,8 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
     setShowAddMatch(!showAddMatch);
   }
   
-  function registerMatch(winners: any, losers: any, winnersSet: any, losersSet: any){
-    console.log(winners, losers, winnersSet, losersSet);
+  function registerMatch(winners: any, losers: any, winnersGame: any, losersGame: any){
+    console.log(winners, losers, winnersGame, losersGame);
     
     
   }

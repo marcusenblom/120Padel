@@ -5,19 +5,19 @@ import axios from "axios";
 
 interface IAddMatchProps{
   players: PlayersModel[];
-  updateParentWithPostData(winners: any, losers: any, winnersSet: any, losersSet: any): void;
+  updateParentWithPostData(winners: any, losers: any, winnersGame: any, losersGame: any): void;
 }
 
 export class postDataModel{
   winners: Number[];
   losers: Number[];
-  winnersSet: Number;
-  losersSet: Number
-  constructor(winners: Number[], losers: Number[], winnersSet: Number, losersSet: Number){
+  winnersGame: Number;
+  losersGame: Number
+  constructor(winners: Number[], losers: Number[], winnersGame: Number, losersGame: Number){
     this.winners = winners;
     this.losers = losers;
-    this.winnersSet = winnersSet;
-    this.losersSet = losersSet;
+    this.winnersGame = winnersGame;
+    this.losersGame = losersGame;
   }
 }
 
@@ -27,8 +27,8 @@ export default function AddMatch(props: IAddMatchProps) {
   const [teamOnePlayerTwo, setTeamOnePlayerTwo] = useState(0);
   const [teamTwoPlayerOne, setTeamTwoPlayerOne] = useState(0);
   const [teamTwoPlayerTwo, setTeamTwoPlayerTwo] = useState(0);
-  const [teamOneSets, setTeamOneSets] = useState(0);
-  const [teamTwoSets, setTeamTwoSets] = useState(0);
+  const [teamOneGames, setTeamOneGames] = useState(0);
+  const [teamTwoGames, setTeamTwoGames] = useState(0);
   const [postData, setPostData] = useState(new postDataModel([0, 0], [0, 0], 0, 0));
 
   function changeTeamOnePlayerOne(e: ChangeEvent<HTMLSelectElement>){
@@ -64,22 +64,22 @@ export default function AddMatch(props: IAddMatchProps) {
     });
   }
 
-  function changeTeamOneSet(e: ChangeEvent<HTMLSelectElement>){
-    let setFromSelect = parseInt(e.currentTarget.value);
-    setTeamOneSets(setFromSelect);
+  function changeTeamOneGame(e: ChangeEvent<HTMLSelectElement>){
+    let gameFromSelect = parseInt(e.currentTarget.value);
+    setTeamOneGames(gameFromSelect);
   }
-  function changeTeamTwoSet(e: ChangeEvent<HTMLSelectElement>){
-    let setFromSelect = parseInt(e.currentTarget.value);
-    setTeamTwoSets(setFromSelect);
+  function changeTeamTwoGame(e: ChangeEvent<HTMLSelectElement>){
+    let gameFromSelect = parseInt(e.currentTarget.value);
+    setTeamTwoGames(gameFromSelect);
   }
 
   function updateStatesBeforePost(){
-    if (teamOneSets > teamTwoSets) {
+    if (teamOneGames > teamTwoGames) {
       let data = {
         winners: [teamOnePlayerOne, teamOnePlayerTwo],
         losers: [teamTwoPlayerOne, teamTwoPlayerTwo],
-        winnersSet: teamOneSets,
-        losersSet: teamTwoSets
+        winnersGame: teamOneGames,
+        losersGame: teamTwoGames
       };
       console.log("data som ska in i postData: " + JSON.stringify(data));
       
@@ -88,12 +88,12 @@ export default function AddMatch(props: IAddMatchProps) {
       
 
     }
-    if (teamOneSets < teamTwoSets) {
+    if (teamOneGames < teamTwoGames) {
       let data = {
         winners: [teamTwoPlayerOne, teamTwoPlayerTwo],
         losers: [teamOnePlayerOne, teamOnePlayerTwo],
-        winnersSet: teamTwoSets,
-        losersSet: teamOneSets
+        winnersGame: teamTwoGames,
+        losersGame: teamOneGames
       };
       setPostData(data);
     }
@@ -104,7 +104,7 @@ export default function AddMatch(props: IAddMatchProps) {
     updateStatesBeforePost();
     
     setTimeout(() => {
-    if ((postData.winners[0] !== 0 && postData.winners[0] !== 0) && (postData.winnersSet !== 0 && postData.losersSet !== 0)) {
+    if ((postData.winners[0] !== 0 && postData.winners[0] !== 0) && (postData.winnersGame !== 0 && postData.losersGame !== 0)) {
       console.log("axios.post: " + JSON.stringify(postData));
       
       axios.post('http://localhost:5000/addMatch', postData).then(response => {
@@ -123,16 +123,16 @@ export default function AddMatch(props: IAddMatchProps) {
     return <option key={player.user.userName} value={player.user.userName}>{player.user.userName}</option>
   });
 
-  let listOfSetTeamOne = [];
-  let listOfSetTeamTwo = [];
+  let listOfGameTeamOne = [];
+  let listOfGameTeamTwo = [];
 
   for (let i = 0; i < 7; i++) {
 
     let valueOne = i+1;
-    listOfSetTeamOne.push(<option key={i} value={valueOne}>{i+1}</option>);
+    listOfGameTeamOne.push(<option key={i} value={valueOne}>{i+1}</option>);
     
     let valueTwo = i+1;
-    listOfSetTeamTwo.push(<option key={i} value={valueTwo}>{i+1}</option>);
+    listOfGameTeamTwo.push(<option key={i} value={valueTwo}>{i+1}</option>);
   }
 
   return (
@@ -149,19 +149,19 @@ export default function AddMatch(props: IAddMatchProps) {
               {listOfPlayers}
             </select>
           </div>
-          <div className="set-select-container">
-            <select name="teamOneSet" id="teamOneSet" className="set-select" onChange={changeTeamOneSet}>
-              <option value="">Set</option>
-              {listOfSetTeamOne}
+          <div className="game-select-container">
+            <select name="teamOneGame" id="teamOneGame" className="game-select" onChange={changeTeamOneGame}>
+              <option value="">Game</option>
+              {listOfGameTeamOne}
             </select>
           </div>
         </div>
 
         <div className="add-team add-team-two">
-          <div className="set-select-container">
-            <select name="teamOnePlayerOne" id="teamOneSet" className="set-select" onChange={changeTeamTwoSet}>
-              <option value="">Set</option>
-              {listOfSetTeamTwo}
+          <div className="game-select-container">
+            <select name="teamOnePlayerOne" id="teamOneGame" className="game-select" onChange={changeTeamTwoGame}>
+              <option value="">Game</option>
+              {listOfGameTeamTwo}
             </select>
           </div>
           <div className="player-select-container">

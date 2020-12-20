@@ -20,11 +20,11 @@ const serieSchema = new Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-        gamesPlayed: {
+        matchesPlayed: {
             type: Number,
             default: 0
         },
-        gamesWon: {
+        matchesWon: {
             type: Number,
             default: 0
         },
@@ -32,15 +32,15 @@ const serieSchema = new Schema({
             type: Number,
             default: 0
         },
-        setWon: {
+        gameWon: {
             type: Number,
             default: 0
         },
-        setLost: {
+        gameLost: {
             type: Number,
             default: 0
         },
-        pointsPerGame: {
+        pointsPerMatch: {
             type: Number,
             default: 0
         }
@@ -59,7 +59,7 @@ const serieSchema = new Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User"
             }],
-            setWon: {
+            gameWon: {
                 type: Number,
                 required: true
             }
@@ -69,7 +69,7 @@ const serieSchema = new Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User"
             }],
-            setWon: {
+            gameWon: {
                 type: Number,
                 required: true
             }
@@ -85,18 +85,18 @@ serieSchema.methods.updateScoreBoard = function(){
 
     listOfPlayers.forEach(player => {
         // Clear all data from players
-        player.gamesPlayed = 0;
-        player.gamesWon = 0;
+        player.matchesPlayed = 0;
+        player.matchesWon = 0;
         player.points = 0;
-        player.setWon = 0;
-        player.setLost = 0;
+        player.gameWon = 0;
+        player.gameLost = 0;
     });
 
     this.playedMatches.forEach(match => {
 
-        // How many set the winners won (consequently losers lost) and vice versa
-        let winningSetWon = match.winners.setWon;
-        let losingSetWon = match.losers.setWon;
+        // How many game the winners won (consequently losers lost) and vice versa
+        let winningGameWon = match.winners.gameWon;
+        let losingGameWon = match.losers.gameWon;
 
         // How much each game won is worth. This will be added to the winners total points
         let winPoints = 2;
@@ -104,12 +104,12 @@ serieSchema.methods.updateScoreBoard = function(){
         match.winners.players.forEach(winnerOfMatch => {
             listOfPlayers.forEach(playerInSerie => {
                 if (playerInSerie.user.userId == winnerOfMatch.userId) {
-                    // Add games played, points, set won and set lost to winners
+                    // Add games played, points, game won and game lost to winners
                     playerInSerie.points += winPoints;
-                    playerInSerie.setWon += winningSetWon;
-                    playerInSerie.setLost += losingSetWon;
-                    playerInSerie.gamesPlayed += 1;
-                    playerInSerie.gamesWon += 1;
+                    playerInSerie.gameWon += winningGameWon;
+                    playerInSerie.gameLost += losingGameWon;
+                    playerInSerie.matchesPlayed += 1;
+                    playerInSerie.matchesWon += 1;
                 }
             });
         });
@@ -117,26 +117,26 @@ serieSchema.methods.updateScoreBoard = function(){
         match.losers.players.forEach(loserOfMatch => {
             listOfPlayers.forEach(playerInSerie => {
                 if (playerInSerie.user.userId == loserOfMatch.userId) {
-                    // Add games played, set won and loss to losers
-                    playerInSerie.setWon += losingSetWon;
-                    playerInSerie.setLost += winningSetWon;
-                    playerInSerie.gamesPlayed += 1;
+                    // Add games played, game won and loss to losers
+                    playerInSerie.gameWon += losingGameWon;
+                    playerInSerie.gameLost += winningGameWon;
+                    playerInSerie.matchesPlayed += 1;
                 }
             });
         });
     });
-    // Set ppg
+    // Game ppg
     this.players.forEach(player => {
-        if (player.gamesPlayed > 0) {
-            player.pointsPerGame = (player.points/player.gamesPlayed);
+        if (player.matchesPlayed > 0) {
+            player.pointsPerMatch = (player.points/player.matchesPlayed);
         }
         else {
-            player.pointsPerGame = 0;
+            player.pointsPerMatch = 0;
         }
     });
 
     // Rearragne based on ppg
-    this.players.sort((a, b) => (a.pointsPerGame < b.pointsPerGame) ? 1 : -1)
+    this.players.sort((a, b) => (a.pointsPerMatch < b.pointsPerMatch) ? 1 : -1)
     
     return this.save();
 };
@@ -182,11 +182,11 @@ serieSchema.methods.addMatch = function(gameStats){
         matchId: matchId,
         winners: {
             players: gameStats.winners,
-            setWon: gameStats.winningSets
+            gameWon: gameStats.winningGames
         },
         losers: {
             players: gameStats.losers,
-            setWon: gameStats.losingSets
+            gameWon: gameStats.losingGames
         }
     };
 

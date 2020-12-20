@@ -11,7 +11,7 @@ export default function Standing(props: IStandingProps) {
 
   let listOfPlayers = props.players.map(function(player, i) {
     return (
-      <PlayerStanding key={player.user.firstName} standing={i+1} userName={player.user.userName} gamesPlayed={player.gamesPlayed} gamesWon={player.gamesWon} setWon={player.setWon} setLost={player.setLost} points={player.points} hotStreak={true}/>
+      <PlayerStanding key={player.user.firstName} standing={i+1} userName={player.user.userName} matchesPlayed={player.matchesPlayed} matchesWon={player.matchesWon} gameWon={player.gameWon} gameLost={player.gameLost} points={player.points} hotStreak={true}/>
     );
   });
 

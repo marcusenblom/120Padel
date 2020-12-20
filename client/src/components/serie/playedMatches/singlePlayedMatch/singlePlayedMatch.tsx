@@ -6,8 +6,8 @@ import MatchPlayerCard from "./matchPlayerCard/matchPlayerCard";
 interface ISinglePlayedMatchProps{
   winners: UserModel[];
   losers: UserModel[];
-  winnersSet: number;
-  losersSet: number;
+  winnersGame: number;
+  losersGame: number;
 }
 
 export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
@@ -30,13 +30,13 @@ export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
           {teamOnePlayers}
         </div>
         <div className="team-one-score team-score">
-          {props.winnersSet}
+          {props.winnersGame}
         </div>
       </div>
       <div className="team-separator">-</div>
       <div className="team-two team">
         <div className="team-two-score team-score">
-          {props.losersSet}
+          {props.losersGame}
         </div>
         <div className="team-two-players team-players">
           {teamTwoPlayers}

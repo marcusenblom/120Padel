@@ -3,10 +3,10 @@ import '../../../../scss/_playerStanding.scss';
 
 interface IPlayerStandingProps{
   userName: string;
-  gamesPlayed: number;
-  gamesWon: number;
-  setWon: number;
-  setLost: number;
+  matchesPlayed: number;
+  matchesWon: number;
+  gameWon: number;
+  gameLost: number;
   points: number;
   hotStreak: boolean;
   standing: number;
@@ -20,8 +20,14 @@ export default function PlayerStanding(props: IPlayerStandingProps) {
     fire = <i className="fab fa-hotjar"></i>;
   }
 
-  let winsPerGame = (props.gamesWon / props.gamesPlayed).toFixed(2);
-  winsPerGame = winsPerGame.slice(1, 4);
+  let winsPerMatch;
+  if (!(props.matchesPlayed === props.matchesWon)) {
+    winsPerMatch = (props.matchesWon / props.matchesPlayed).toFixed(2);
+    winsPerMatch = winsPerMatch.slice(1, 4);
+  } else {
+    winsPerMatch = "1.00";
+  }
+  
 
   return (
     <>
@@ -29,11 +35,11 @@ export default function PlayerStanding(props: IPlayerStandingProps) {
         <td className="standing">{props.standing}</td>
         <td className="hot-streak">{fire}</td>
         <td className="player">{props.userName}</td>
-        <td className="games-played">{props.gamesPlayed}</td>
-        <td className="games-won">{props.gamesWon}</td>
-        <td className="set">{props.setWon}</td>
-        <td className="set">{props.setLost}</td>
-        <td className="points">{winsPerGame}</td>
+        <td className="games-played">{props.matchesPlayed}</td>
+        <td className="games-won">{props.matchesWon}</td>
+        <td className="game">{props.gameWon}</td>
+        <td className="game">{props.gameLost}</td>
+        <td className="points">{winsPerMatch}</td>
       </tr>
     </>
   );

@@ -189,7 +189,7 @@ footer {
   color: #929292;
 }
 
-#single-standing .set {
+#single-standing .game {
   width: 30px;
   color: #929292;
 }
@@ -409,7 +409,7 @@ footer {
           justify-content: flex-start;
 }
 
-#add-match .add-team-one .set-select-container {
+#add-match .add-team-one .game-select-container {
   width: 50%;
   text-align: right;
 }
@@ -423,7 +423,7 @@ footer {
           justify-content: flex-end;
 }
 
-#add-match .add-team-two .set-select-container {
+#add-match .add-team-two .game-select-container {
   width: 50%;
   text-align: left;
 }

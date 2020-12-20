@@ -109,8 +109,8 @@ router.post("/addMatch", async (req, res) => {
     let winners = [winnerOne, winnerTwo];
     let losers = [loserOne, loserTwo];
 
-    const winningSets = req.body.winningSets;
-    const losingSets = req.body.losingSets;
+    const winningGames = req.body.winningGames;
+    const losingGames = req.body.losingGames;
 
     const serie = await Serie.findOne({
         serieId: req.body.serieId
@@ -119,8 +119,8 @@ router.post("/addMatch", async (req, res) => {
     let gameStats = {
         winners: winners,
         losers: losers,
-        winningSets: winningSets,
-        losingSets: losingSets
+        winningGames: winningGames,
+        losingGames: losingGames
     }
 
     await serie.addMatch(gameStats);
