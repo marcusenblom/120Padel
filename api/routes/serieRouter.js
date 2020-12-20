@@ -106,6 +106,8 @@ router.post("/addMatch", async (req, res) => {
         userId: req.body.losers[1]
     });
 
+    let date = req.body.date;
+
     let winners = [winnerOne, winnerTwo];
     let losers = [loserOne, loserTwo];
 
@@ -117,6 +119,7 @@ router.post("/addMatch", async (req, res) => {
     });
 
     let gameStats = {
+        date: date,
         winners: winners,
         losers: losers,
         winningGames: winningGames,

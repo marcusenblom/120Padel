@@ -46,6 +46,10 @@ const serieSchema = new Schema({
         }
     }],
     playedMatches: [{
+        date: {
+            type: Date,
+            required: true
+        },
         matchId: {
             type: Number,
             required: true
@@ -179,6 +183,7 @@ serieSchema.methods.addMatch = function(gameStats){
 
     let matchId = (this.playedMatches.length + 1);
     let newMatch = {
+        date: gameStats.date,
         matchId: matchId,
         winners: {
             players: gameStats.winners,

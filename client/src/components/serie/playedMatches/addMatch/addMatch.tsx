@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import "../../../../scss/_addMatch.scss";
 import { PlayersModel } from "../../../../models/serieModel";
-import axios from "axios";
 
 interface IAddMatchProps{
   serieId: Number;
@@ -10,12 +9,19 @@ interface IAddMatchProps{
 }
 
 export default function AddMatch(props: IAddMatchProps) {
+  const [date, setDate] = useState(new Date());
   const [teamOnePlayerOne, setTeamOnePlayerOne] = useState(0);
   const [teamOnePlayerTwo, setTeamOnePlayerTwo] = useState(0);
   const [teamTwoPlayerOne, setTeamTwoPlayerOne] = useState(0);
   const [teamTwoPlayerTwo, setTeamTwoPlayerTwo] = useState(0);
   const [teamOneGames, setTeamOneGames] = useState(0);
   const [teamTwoGames, setTeamTwoGames] = useState(0);
+
+  function updateDate(e: ChangeEvent<HTMLInputElement>){
+    let edate = e.currentTarget.value;
+    setDate(new Date(edate));
+    console.log(date);
+  }
 
   function changeTeamOnePlayerOne(e: ChangeEvent<HTMLSelectElement>){
     let nameFromSelect = e.currentTarget.value;
@@ -24,9 +30,8 @@ export default function AddMatch(props: IAddMatchProps) {
         setTeamOnePlayerOne(player.user.userId);
       }
     });
-    console.log(teamOnePlayerOne);
-    
   }
+
   function changeTeamOnePlayerTwo(e: ChangeEvent<HTMLSelectElement>){
     let nameFromSelect = e.currentTarget.value;
     props.players.forEach(player => {
@@ -34,8 +39,8 @@ export default function AddMatch(props: IAddMatchProps) {
         setTeamOnePlayerTwo(player.user.userId);
       }
     });
-    console.log(teamOnePlayerTwo);
   }
+
   function changeTeamTwoPlayerOne(e: ChangeEvent<HTMLSelectElement>){
     let nameFromSelect = e.currentTarget.value;
     props.players.forEach(player => {
@@ -43,8 +48,8 @@ export default function AddMatch(props: IAddMatchProps) {
         setTeamTwoPlayerOne(player.user.userId);
       }
     });
-    console.log(teamTwoPlayerOne);
   }
+
   function changeTeamTwoPlayerTwo(e: ChangeEvent<HTMLSelectElement>){
     let nameFromSelect = e.currentTarget.value;
     props.players.forEach(player => {
@@ -52,49 +57,63 @@ export default function AddMatch(props: IAddMatchProps) {
         setTeamTwoPlayerTwo(player.user.userId);
       }
     });
-    console.log(teamTwoPlayerTwo);
   }
 
   function changeTeamOneGame(e: ChangeEvent<HTMLSelectElement>){
     let gameFromSelect = parseInt(e.currentTarget.value);
     setTeamOneGames(gameFromSelect);
-    console.log(teamOneGames);
   }
+
   function changeTeamTwoGame(e: ChangeEvent<HTMLSelectElement>){
     let gameFromSelect = parseInt(e.currentTarget.value);
     setTeamTwoGames(gameFromSelect);
-    console.log(teamTwoGames);
+  }
+
+  class DataToParentModel{
+    date: Date;
+    serieId: Number;
+    winners: Number[];
+    losers: Number[];
+    winnersGame: Number;
+    losersGame: Number;
+    constructor(date: Date, serieId: Number, winners: Number[], losers: Number[], winnersGame: Number, losersGame: Number){
+      this.date = date;
+      this.serieId = serieId;
+      this.winners = winners;
+      this.losers = losers;
+      this.winnersGame = winnersGame;
+      this.losersGame = losersGame;
+    }
   }
 
   function getDataToSend(){
     if (teamOneGames > teamTwoGames) {
-      let data = {
-        serieId: props.serieId,
-        winners: [teamOnePlayerOne, teamOnePlayerTwo],
-        losers: [teamTwoPlayerOne, teamTwoPlayerTwo],
-        winnersGame: teamOneGames,
-        losersGame: teamTwoGames
-      };
+      let data = new DataToParentModel(
+        date, 
+        props.serieId, 
+        [teamOnePlayerOne, teamOnePlayerTwo], 
+        [teamTwoPlayerOne, teamTwoPlayerTwo], 
+        teamOneGames, 
+        teamTwoGames
+      );
       return data;
     }
     if (teamOneGames < teamTwoGames) {
-      let data = {
-        serieId: props.serieId,
-        winners: [teamTwoPlayerOne, teamTwoPlayerTwo],
-        losers: [teamOnePlayerOne, teamOnePlayerTwo],
-        winnersGame: teamTwoGames,
-        losersGame: teamOneGames
-      };
+      let data = new DataToParentModel(
+        date, 
+        props.serieId, 
+        [teamTwoPlayerOne, teamTwoPlayerTwo], 
+        [teamOnePlayerOne, teamOnePlayerTwo], 
+        teamTwoGames, 
+        teamOneGames
+      );
       return data;
     }
   }
   
   function sendNewMatchDataToParent(e: any){
     let data = getDataToSend();
-    console.log("Data i child: " + data);
-    
     props.updateParentWithPostData(data);
-    
   }
 
   let listOfPlayers = props.players.map(player => {
@@ -103,8 +122,8 @@ export default function AddMatch(props: IAddMatchProps) {
 
   let listOfGameTeamOne = [];
   let listOfGameTeamTwo = [];
-  for (let i = 0; i < 7; i++) {
 
+  for (let i = 0; i < 7; i++) {
     let valueOne = i+1;
     listOfGameTeamOne.push(<option key={i} value={valueOne}>{i+1}</option>);
     
@@ -115,6 +134,9 @@ export default function AddMatch(props: IAddMatchProps) {
   return (
       // <form onSubmit={sendNewMatchDataToParent} id="add-match">
       <div id="add-match">
+        <div className="add-date">
+          <input type="date" onChange={updateDate}/>
+        </div>
         <div className="add-team add-team-one">
           <div className="player-select-container">
             <select name="teamOnePlayerOne" id="teamOnePlayerOne" className="player-select" onChange={changeTeamOnePlayerOne}>

@@ -36,20 +36,19 @@ export default function Serie() {
     setDisplaySection("matchesPlayed");
   };
 
-  function postMatchToSerie(postData: {
+  function postMatchToSerie(matchData: {
     serieId: Number;
     winners: Number[];
     losers: Number[];
     winnersGame: Number;
     losersGame: Number}
     ){
-    console.log("Doing Axios-post");
-    axios.post('http://localhost:5000/addMatch', postData).then(response => {
+
+    axios.post('http://localhost:5000/addMatch', matchData).then(response => {
       console.log(response);
     }).catch(function(err) {
       console.log(err);
     });
-    console.log("Axios-post done");
   }
 
   function renderComponent(){
