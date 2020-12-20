@@ -4,10 +4,13 @@ import { PlayedMatchModel } from "../../../models/serieModel";
 import { PlayersModel } from "../../../models/serieModel";
 import SinglePlayedMatch from "./singlePlayedMatch/singlePlayedMatch";
 import AddMatch from "./addMatch/addMatch";
+import axios from "axios";
 
 interface IPlayedMatchesProps{
   playedMatches: PlayedMatchModel[];
   players: PlayersModel[];
+  serieId: Number;
+  updateParentWithPostData(data: any): void;
 }
 
 export default function PlayedMatches(props: IPlayedMatchesProps) {
@@ -30,15 +33,18 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
     setShowAddMatch(!showAddMatch);
   }
   
-  function registerMatch(winners: any, losers: any, winnersGame: any, losersGame: any){
-    console.log(winners, losers, winnersGame, losersGame);
-    
-    
+  function registerMatch(postData: {
+    serieId: Number;
+    winners: Number[];
+    losers: Number[];
+    winnersGame: Number;
+    losersGame: Number}){
+    props.updateParentWithPostData(postData);
   }
 
   let showAddMatchComponent;
   if (showAddMatch){
-    showAddMatchComponent = <AddMatch updateParentWithPostData={registerMatch} players={props.players}/>
+    showAddMatchComponent = <AddMatch serieId={props.serieId} updateParentWithPostData={registerMatch} players={props.players}/>
   } else {
     showAddMatchComponent = "";
   }
