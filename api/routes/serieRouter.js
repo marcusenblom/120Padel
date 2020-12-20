@@ -13,7 +13,6 @@ router.get("/serie/:serieId", async (req, res) => {
     .populate("playedMatches.winners.players")
     .populate("playedMatches.losers.players");
 
-
     //Update scoreboard (for testing purposes, this will happen in serie.add/remove/editMatch)
     serie.updateScoreBoard();
 
@@ -95,16 +94,16 @@ router.post("/removePlayer", async (req, res) => {
 router.post("/addMatch", async (req, res) => {
 
     const winnerOne = await User.findOne({
-        userId: req.body.winnerOne
+        userId: req.body.winners[0]
     });
     const winnerTwo = await User.findOne({
-        userId: req.body.winnerTwo
+        userId: req.body.winners[1]
     });
     const loserOne = await User.findOne({
-        userId: req.body.loserOne
+        userId: req.body.losers[0]
     });
     const loserTwo = await User.findOne({
-        userId: req.body.loserTwo
+        userId: req.body.losers[1]
     });
 
     let winners = [winnerOne, winnerTwo];
@@ -126,7 +125,7 @@ router.post("/addMatch", async (req, res) => {
 
     await serie.addMatch(gameStats);
 
-    res.send(serie);
+    res.send("Match added: " + gameStats);
 
 });
 

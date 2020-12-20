@@ -16,7 +16,7 @@ export default function PlayerStanding(props: IPlayerStandingProps) {
 
   let fire;
   // Change the if statement to hotStreak === true
-  if (props.userName === "Vreve" || props.userName === "Hasse") {
+  if (props.userName === "Jensa" || props.userName === "Hasse" || props.userName === "Jerka") {
     fire = <i className="fab fa-hotjar"></i>;
   }
 

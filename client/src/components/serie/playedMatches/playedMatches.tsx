@@ -19,13 +19,26 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
     );
   });
 
+  let toggleButtonClass = "";
+  if (showAddMatch) {
+    toggleButtonClass = "fas fa-times-circle button-red";
+  } else {
+    toggleButtonClass = "fas fa-times-circle button-green";
+  }
+
   function toggleAddMatch(){
     setShowAddMatch(!showAddMatch);
+  }
+  
+  function registerMatch(winners: any, losers: any, winnersSet: any, losersSet: any){
+    console.log(winners, losers, winnersSet, losersSet);
+    
+    
   }
 
   let showAddMatchComponent;
   if (showAddMatch){
-    showAddMatchComponent = <AddMatch players={props.players}/>
+    showAddMatchComponent = <AddMatch updateParentWithPostData={registerMatch} players={props.players}/>
   } else {
     showAddMatchComponent = "";
   }
@@ -33,9 +46,9 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
   return (
     <>
     <div id="add-match-container">
-      <div className="register-match">
+      <div className="register-match" onClick={toggleAddMatch}>
         <h3>Registrera match</h3>
-        <button type="button" onClick={toggleAddMatch}>+</button>
+        <i className={toggleButtonClass}></i>
       </div>
       {showAddMatchComponent}
     </div>

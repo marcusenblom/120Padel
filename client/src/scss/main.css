@@ -232,12 +232,22 @@ footer {
   margin-right: 10px;
 }
 
-#add-match-container .register-match button {
-  background-color: white;
-  width: 50px;
-  height: 30px;
-  border: 1px solid #12326e;
-  border-radius: 3px;
+#add-match-container .register-match .fa-times-circle {
+  font-size: 30px;
+}
+
+#add-match-container .register-match .button-red {
+  color: red;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#add-match-container .register-match .button-green {
+  color: green;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 #played-matches {
@@ -380,20 +390,14 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   border: 1px solid #12326e;
 }
 
 #add-match .add-team {
-  width: 50%;
   padding: 10px;
-}
-
-#add-match .add-team .player-select-container {
-  width: 50%;
-}
-
-#add-match .add-team .player-select-container .player-select {
-  width: 100%;
+  width: calc(50% - 20px);
 }
 
 #add-match .add-team-one {
@@ -422,6 +426,27 @@ footer {
 #add-match .add-team-two .set-select-container {
   width: 50%;
   text-align: left;
+}
+
+#add-match .add-team-two .player-select-container {
+  text-align: right;
+}
+
+#add-match .submit-button-container {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#add-match .submit-button-container button {
+  height: 30px;
+  background-color: green;
+  color: white;
+  font-family: inherit;
+  border: none;
+  border-radius: 3px;
+  padding: 0 10px;
+  font-weight: 600;
 }
 
 body {
