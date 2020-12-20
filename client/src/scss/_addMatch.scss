@@ -8,6 +8,12 @@
     flex-wrap: wrap;
     border: 1px solid $blue-color;
 
+    .add-date{
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
     .add-team{
         padding: 10px;
         width: calc(50% - 20px);

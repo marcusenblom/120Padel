@@ -176,7 +176,7 @@ export default function AddMatch(props: IAddMatchProps) {
         </div>
 
         <div className="submit-button-container">
-          <button type="button" onClick={sendNewMatchDataToParent}>Lägg till match</button>
+          <button type="submit" onClick={sendNewMatchDataToParent}>Lägg till match</button>
         </div>
         
       </div>

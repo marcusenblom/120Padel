@@ -395,6 +395,12 @@ footer {
   border: 1px solid #12326e;
 }
 
+#add-match .add-date {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
 #add-match .add-team {
   padding: 10px;
   width: calc(50% - 20px);

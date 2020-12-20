@@ -9,17 +9,17 @@ import PlayedMatches from "./playedMatches/playedMatches";
 
 export default function Serie() {
 
-  const [id, setId] = useState(1);
+  const [serieId, setId] = useState(1);
   const [name, setName] = useState("");
   const [players, setPlayers] = useState([new PlayersModel(0,0,0,0,0,new UserModel(0, "", "", "",""))]);
   const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel(new MatchPlayersModel([new UserModel(0,"","","","")],0),new MatchPlayersModel([new UserModel(0,"","","","")],0),0,0)]);
   const [displaySection, setDisplaySection] = useState("serie");
+  const [newGameRegistered, setNewGameRegistered] = useState(false);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/serie/${id}`)
+      .get(`http://localhost:5000/serie/${serieId}`)
       .then(axiosObject => {
-
         let serieData = axiosObject.data;
 
         setId(serieData.serieId);
@@ -27,7 +27,7 @@ export default function Serie() {
         setPlayers(serieData.players);
         setPlayedMatches(serieData.playedMatches);
     }); 
-  }, [id]);
+  }, [serieId]);
 
   function showSerie(){
     setDisplaySection("serie");
@@ -49,6 +49,8 @@ export default function Serie() {
     }).catch(function(err) {
       console.log(err);
     });
+
+    setNewGameRegistered(true);
   }
 
   function renderComponent(){
@@ -59,7 +61,7 @@ export default function Serie() {
     }
     if (displaySection === "matchesPlayed") {
       return(
-        <PlayedMatches playedMatches={playedMatches} players={players} serieId={id} updateParentWithPostData={postMatchToSerie}/>
+        <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie}/>
       );
     }
   };

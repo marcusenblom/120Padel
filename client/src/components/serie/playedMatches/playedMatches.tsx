@@ -4,7 +4,6 @@ import { PlayedMatchModel } from "../../../models/serieModel";
 import { PlayersModel } from "../../../models/serieModel";
 import SinglePlayedMatch from "./singlePlayedMatch/singlePlayedMatch";
 import AddMatch from "./addMatch/addMatch";
-import axios from "axios";
 
 interface IPlayedMatchesProps{
   playedMatches: PlayedMatchModel[];
@@ -39,7 +38,9 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
     losers: Number[];
     winnersGame: Number;
     losersGame: Number}){
+
     props.updateParentWithPostData(postData);
+    setShowAddMatch(false);
   }
 
   let showAddMatchComponent;
