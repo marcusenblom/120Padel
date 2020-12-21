@@ -3,12 +3,13 @@ import '../../scss/_home.scss';
 import axios from "axios";
 import UserModel from "../../models/userModel";
 import { SerieModel } from "../../models/serieModel";
+import LastMatchesPlayed from "./lastMatchesPlayed/lastMatchesPlayed";
 
 
 export default function Home() {
 
   const [player, setPlayer] = useState(new UserModel());
-  const [favoriteSerie, setFavoriteSerie] = useState(new SerieModel());
+  const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
 
   useEffect(() => {
     axios
@@ -17,39 +18,25 @@ export default function Home() {
         let userData = axiosObject.data;
 
         setPlayer(userData);
-        console.log("UserData: " + userData.series[0].serieId);
-      
-        let favoriteSerieId: Number = userData.series[0].serieId;
-        userData.series.forEach((serie: { serieId: Number; favoriteSerie: Boolean; }) => {
-          if (serie.favoriteSerie) {
-            favoriteSerieId = serie.serieId;
-          }
-        });
         
-
-        console.log("favoriteSerieId: "+ favoriteSerieId);
-        
-        fetchFavoriteSerie(favoriteSerieId);
+        fetchPlayerSeries(userData.userId);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function fetchFavoriteSerie(serieId: Number){
-    console.log("fetching serie: " + serieId);
-    
+  function fetchPlayerSeries(userId: Number){
+
     axios
-    .get(`http://localhost:5000/serie/${serieId}`)
+    .get(`http://localhost:5000/userSeries/${userId}`)
     .then(axiosObject => {
-      let userData = axiosObject.data;
-      setFavoriteSerie(userData);
-      console.log(favoriteSerie);
+      let serieData = axiosObject.data;
+      setPlayerSeries(serieData);
     });
   }
 
-
   return (
     <div id="home">
-      <span>{JSON.stringify(player)}</span>
-      <p>{JSON.stringify(favoriteSerie)}</p>
+      <LastMatchesPlayed player={player} playerSeries={playerSeries}/>
     </div>
   );
 }

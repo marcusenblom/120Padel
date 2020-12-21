@@ -1,0 +1,33 @@
+#latest-matches{
+    margin: 20px 0;
+    padding: 0 20px;
+    width: calc(100% - 40px);
+    height: 300px;
+
+
+    .latest-matches-header{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        h2{
+            display: inline-block;
+        }
+    }
+
+    .latest-matches{
+        width: 1000px;
+        height: 220px;
+        overflow: scroll;
+        background-color: lavender;
+
+        .match-played{
+            height: 220px;
+            width: 335px;
+            border: 1px solid lightgray;
+            border-radius: 4px;
+        }
+    }
+}

@@ -22,8 +22,8 @@ footer {
 .navbar {
   width: 100%;
   height: 70px;
-  background-color: #12326e;
-  color: white;
+  background-color: white;
+  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,7 +39,7 @@ footer {
   width: auto;
   padding: 0 20px;
   margin: 0px auto;
-  max-width: 500px;
+  width: calc(100% - 40px);
 }
 
 #serie .serie-header-section {
@@ -461,9 +461,58 @@ footer {
   font-weight: 600;
 }
 
+#home {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#latest-matches {
+  margin: 20px 0;
+  padding: 0 20px;
+  width: calc(100% - 40px);
+  height: 300px;
+}
+
+#latest-matches .latest-matches-header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#latest-matches .latest-matches-header h2 {
+  display: inline-block;
+}
+
+#latest-matches .latest-matches {
+  width: 1000px;
+  height: 220px;
+  overflow: scroll;
+  background-color: lavender;
+}
+
+#latest-matches .latest-matches .match-played {
+  height: 220px;
+  width: 335px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: 'Overpass', sans-serif;
+  max-width: 500px;
+  background-color: #FAFAFA;
 }
 /*# sourceMappingURL=main.css.map */

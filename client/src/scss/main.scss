@@ -7,7 +7,7 @@
 @import "singlePlayedMatch";
 @import "addMatch";
 @import "home";
-
+@import "latestMatchesPlayed";
 
 
 // Fonts
@@ -17,10 +17,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     // font-family: 'Montserrat', sans-serif;
     // font-family: 'Didact Gothic', sans-serif;
     // font-family: 'Bai Jamjuree', sans-serif;
     font-family: 'Overpass', sans-serif;
+    max-width: 500px;
+    background-color: #FAFAFA;
 }

@@ -28,7 +28,7 @@ router.get("/userSeries/:userId", async (req, res) => {
     let userSeries = [];
     for (let i = 0; i < user.series.length; i++) {
         const serie = await Serie.findOne({
-            serieId: user.series[i]
+            serieId: user.series[i].serieId
         })
         .populate("players.user")
         .populate("playedMatches.winners.players")
@@ -120,6 +120,7 @@ router.post("/addMatch", async (req, res) => {
 
     let gameStats = {
         date: date,
+        serie: req.body.serieId,
         winners: winners,
         losers: losers,
         winningGames: winningGames,

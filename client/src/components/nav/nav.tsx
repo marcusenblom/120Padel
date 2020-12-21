@@ -6,7 +6,7 @@ export default function Navbar() {
   
   return (
     <div className="navbar">
-      <h1>Navbar</h1>
+      <h3>120PDL</h3>
     </div>
   );
 }

@@ -19,9 +19,8 @@ export default function AddMatch(props: IAddMatchProps) {
   const [teamTwoGames, setTeamTwoGames] = useState(0);
 
   function updateDate(e: ChangeEvent<HTMLInputElement>){
-    let edate = e.currentTarget.value;
-    setDate(new Date(edate));
-    console.log(date);
+    let inputDate = e.currentTarget.value;
+    setDate(new Date(inputDate));
   }
 
   function changeTeamOnePlayerOne(e: ChangeEvent<HTMLSelectElement>){

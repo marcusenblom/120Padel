@@ -56,7 +56,7 @@ const serieSchema = new Schema({
         },
         serie: {
             type: Number,
-            default: this.serieId
+            required: true
         },
         winners: {
             players: [{
@@ -160,7 +160,6 @@ serieSchema.methods.addPlayer = function(user){
         // Add user to serie
         listOfPlayers.push({user: user});
     }
-
     return this.save();
 };
 serieSchema.methods.removePlayer = function(user){
@@ -190,6 +189,7 @@ serieSchema.methods.addMatch = function(gameStats){
     let newMatch = {
         date: gameStats.date,
         matchId: matchId,
+        serie: gameStats.serie,
         winners: {
             players: gameStats.winners,
             gameWon: gameStats.winningGames
@@ -200,7 +200,7 @@ serieSchema.methods.addMatch = function(gameStats){
         }
     };
     this.playedMatches.push(newMatch);
-
+    // Sort games by date
     this.playedMatches.sort((a, b) => (a.date < b.date) ? 1 : -1)
 
     this.updateScoreBoard();
