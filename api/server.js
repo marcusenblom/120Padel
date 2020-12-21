@@ -5,6 +5,7 @@ require("dotenv").config();
 const db = require("./config/config").databaseURI;
 const cors = require("cors");
 
+const homeRouter = require('./routes/homeRouter');
 const userRouter = require('./routes/userRouter');
 const serieRouter = require('./routes/serieRouter');
 const loginRouter = require('./routes/loginRouter');
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Use routes
 app.use(
+    homeRouter,
     userRouter,
     serieRouter,
     loginRouter

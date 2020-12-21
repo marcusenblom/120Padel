@@ -70,7 +70,7 @@ router.post("/addPlayer", async (req, res) => {
     await serie.addPlayer(playerToAdd);
     await playerToAdd.addSerie(serie);
 
-    res.send(serie);
+    res.send("Player added to serie");
 
 });
 

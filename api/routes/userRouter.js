@@ -3,7 +3,8 @@ const router = express.Router();
 const {User, validateUser} = require('../models/User');
 
 router.get("/profile", async (req, res) => {
-    res.send("Här kommer profilen att synas")
+
+    res.send()
 });
 
 router.get("/allUsers", async (req, res) =>{

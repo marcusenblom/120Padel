@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../../scss/_serie.scss';
 import axios from "axios";
-import { PlayersModel, MatchPlayersModel, PlayedMatchModel } from "../../models/serieModel";
-import UserModel from "../../models/userModel";
+import { PlayersModel, PlayedMatchModel } from "../../models/serieModel";
 import Standings from "./standings/standings";
 import PlayedMatches from "./playedMatches/playedMatches";
 
@@ -11,8 +10,8 @@ export default function Serie() {
 
   const [serieId, setId] = useState(1);
   const [name, setName] = useState("");
-  const [players, setPlayers] = useState([new PlayersModel(0,0,0,0,0,new UserModel(0, "", "", "",""))]);
-  const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel(new MatchPlayersModel([new UserModel(0,"","","","")],0),new MatchPlayersModel([new UserModel(0,"","","","")],0),0,0)]);
+  const [players, setPlayers] = useState([new PlayersModel()]);
+  const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel()]);
   const [displaySection, setDisplaySection] = useState("serie");
   const [newGameRegistered, setNewGameRegistered] = useState(false);
 
@@ -61,7 +60,7 @@ export default function Serie() {
     }
     if (displaySection === "matchesPlayed") {
       return(
-        <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie}/>
+        <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie} newGameRegistered={newGameRegistered}/>
       );
     }
   };

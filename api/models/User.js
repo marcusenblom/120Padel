@@ -33,7 +33,15 @@ const userSchema = new Schema({
         maxlength: 100
     },
     series: [{
-        type: Number
+        serieId: {
+            type: Number,
+            required: true,
+            unique: true
+        },
+        favoriteSerie: {
+            type: Boolean
+        }
+
     }],
 });
 
@@ -44,14 +52,19 @@ userSchema.methods.addSerie = function(serie){
     let listOfSeries = this.series;
     let alreadyExists = false;
 
-    listOfSeries.forEach(serieId => {
-        if (serieId == serie.serieId) {
+    let serieData = {
+        serieId: serie.serieId,
+        favoriteSerie: false
+    };
+
+    listOfSeries.forEach(userSerie => {
+        if (userSerie.serieId == serie.serieId) {
             alreadyExists = true;
         }
     });
     // Add serie to user
     if (!alreadyExists) {
-        listOfSeries.push(serie.serieId);
+        listOfSeries.push(serieData);
     }
 
     this.save();

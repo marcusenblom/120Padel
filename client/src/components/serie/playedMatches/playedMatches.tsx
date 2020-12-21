@@ -9,11 +9,13 @@ interface IPlayedMatchesProps{
   playedMatches: PlayedMatchModel[];
   players: PlayersModel[];
   serieId: Number;
+  newGameRegistered: Boolean;
   updateParentWithPostData(data: any): void;
 }
 
 export default function PlayedMatches(props: IPlayedMatchesProps) {
   const [showAddMatch, setShowAddMatch] = useState(false);
+  const [newGameRegistered, setNewGameRegistered] = useState(props.newGameRegistered);
 
   let listOfMatches = props.playedMatches.map(match => {
     return (
@@ -45,7 +47,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
 
   let showAddMatchComponent;
   if (showAddMatch){
-    showAddMatchComponent = <AddMatch serieId={props.serieId} updateParentWithPostData={registerMatch} players={props.players}/>
+    showAddMatchComponent = <AddMatch serieId={props.serieId} updateParentWithPostData={registerMatch} players={props.players} newGameRegistered={props.newGameRegistered}/>
   } else {
     showAddMatchComponent = "";
   }

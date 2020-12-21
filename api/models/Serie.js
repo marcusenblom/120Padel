@@ -159,7 +159,6 @@ serieSchema.methods.addPlayer = function(user){
     if (!playerExistsInSerie) {
         // Add user to serie
         listOfPlayers.push({user: user});
-
     }
 
     return this.save();

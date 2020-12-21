@@ -8,13 +8,13 @@ export class PlayersModel{
     gameLost: number;
     user: UserModel;
 
-    constructor(matchesPlayed: number, matchesWon: number, points: number, gameWon: number, gameLost: number, user: UserModel){
-        this.matchesPlayed = matchesPlayed;
-        this.matchesWon = matchesWon;
-        this.points = points;
-        this.gameWon = gameWon;
-        this.gameLost = gameLost;
-        this.user = user;
+    constructor(){
+        this.matchesPlayed = 0;
+        this.matchesWon = 0;
+        this.points = 0;
+        this.gameWon = 0;
+        this.gameLost = 0;
+        this.user = new UserModel();
     }
 }
 
@@ -22,9 +22,9 @@ export class MatchPlayersModel{
     players: UserModel[];
     gameWon: number;
 
-    constructor(players: UserModel[], gameWon: number){
-        this.players = players;
-        this.gameWon = gameWon;
+    constructor(){
+        this.players = [new UserModel()];
+        this.gameWon = 0;
     }
 }
 
@@ -34,11 +34,11 @@ export class PlayedMatchModel{
     serie: number;
     matchId: number;
 
-    constructor(winners: MatchPlayersModel, losers: MatchPlayersModel, serie: number, matchId: number){
-        this.winners = winners;
-        this.losers = losers;
-        this.serie = serie;
-        this.matchId = matchId;
+    constructor(){
+        this.winners = new MatchPlayersModel();
+        this.losers = new MatchPlayersModel();
+        this.serie = 0;
+        this.matchId = 0;
     }
 }
 
@@ -48,10 +48,10 @@ export class SerieModel{
     players: PlayersModel[];
     playedMatches: PlayedMatchModel[];
 
-    constructor(serieId: number, serieName: string, players: PlayersModel[], playedMatches: PlayedMatchModel[]){
-        this.serieId = serieId;
-        this.serieName = serieName;
-        this.players = players;
-        this.playedMatches = playedMatches;
+    constructor(){
+        this.serieId = 0;
+        this.serieName = "";
+        this.players = [new PlayersModel()];
+        this.playedMatches = [new PlayedMatchModel()];
     }
 }

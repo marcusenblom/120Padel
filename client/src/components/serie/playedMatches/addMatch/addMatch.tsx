@@ -5,6 +5,7 @@ import { PlayersModel } from "../../../../models/serieModel";
 interface IAddMatchProps{
   serieId: Number;
   players: PlayersModel[];
+  newGameRegistered: Boolean;
   updateParentWithPostData(data: any): void;
 }
 
@@ -132,53 +133,51 @@ export default function AddMatch(props: IAddMatchProps) {
   }
 
   return (
-      // <form onSubmit={sendNewMatchDataToParent} id="add-match">
-      <div id="add-match">
-        <div className="add-date">
-          <input type="date" onChange={updateDate}/>
-        </div>
-        <div className="add-team add-team-one">
-          <div className="player-select-container">
-            <select name="teamOnePlayerOne" id="teamOnePlayerOne" className="player-select" onChange={changeTeamOnePlayerOne}>
-              <option value="">Välj spelare</option>
-              {listOfPlayers}
-            </select>
-            <select name="teamOnePlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamOnePlayerTwo}>
-              <option value="">Välj spelare</option>
-              {listOfPlayers}
-            </select>
-          </div>
-          <div className="game-select-container">
-            <select name="teamOneGame" id="teamOneGame" className="game-select" onChange={changeTeamOneGame}>
-              <option value="">Game</option>
-              {listOfGameTeamOne}
-            </select>
-          </div>
-        </div>
-
-        <div className="add-team add-team-two">
-          <div className="game-select-container">
-            <select name="teamOnePlayerOne" id="teamOneGame" className="game-select" onChange={changeTeamTwoGame}>
-              <option value="">Game</option>
-              {listOfGameTeamTwo}
-            </select>
-          </div>
-          <div className="player-select-container">
-            <select name="teamTwoPlayerOne" id="teamTwoPlayerOne" className="player-select" onChange={changeTeamTwoPlayerOne}>
-              <option value="">Välj spelare</option>
-              {listOfPlayers}
-            </select>
-            <select name="teamTwoPlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamTwoPlayerTwo}>
-              <option value="">Välj spelare</option>
-              {listOfPlayers}
-            </select>
-          </div>
-        </div>
-
-        <div className="submit-button-container">
-          <button type="submit" onClick={sendNewMatchDataToParent}>Lägg till match</button>
-        </div>
-        
+    <div id="add-match">
+      <div className="add-date">
+        <input type="date" onChange={updateDate}/>
       </div>
+      <div className="add-team add-team-one">
+        <div className="player-select-container">
+          <select name="teamOnePlayerOne" id="teamOnePlayerOne" className="player-select" onChange={changeTeamOnePlayerOne}>
+            <option value="">Välj spelare</option>
+            {listOfPlayers}
+          </select>
+          <select name="teamOnePlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamOnePlayerTwo}>
+            <option value="">Välj spelare</option>
+            {listOfPlayers}
+          </select>
+        </div>
+        <div className="game-select-container">
+          <select name="teamOneGame" id="teamOneGame" className="game-select" onChange={changeTeamOneGame}>
+            <option value="">Game</option>
+            {listOfGameTeamOne}
+          </select>
+        </div>
+      </div>
+
+      <div className="add-team add-team-two">
+        <div className="game-select-container">
+          <select name="teamOnePlayerOne" id="teamOneGame" className="game-select" onChange={changeTeamTwoGame}>
+            <option value="">Game</option>
+            {listOfGameTeamTwo}
+          </select>
+        </div>
+        <div className="player-select-container">
+          <select name="teamTwoPlayerOne" id="teamTwoPlayerOne" className="player-select" onChange={changeTeamTwoPlayerOne}>
+            <option value="">Välj spelare</option>
+            {listOfPlayers}
+          </select>
+          <select name="teamTwoPlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamTwoPlayerTwo}>
+            <option value="">Välj spelare</option>
+            {listOfPlayers}
+          </select>
+        </div>
+      </div>
+
+      <div className="submit-button-container">
+        <button type="submit" onClick={sendNewMatchDataToParent}>Lägg till match</button>
+      </div>
+    </div>
   );
 }
