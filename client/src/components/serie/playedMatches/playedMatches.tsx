@@ -15,7 +15,6 @@ interface IPlayedMatchesProps{
 
 export default function PlayedMatches(props: IPlayedMatchesProps) {
   const [showAddMatch, setShowAddMatch] = useState(false);
-  const [newGameRegistered, setNewGameRegistered] = useState(props.newGameRegistered);
 
   let listOfMatches = props.playedMatches.map(match => {
     return (

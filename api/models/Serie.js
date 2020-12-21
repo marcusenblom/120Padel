@@ -180,7 +180,13 @@ serieSchema.methods.removePlayer = function(user){
 
 serieSchema.methods.addMatch = function(gameStats){
 
-    let matchId = (this.playedMatches.length + 1);
+    let matchId;
+    if (this.playedMatches.length < 1) {
+        matchId = 1;
+    } else {
+        matchId = (this.playedMatches[0].matchId + 1);
+    }
+     
     let newMatch = {
         date: gameStats.date,
         matchId: matchId,
@@ -193,11 +199,11 @@ serieSchema.methods.addMatch = function(gameStats){
             gameWon: gameStats.losingGames
         }
     };
-
     this.playedMatches.push(newMatch);
 
+    this.playedMatches.sort((a, b) => (a.date < b.date) ? 1 : -1)
+
     this.updateScoreBoard();
-    
 };
 
 
