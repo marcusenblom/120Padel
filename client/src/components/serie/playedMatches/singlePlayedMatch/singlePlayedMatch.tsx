@@ -4,6 +4,7 @@ import '../../../../scss/_singlePlayedMatch.scss';
 import MatchPlayerCard from "./matchPlayerCard/matchPlayerCard";
 
 interface ISinglePlayedMatchProps{
+  date: Date;
   winners: UserModel[];
   losers: UserModel[];
   winnersGame: number;
@@ -23,8 +24,11 @@ export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
     );
   });
 
+  let date = new Date(props.date);
+  
   return (
     <div id="singlePlayedMatch">
+      <div className="date">{date.toDateString()}</div>
       <div className="team-one team">
         <div className="team-one-players team-players">
           {teamOnePlayers}

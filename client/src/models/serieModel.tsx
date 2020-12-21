@@ -29,12 +29,14 @@ export class MatchPlayersModel{
 }
 
 export class PlayedMatchModel{
+    date: Date;
     winners: MatchPlayersModel;
     losers: MatchPlayersModel;
     serie: number;
     matchId: number;
 
     constructor(){
+        this.date = new Date();
         this.winners = new MatchPlayersModel();
         this.losers = new MatchPlayersModel();
         this.serie = 0;

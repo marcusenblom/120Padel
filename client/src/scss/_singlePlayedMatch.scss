@@ -9,8 +9,14 @@
 
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
+
+    .date{
+        width: 100%;
+        padding: 5px 0;
+        text-align: center;
+    }
 
     // Generic for both teams
     .team{
