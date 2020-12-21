@@ -1,51 +1,71 @@
 import React from "react";
-import { PlayedMatchModel } from "../../../../models/serieModel";
-import UserModel from "../../../../models/userModel";
+import { PlayedMatchModel, PlayersModel } from "../../../../models/serieModel";
 import '../../../../scss/_singlePlayedMatch.scss';
 import MatchPlayerCard from "./matchPlayerCard/matchPlayerCard";
 
 interface ISinglePlayedMatchProps{
   match: PlayedMatchModel;
   showSerieName: Boolean;
+  serieName: String;
+  players: PlayersModel[];
 }
 
 export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
 
-  let teamOnePlayers = props.match.winners.players.map(player => {
+  console.log(props.players);
+  
+
+  let teamOnePlayers = props.match.winners.players.map(user => {
+
+    let playerStanding = props.players.find(player => player.user.userId === user.userId)?.standing;
+
     return (
-    <MatchPlayerCard key={player.userName} imageUrl={"bild"} reversed={false} name={player.userName}/>
+    <MatchPlayerCard key={user.userName} imageUrl={"bild"} name={user.userName} standing={playerStanding}/>
     );
   });
-  let teamTwoPlayers = props.match.losers.players.map(player => {
+
+  let teamTwoPlayers = props.match.losers.players.map(user => {
+
+    let playerStanding = props.players.find(player => player.user.userId === user.userId)?.standing;
+
     return (
-    <MatchPlayerCard key={player.userName} imageUrl={"bild"} reversed={true} name={player.userName}/>
+    <MatchPlayerCard key={user.userName} imageUrl={"bild"} name={user.userName} standing={playerStanding}/>
     );
   });
 
   let date = new Date(props.match.date);
-  let serieName = "";
+  let serieName = props.serieName;
   
   return (
     <div id="singlePlayedMatch">
       <div className="serie-name">{serieName}</div>
       <div className="date">{date.toDateString()}</div>
-      <div className="team-one team">
-        <div className="team-one-players team-players">
-          {teamOnePlayers}
+
+      <div className="result">
+        <div className="team-result">
+          <span>{props.match.winners.gameWon}</span>
         </div>
-        <div className="team-one-score team-score">
-          {props.match.winners.gameWon}
+        <div className="result-separator">
+          <span>-</span>
         </div>
-      </div>
-      <div className="team-separator">-</div>
-      <div className="team-two team">
-        <div className="team-two-score team-score">
-          {props.match.losers.gameWon}
-        </div>
-        <div className="team-two-players team-players">
-          {teamTwoPlayers}
+        <div className="team-result">
+          <span>{props.match.losers.gameWon}</span>
         </div>
       </div>
+
+      <div className="teams">
+        <div className="team-one team">
+          <div className="team-one-players team-players">
+            {teamOnePlayers}
+          </div>
+        </div>
+        <div className="team-two team">
+          <div className="team-two-players team-players">
+            {teamTwoPlayers}
+          </div>
+        </div>
+      </div>
+      
     </div>
   );
 }

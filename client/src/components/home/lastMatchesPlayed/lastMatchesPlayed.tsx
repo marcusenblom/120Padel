@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { PlayedMatchModel, SerieModel } from "../../../models/serieModel";
+import React from "react";
+import { PlayedMatchModel, PlayersModel, SerieModel } from "../../../models/serieModel";
 import UserModel from "../../../models/userModel";
-import "../../../scss/_latestMatchesPlayed.scss";
+import "../../../scss/_lastMatchesPlayed.scss";
 import SinglePlayedMatch from "../../serie/playedMatches/singlePlayedMatch/singlePlayedMatch";
 
 interface ILastMatchesPlayed{
@@ -29,16 +29,24 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
       playersMatches = playersMatches.slice(0, 3);
     }
   }
-
-  console.log(playersMatches);
   
-
   let singlePlayedMatches = playersMatches.map(match => {
-    return <SinglePlayedMatch key={match.matchId} match={match} showSerieName={true}/>
+    let serieName = "";
+    let players: PlayersModel[] = [];
+
+    props.playerSeries.forEach(serie => {
+      if (serie.serieId === match.serie) {
+        serieName = serie.name;
+
+        players = serie.players;
+      }
+    });
+    
+    return <SinglePlayedMatch key={match.matchId} match={match} showSerieName={true} serieName={serieName} players={players}/>
   });
 
   return (
-    <div id="last-matches">
+    <div id="last-matches-container">
       <div className="last-matches-header">
         <h2>Senaste matcher</h2>
         <span>Se alla</span>

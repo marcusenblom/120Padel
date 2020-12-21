@@ -1,0 +1,27 @@
+#last-matches-container{
+    margin: 20px 0;
+
+
+    .last-matches-header{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        h2{
+            display: inline-block;
+            margin: 0.4em 0;
+        }
+    }
+
+    .last-matches{
+        min-width: 355px;
+        padding: 12px 0 12px 20px;
+        margin: 0 -20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: scroll;
+    }
+}

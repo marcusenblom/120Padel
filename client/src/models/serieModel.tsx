@@ -7,6 +7,7 @@ export class PlayersModel{
     gameWon: number;
     gameLost: number;
     user: UserModel;
+    standing: number;
 
     constructor(){
         this.matchesPlayed = 0;
@@ -15,6 +16,7 @@ export class PlayersModel{
         this.gameWon = 0;
         this.gameLost = 0;
         this.user = new UserModel();
+        this.standing = 0;
     }
 }
 
@@ -46,13 +48,13 @@ export class PlayedMatchModel{
 
 export class SerieModel{
     serieId: number;
-    serieName: string;
+    name: string;
     players: PlayersModel[];
     playedMatches: PlayedMatchModel[];
 
     constructor(){
         this.serieId = 0;
-        this.serieName = "";
+        this.name = "";
         this.players = [new PlayersModel()];
         this.playedMatches = [new PlayedMatchModel()];
     }

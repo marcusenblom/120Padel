@@ -16,6 +16,10 @@ const serieSchema = new Schema({
         maxlength: 100
     },
     players: [{
+        standing: {
+            type: Number,
+            required: true
+        },
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
@@ -141,6 +145,9 @@ serieSchema.methods.updateScoreBoard = function(){
 
     // Rearragne based on ppg
     this.players.sort((a, b) => (a.pointsPerMatch < b.pointsPerMatch) ? 1 : -1)
+    this.players.forEach(function(player, i){
+        player.standing = i + 1;
+    })
     
     return this.save();
 };

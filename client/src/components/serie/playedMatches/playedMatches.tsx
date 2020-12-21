@@ -18,7 +18,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
 
   let listOfMatches = props.playedMatches.map(match => {
     return (
-    <SinglePlayedMatch key={match.matchId} showSerieName={false} match={match}/>
+    <SinglePlayedMatch key={match.matchId} showSerieName={false} match={match} players={props.players} serieName={""}/>
     );
   });
 

@@ -268,11 +268,12 @@ footer {
 }
 
 #singlePlayedMatch {
-  width: 100%;
-  margin-bottom: 10px;
-  border: 1px solid #12326e;
-  -webkit-box-shadow: 0px 10px 14px -2px rgba(227, 227, 227, 0.25);
-  box-shadow: 0px 10px 14px -2px rgba(227, 227, 227, 0.25);
+  width: 335px;
+  margin-right: 8px;
+  padding: 8px 0 16px 0;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 0px 3px 0px #C4C4C4;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -285,15 +286,101 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 8px;
+}
+
+#singlePlayedMatch .serie-name {
+  width: 100%;
+  text-align: center;
+  width: inherit;
+  font-size: 20px;
 }
 
 #singlePlayedMatch .date {
   width: 100%;
-  padding: 5px 0;
+  padding: 6px 0;
   text-align: center;
+  font-size: 14px;
+  font-weight: 100;
 }
 
-#singlePlayedMatch .team {
+#singlePlayedMatch .result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 66px;
+  width: 100%;
+}
+
+#singlePlayedMatch .result .team-result {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+#singlePlayedMatch .result .team-result:nth-child(1) {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#singlePlayedMatch .result .result-separator {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 40px;
+  width: 60%;
+}
+
+#singlePlayedMatch .teams {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#singlePlayedMatch .teams .team {
   width: 47%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -312,18 +399,7 @@ footer {
           align-items: center;
 }
 
-#singlePlayedMatch .team .team-players {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-#singlePlayedMatch .team .team-players .player {
-  width: 100%;
+#singlePlayedMatch .teams .team .team-players {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -333,57 +409,83 @@ footer {
           flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#singlePlayedMatch .teams .team .team-players .player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
-#singlePlayedMatch .team .team-players .player .player-image {
+#singlePlayedMatch .teams .team .team-players .player .player-image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 6px 10px 3px 10px;
+  padding: 4px 12px;
 }
 
-#singlePlayedMatch .team .team-players .player .player-image img {
-  height: 50px;
+#singlePlayedMatch .teams .team .team-players .player .player-image img {
+  height: 44px;
 }
 
-#singlePlayedMatch .team .team-players .player .player-info {
-  font-size: 13px;
-  font-weight: 600;
+#singlePlayedMatch .teams .team .team-players .player .player-info {
+  font-size: 10px;
+  font-weight: 400;
 }
 
-#singlePlayedMatch .team .team-players .player:nth-child(2) .player-image {
-  padding: 3px 10px 6px 10px;
+#singlePlayedMatch .teams .team .team-players .player .standing {
+  position: absolute;
+  bottom: 16px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #6041FF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
 }
 
-#singlePlayedMatch .team .team-score {
-  font-size: 22px;
-  font-weight: 600;
-  color: #12326e;
-}
-
-#singlePlayedMatch .team-one .team-one-players .player {
+#singlePlayedMatch .teams .team .team-one-players {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
 
-#singlePlayedMatch .team-separator {
-  width: 6%;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 600;
-}
-
-#singlePlayedMatch .team-two .team-two-players .player {
+#singlePlayedMatch .teams .team .team-two-players {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+#singlePlayedMatch .teams .team .team-score {
+  font-size: 22px;
+  font-weight: 600;
+  color: #12326e;
 }
 
 #add-match {
@@ -462,18 +564,16 @@ footer {
 }
 
 #home {
-  width: 100%;
+  width: calc(100%-40px);
   min-height: 100vh;
-}
-
-#latest-matches {
-  margin: 20px 0;
   padding: 0 20px;
-  width: calc(100% - 40px);
-  height: 300px;
 }
 
-#latest-matches .latest-matches-header {
+#last-matches-container {
+  margin: 20px 0;
+}
+
+#last-matches-container .last-matches-header {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -490,22 +590,25 @@ footer {
           justify-content: space-between;
 }
 
-#latest-matches .latest-matches-header h2 {
+#last-matches-container .last-matches-header h2 {
   display: inline-block;
+  margin: 0.4em 0;
 }
 
-#latest-matches .latest-matches {
-  width: 1000px;
-  height: 220px;
+#last-matches-container .last-matches {
+  min-width: 355px;
+  padding: 12px 0 12px 20px;
+  margin: 0 -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   overflow: scroll;
-  background-color: lavender;
-}
-
-#latest-matches .latest-matches .match-played {
-  height: 220px;
-  width: 335px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
 }
 
 body {
