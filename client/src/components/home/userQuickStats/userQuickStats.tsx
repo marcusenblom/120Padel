@@ -1,6 +1,5 @@
 import React from "react";
 import { PlayedMatchModel } from "../../../models/serieModel";
-import UserModel from "../../../models/userModel";
 import "../../../scss/_userQuickStats.scss";
 import QuickStat from "./quickStat/quickStat";
 
@@ -13,10 +12,8 @@ export default function UserQuickStats(props: IUserQuickStats) {
 
   let totalWinRatio: number = getTotalWinRatio();
   let winRatioBeforeLastGames: number = getWinRatioBeforeLastGames(3);
-  let change = (totalWinRatio + winRatioBeforeLastGames) / 2;
-
-  console.log(change);
-  
+  let winChange = (totalWinRatio - winRatioBeforeLastGames);
+  // let winChange = ( winRatioBeforeLastGames - totalWinRatio);
 
   function getTotalWinRatio(){
     let numberOfWins: number = 0;
@@ -58,8 +55,8 @@ export default function UserQuickStats(props: IUserQuickStats) {
       </div>
 
       <div className="quick-stats">
-        <QuickStat header="Vinst-/förlustratio" mainStat={totalWinRatio} change={change}/>
-        <QuickStat header="Placering" mainStat={7} change={-1}/>
+        <QuickStat header="Vinst-/förlustratio" mainStat={totalWinRatio} change={winChange}/>
+        <QuickStat header="Placering" mainStat={7} change={+1}/>
       </div> 
 
     </div>
