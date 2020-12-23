@@ -7,19 +7,12 @@ import SinglePlayedMatch from "../../serie/playedMatches/singlePlayedMatch/singl
 interface ILastMatchesPlayed{
   player: UserModel;
   playerSeries: SerieModel[];
+  playerMatches: PlayedMatchModel[];
 }
 
 export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
 
-  let playersMatches: PlayedMatchModel[] = [];
-
-  props.playerSeries.forEach(serie => {
-    serie.playedMatches.forEach(match => {
-      if ( (match.winners.players.find(player => player.userId === props.player.userId)) || (match.losers.players.find(player => player.userId === props.player.userId) )) {
-        playersMatches.push(match);
-      }
-    });
-  });
+  let playersMatches = props.playerMatches;
 
   // Only show last 3 matches played
   if (playersMatches.length > 0) {

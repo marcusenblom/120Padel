@@ -23,15 +23,19 @@
         justify-content: space-between;
 
         #quick-stat{
-            width: 180px;
+            width: 156px;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            background-color: lightgrey;
+
+            border-radius: 8px;
+            background-color: white;
+            -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4; 
+            box-shadow: 0px 0px 3px 0px #C4C4C4;
 
             .stat{
-                height: 60px;
+                height: 52px;
                 display: flex;
                 align-items: center;
             }

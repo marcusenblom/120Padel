@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import '../../scss/_home.scss';
 import axios from "axios";
 import UserModel from "../../models/userModel";
-import { SerieModel } from "../../models/serieModel";
+import { PlayedMatchModel, SerieModel } from "../../models/serieModel";
 import LastMatchesPlayed from "./lastMatchesPlayed/lastMatchesPlayed";
 import UserQuickStats from "./userQuickStats/userQuickStats";
 
 
 export default function Home() {
 
-  const [player, setPlayer] = useState(new UserModel());
+  const [user, setUser] = useState(new UserModel());
   const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Home() {
       .then(axiosObject => {
         let userData = axiosObject.data;
 
-        setPlayer(userData);
+        setUser(userData);
         
         fetchPlayerSeries(userData.userId);
     });
@@ -35,10 +35,27 @@ export default function Home() {
     });
   }
 
+  let playersMatches: PlayedMatchModel[] = [];
+
+  playerSeries.forEach(serie => {
+    serie.playedMatches.forEach(match => {
+      if ( (match.winners.players.find(player => player.userId === user.userId)) || (match.losers.players.find(player => player.userId === user.userId) )) {
+        playersMatches.push(match);
+      }
+    });
+  });
+
+  console.log("home comp: " + JSON.stringify(user));
+  
+
   return (
     <div id="home">
-      <LastMatchesPlayed player={player} playerSeries={playerSeries}/>
-      <UserQuickStats />
+      <LastMatchesPlayed player={user} playerSeries={playerSeries} playerMatches={playersMatches}/>
+      <UserQuickStats userId={user.userId} playerMatches={playersMatches}/>
+
+      <div className="home-page-button-container">
+
+      </div>
     </div>
   );
 }

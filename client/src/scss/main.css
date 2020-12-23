@@ -654,7 +654,7 @@ footer {
 }
 
 #quick-stats-container .quick-stats #quick-stat {
-  width: 180px;
+  width: 156px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -668,11 +668,14 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: lightgrey;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 0px 3px 0px #C4C4C4;
 }
 
 #quick-stats-container .quick-stats #quick-stat .stat {
-  height: 60px;
+  height: 52px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

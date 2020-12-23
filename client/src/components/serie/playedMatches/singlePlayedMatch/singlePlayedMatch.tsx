@@ -11,10 +11,7 @@ interface ISinglePlayedMatchProps{
 }
 
 export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
-
-  console.log(props.players);
   
-
   let teamOnePlayers = props.match.winners.players.map(user => {
 
     let playerStanding = props.players.find(player => player.user.userId === user.userId)?.standing;

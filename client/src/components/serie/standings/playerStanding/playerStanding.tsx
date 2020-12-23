@@ -22,8 +22,7 @@ export default function PlayerStanding(props: IPlayerStandingProps) {
 
   let winsPerMatch;
   if (!(props.matchesPlayed === props.matchesWon)) {
-    winsPerMatch = (props.matchesWon / props.matchesPlayed).toFixed(2);
-    winsPerMatch = winsPerMatch.slice(1, 4);
+    winsPerMatch = (props.matchesWon / props.matchesPlayed).toFixed(2).slice(1, 4);
   } else {
     winsPerMatch = "1.00";
   }
