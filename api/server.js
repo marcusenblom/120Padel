@@ -27,6 +27,14 @@ app.use(
     loginRouter
 );
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+
+    app.get("*", (req, re) => {
+        res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"))
+    });
+};
+
 // Connect to MongoDB
 const options = {
     useNewUrlParser: true,
@@ -41,7 +49,3 @@ mongoose
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
-
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("../client/build"));
-};
