@@ -592,7 +592,7 @@ footer {
 
 #last-matches-container .last-matches-header h2 {
   display: inline-block;
-  margin: 0.4em 0;
+  margin: 16px 0;
 }
 
 #last-matches-container .last-matches {
@@ -609,6 +609,76 @@ footer {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   overflow: scroll;
+}
+
+#quick-stats-container {
+  margin: 20px 0;
+}
+
+#quick-stats-container .quick-stats-header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#quick-stats-container .quick-stats-header h2 {
+  display: inline-block;
+  margin: 16px 0;
+}
+
+#quick-stats-container .quick-stats {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#quick-stats-container .quick-stats #quick-stat {
+  width: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: lightgrey;
+}
+
+#quick-stats-container .quick-stats #quick-stat .stat {
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body {

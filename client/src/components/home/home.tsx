@@ -4,6 +4,7 @@ import axios from "axios";
 import UserModel from "../../models/userModel";
 import { SerieModel } from "../../models/serieModel";
 import LastMatchesPlayed from "./lastMatchesPlayed/lastMatchesPlayed";
+import UserQuickStats from "./userQuickStats/userQuickStats";
 
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
   return (
     <div id="home">
       <LastMatchesPlayed player={player} playerSeries={playerSeries}/>
+      <UserQuickStats />
     </div>
   );
 }
