@@ -8,7 +8,10 @@ router.get("/login", async (req, res) => {
 
 router.post("/login", async (req, res) => {
     
-    // Skicka inloggningsuppgifter och verifiera
+    let userName = req.body.userName;
+    let password = req.body.password;
+    
+    // Skicka inloggningsuppgifter och verifiera. Om de stämmer, tillåt användaren att logga in.
 
 });
 

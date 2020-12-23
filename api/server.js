@@ -10,8 +10,6 @@ const userRouter = require('./routes/userRouter');
 const serieRouter = require('./routes/serieRouter');
 const loginRouter = require('./routes/loginRouter');
 
-
-
 const app = express();
 app.use(cors());
 

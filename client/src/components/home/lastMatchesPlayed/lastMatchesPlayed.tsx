@@ -16,7 +16,7 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
 
   // Only show last 3 matches played
   if (playersMatches.length > 0) {
-    playersMatches.sort((a, b) => (a.date < b.date) ? 1 : -1)
+    playersMatches.sort((a, b) => (a.date < b.date) ? 1 : -1);
 
     if (playersMatches.length > 3) {
       playersMatches = playersMatches.slice(0, 3);

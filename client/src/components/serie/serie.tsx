@@ -35,7 +35,12 @@ export default function Serie() {
     setDisplaySection("matchesPlayed");
   };
 
+  axios.get("url").then(dataFromGEtReq => {
+
+  })
+
   function postMatchToSerie(matchData: {
+    date: Date;
     serieId: Number;
     winners: Number[];
     losers: Number[];

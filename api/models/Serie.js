@@ -144,7 +144,7 @@ serieSchema.methods.updateScoreBoard = function(){
     });
 
     // Rearragne based on ppg
-    this.players.sort((a, b) => (a.pointsPerMatch < b.pointsPerMatch) ? 1 : -1)
+    this.players.sort((a, b) => (a.pointsPerMatch < b.pointsPerMatch) ? 1 : -1);
     this.players.forEach(function(player, i){
         player.standing = i + 1;
     })

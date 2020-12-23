@@ -22,7 +22,6 @@ export default function Home() {
         
         fetchPlayerSeries(userData.userId);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function fetchPlayerSeries(userId: Number){
