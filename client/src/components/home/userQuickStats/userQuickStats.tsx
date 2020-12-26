@@ -114,8 +114,8 @@ export default function UserQuickStats(props: IUserQuickStats) {
       </div>
 
       <div className="quick-stats">
-        <QuickStat header="Vinst/Match" mainStat={totalWinRatio} change={winChange}/>
-        <QuickStat header="Game +/-" mainStat={gamePlusMinus} change={gamePlusMinusBeforeLastGames}/>
+        <QuickStat header="Vinstratio" mainStat={totalWinRatio} change={winChange} game={false}/>
+        <QuickStat header="Game +/-" mainStat={gamePlusMinus} change={gamePlusMinusBeforeLastGames} game={true}/>
       </div> 
 
     </div>

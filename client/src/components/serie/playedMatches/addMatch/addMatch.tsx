@@ -113,7 +113,11 @@ export default function AddMatch(props: IAddMatchProps) {
   
   function sendNewMatchDataToParent(e: any){
     let data = getDataToSend();
-    props.updateParentWithPostData(data);
+    if (data?.losersGame !== data?.winnersGame) {
+      props.updateParentWithPostData(data);
+    } else {
+      console.log("Can not create game that has no winner");
+    }
   }
 
   let listOfPlayers = props.players.map(player => {
@@ -123,12 +127,12 @@ export default function AddMatch(props: IAddMatchProps) {
   let listOfGameTeamOne = [];
   let listOfGameTeamTwo = [];
 
-  for (let i = 0; i < 7; i++) {
-    let valueOne = i+1;
-    listOfGameTeamOne.push(<option key={i} value={valueOne}>{i+1}</option>);
+  for (let i = 0; i < 8; i++) {
+    let valueOne = i;
+    listOfGameTeamOne.push(<option key={i} value={valueOne}>{i}</option>);
     
-    let valueTwo = i+1;
-    listOfGameTeamTwo.push(<option key={i} value={valueTwo}>{i+1}</option>);
+    let valueTwo = i;
+    listOfGameTeamTwo.push(<option key={i} value={valueTwo}>{i}</option>);
   }
 
   return (
