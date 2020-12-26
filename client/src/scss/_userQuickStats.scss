@@ -38,6 +38,31 @@
                 height: 52px;
                 display: flex;
                 align-items: center;
+                position: relative;
+
+                .stat-greyed{
+                    color: rgb(95, 95, 95);
+                }
+                .stat-main{
+                    font-size: 36px;
+                    font-weight: 600;
+                }
+                .stat-change{
+                    font-weight: 700;
+                }
+                span{
+                    .fas{
+                        font-size: 16px;
+                        margin-right: 5px;
+                        opacity: 1;
+                    }
+                    .fa-arrow-up{
+                        color: green;
+                    }
+                    .fa-arrow-down{
+                        color: rgb(221, 0, 0);
+                    }
+                }
             }
         }
     }

@@ -5,6 +5,8 @@ import UserModel from "../../models/userModel";
 import { PlayedMatchModel, SerieModel } from "../../models/serieModel";
 import LastMatchesPlayed from "./lastMatchesPlayed/lastMatchesPlayed";
 import UserQuickStats from "./userQuickStats/userQuickStats";
+import { defaultProps } from "react-select/src/Select";
+import { openStdin } from "process";
 
 
 export default function Home() {
@@ -34,23 +36,25 @@ export default function Home() {
     });
   }
 
-  let playersMatches: PlayedMatchModel[] = [];
+  let playerMatches: PlayedMatchModel[] = [];
 
-  playerSeries.forEach(serie => {
-    serie.playedMatches.forEach(match => {
-      if ( (match.winners.players.find(player => player.userId === user.userId)) || (match.losers.players.find(player => player.userId === user.userId) )) {
-        playersMatches.push(match);
-      }
+  if (playerSeries.length > 0) {
+    playerSeries.forEach(serie => {
+      serie.playedMatches.forEach(match => {
+        if ( (match.winners.players.find(player => player.userId === user.userId)) || (match.losers.players.find(player => player.userId === user.userId) )) {
+          playerMatches.push(match);
+        }
+      });
     });
-  });
+    // Sort all players played matches as date
+    playerMatches.sort((a, b) => (a.date < b.date) ? 1 : -1);
+  }
 
-  console.log("home comp: " + JSON.stringify(user));
-  
 
   return (
     <div id="home">
-      <LastMatchesPlayed player={user} playerSeries={playerSeries} playerMatches={playersMatches}/>
-      <UserQuickStats userId={user.userId} playerMatches={playersMatches}/>
+      <LastMatchesPlayed player={user} playerSeries={playerSeries} playerMatches={playerMatches}/>
+      <UserQuickStats userId={user.userId} playerMatches={playerMatches} />
 
       <div className="home-page-button-container">
 

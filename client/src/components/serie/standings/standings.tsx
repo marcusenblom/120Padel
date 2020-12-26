@@ -27,7 +27,7 @@ export default function Standing(props: IStandingProps) {
             <th>V</th>
             <th>+</th>
             <th>-</th>
-            <th>P</th>
+            <th>V%</th>
           </tr>
         </thead>
         <tbody>

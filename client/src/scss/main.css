@@ -195,7 +195,7 @@ footer {
 }
 
 #single-standing .points {
-  width: 30px;
+  width: 32px;
   color: black;
 }
 
@@ -682,6 +682,34 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+
+#quick-stats-container .quick-stats #quick-stat .stat .stat-greyed {
+  color: #5f5f5f;
+}
+
+#quick-stats-container .quick-stats #quick-stat .stat .stat-main {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+#quick-stats-container .quick-stats #quick-stat .stat .stat-change {
+  font-weight: 700;
+}
+
+#quick-stats-container .quick-stats #quick-stat .stat span .fas {
+  font-size: 16px;
+  margin-right: 5px;
+  opacity: 1;
+}
+
+#quick-stats-container .quick-stats #quick-stat .stat span .fa-arrow-up {
+  color: green;
+}
+
+#quick-stats-container .quick-stats #quick-stat .stat span .fa-arrow-down {
+  color: #dd0000;
 }
 
 body {
