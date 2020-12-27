@@ -86,7 +86,7 @@ footer {
 #serie .serie-header-section .serie-button-container .serie-button {
   height: 40px;
   background-color: white;
-  border: 1px solid #12326e;
+  border: 1px solid #6041FF;
   border-radius: 3px;
   padding: 0 40px;
   cursor: pointer;
@@ -101,12 +101,12 @@ footer {
 }
 
 #serie .serie-header-section .serie-button-container .serie-button:hover {
-  background-color: #12326e;
+  background-color: #6041FF;
   color: white;
 }
 
 #serie .serie-header-section .serie-button-container .serie-button-active {
-  background-color: #12326e;
+  background-color: #6041FF;
   color: white;
 }
 
@@ -130,7 +130,7 @@ footer {
 
 #standings table thead {
   color: white;
-  background-color: #12326e;
+  background-color: #6041FF;
   font-size: 15px;
 }
 
@@ -485,7 +485,7 @@ footer {
 #singlePlayedMatch .teams .team .team-score {
   font-size: 22px;
   font-weight: 600;
-  color: #12326e;
+  color: #6041FF;
 }
 
 #add-match {
@@ -500,7 +500,7 @@ footer {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  border: 1px solid #12326e;
+  border: 1px solid #6041FF;
 }
 
 #add-match .add-date {
@@ -710,6 +710,65 @@ footer {
 
 #quick-stats-container .quick-stats #quick-stat .stat span .fa-arrow-down {
   color: #dd0000;
+}
+
+#home-button-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px 0 20px 0;
+}
+
+#home-button-container .home-button {
+  height: 60px;
+  width: 335px;
+  border: none;
+  border-radius: 4px;
+  background-color: #6041FF;
+  color: white;
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 800;
+}
+
+#register-match-container {
+  width: calc(100%-40px);
+  min-height: 80vh;
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+#register-match-container .header-container h2 {
+  text-align: center;
+}
+
+#register-match-container .serie-button-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#register-match-container .serie-button-container button {
+  width: 335px;
+  height: 60px;
+  margin: 10px 0;
 }
 
 body {

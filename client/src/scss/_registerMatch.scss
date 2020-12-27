@@ -1,0 +1,29 @@
+@import "variables";
+
+#register-match-container{
+    width: calc(100%-40px);
+    min-height: 80vh;
+    padding: 0 20px;
+    margin-top: 10px;
+
+    .header-container{
+
+        h2{
+            text-align: center;
+        }
+    }
+
+    .serie-button-container{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        button{
+            width: 335px;
+            height: 60px;
+            margin: 10px 0;
+        }
+    }
+}

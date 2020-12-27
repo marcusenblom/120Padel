@@ -190,7 +190,8 @@ serieSchema.methods.addMatch = function(gameStats){
     if (this.playedMatches.length < 1) {
         matchId = 1;
     } else {
-        matchId = (this.playedMatches[0].matchId + 1);
+        let lastGameId = this.playedMatches.sort((a, b) => (a.matchId < b.matchId) ? 1 : -1)[0].matchId;
+        matchId = lastGameId+1;
     }
      
     let newMatch = {

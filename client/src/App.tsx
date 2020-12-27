@@ -5,6 +5,7 @@ import Nav from "./components/nav/nav";
 import Footer from "./components/footer/footer";
 import Serie from "./components/serie/serie";
 import Home from './components/home/home';
+import RegisterMatch from './components/registerMatch/registerMatch';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route path="/serie">
             <Serie/>
+          </Route>
+          <Route path="/registerMatch">
+            <RegisterMatch/>
           </Route>
         </Switch>
       </Router>

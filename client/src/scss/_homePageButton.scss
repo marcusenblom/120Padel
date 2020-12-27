@@ -1,0 +1,21 @@
+@import "variables";
+
+#home-button-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 20px 0;
+
+    .home-button{
+        height: 60px;
+        width: 335px;
+        border: none;
+        border-radius: 4px;
+        background-color: $blue-color;
+        color: white;
+        font-size: 18px;
+        font-family: inherit;
+        font-weight: 800;
+    }
+}

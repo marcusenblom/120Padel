@@ -18,6 +18,15 @@ export default function AddMatch(props: IAddMatchProps) {
   const [teamOneGames, setTeamOneGames] = useState(0);
   const [teamTwoGames, setTeamTwoGames] = useState(0);
 
+  const clearState = () => {
+    setTeamOnePlayerOne(0);
+    setTeamOnePlayerTwo(0);
+    setTeamTwoPlayerOne(0);
+    setTeamTwoPlayerTwo(0);
+    setTeamOneGames(0);
+    setTeamTwoGames(0);
+}
+
   function updateDate(e: ChangeEvent<HTMLInputElement>){
     let inputDate = e.currentTarget.value;
     setDate(new Date(inputDate));
@@ -109,14 +118,17 @@ export default function AddMatch(props: IAddMatchProps) {
       );
       return data;
     }
+    console.log("Can not create game that has no winner");
   }
   
   function sendNewMatchDataToParent(e: any){
     let data = getDataToSend();
+    console.log(teamOneGames);
+    
     if (data?.losersGame !== data?.winnersGame) {
       props.updateParentWithPostData(data);
-    } else {
-      console.log("Can not create game that has no winner");
+      clearState();
+      console.log(teamOneGames);
     }
   }
 

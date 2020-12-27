@@ -5,8 +5,7 @@ import UserModel from "../../models/userModel";
 import { PlayedMatchModel, SerieModel } from "../../models/serieModel";
 import LastMatchesPlayed from "./lastMatchesPlayed/lastMatchesPlayed";
 import UserQuickStats from "./userQuickStats/userQuickStats";
-import { defaultProps } from "react-select/src/Select";
-import { openStdin } from "process";
+import HomePageButton from "./homePageButton/homePageButton";
 
 
 export default function Home() {
@@ -55,10 +54,7 @@ export default function Home() {
     <div id="home">
       <LastMatchesPlayed player={user} playerSeries={playerSeries} playerMatches={playerMatches}/>
       <UserQuickStats userId={user.userId} playerMatches={playerMatches} />
-
-      <div className="home-page-button-container">
-
-      </div>
+      <HomePageButton content="Registrera match" link="/serie"/>
     </div>
   );
 }
