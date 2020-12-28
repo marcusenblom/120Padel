@@ -63,7 +63,6 @@ export default function RegisterMatch() {
     if (playersToFind) {
       setPlayers(playersToFind);
     }
-    
   }
 
   let serieOptions = playerSeries.map(serie => {

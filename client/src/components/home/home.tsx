@@ -54,7 +54,7 @@ export default function Home() {
     <div id="home">
       <LastMatchesPlayed player={user} playerSeries={playerSeries} playerMatches={playerMatches}/>
       <UserQuickStats userId={user.userId} playerMatches={playerMatches} />
-      <HomePageButton content="Registrera match" link="/serie"/>
+      <HomePageButton content="Registrera match" link="/registerMatch"/>
     </div>
   );
 }

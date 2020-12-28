@@ -3,6 +3,7 @@ import '../../scss/_navbar.scss';
 import homeIcon from "../../images/home.svg";
 import profileIcon from "../../images/profile.svg";
 import seriesIcon from "../../images/series.svg";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
 
@@ -10,13 +11,13 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <div className="icon-container">
-        <img src={seriesIcon} alt=""/>
+          <a href="/serie"><img src={seriesIcon} alt=""/></a>
       </div>
       <div className="icon-container">
-        <img src={homeIcon} alt=""/>
+        <a href="/"><img src={homeIcon} alt=""/></a>
       </div>
       <div className="icon-container">
-        <img src={profileIcon} alt=""/>
+        <a href="/serie"><img src={profileIcon} alt=""/></a>
       </div>
     </div>
   );

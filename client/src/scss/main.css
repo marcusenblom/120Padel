@@ -492,6 +492,7 @@
 #add-match {
   width: 100%;
   margin-bottom: 20px;
+  padding: 12px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -501,7 +502,10 @@
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  border: 1px solid #6041FF;
+  border-radius: 4px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 0px 3px 0px #C4C4C4;
 }
 
 #add-match .add-date {
@@ -566,7 +570,6 @@
 
 #home {
   width: calc(100%-40px);
-  min-height: 100vh;
   padding: 0 20px;
 }
 
@@ -594,7 +597,7 @@
 
 #last-matches-container .last-matches {
   min-width: 355px;
-  padding: 12px 0 12px 20px;
+  padding: 2px 0 12px 20px;
   margin: 0 -20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -632,6 +635,7 @@
 
 #quick-stats-container .quick-stats {
   width: 100%;
+  padding-top: 2px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -716,7 +720,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 40px 0 20px 0;
+  margin: 30px 0 20px 0;
 }
 
 #home-button-container .home-button {
@@ -744,6 +748,7 @@
 
 #register-match-container .serie-select-container {
   width: 100%;
+  margin: 20px 0;
 }
 
 #register-match-container .serie-select-container select {

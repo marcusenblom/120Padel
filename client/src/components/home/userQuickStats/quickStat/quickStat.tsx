@@ -1,3 +1,4 @@
+import { spawn } from "child_process";
 import React from "react";
 
 interface IQuickStats{
@@ -16,10 +17,12 @@ export default function QuickStat(props: IQuickStats) {
     let icon: any;
     let arrowUp = (<i className="fas fa-arrow-up"></i>);
     let arrowDown = (<i className="fas fa-arrow-down"></i>);
-    let arrowRight = (<i className="fas fa-arrow-right"></i>);
+    // let arrowRight = (<i className="fas fa-arrow-right"></i>);
+    // let noChange = (<span><i className="fas fa-arrow-left"></i><i className="fas fa-arrow-right"></i></span>);
     
     if (props.change === 0) {
-        icon = arrowRight;
+        icon = "+/- 0";
+        change = "";
     } else {
         icon = (props.change < 0 ? arrowDown:arrowUp);
     }
