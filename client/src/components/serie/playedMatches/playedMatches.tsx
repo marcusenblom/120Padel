@@ -9,7 +9,6 @@ interface IPlayedMatchesProps{
   playedMatches: PlayedMatchModel[];
   players: PlayersModel[];
   serieId: Number;
-  newGameRegistered: Boolean;
   updateParentWithPostData(data: any): void;
 }
 
@@ -46,7 +45,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
 
   let showAddMatchComponent;
   if (showAddMatch){
-    showAddMatchComponent = <AddMatch serieId={props.serieId} updateParentWithPostData={registerMatch} players={props.players} newGameRegistered={props.newGameRegistered}/>
+    showAddMatchComponent = <AddMatch serieId={props.serieId} updateParentWithPostData={registerMatch} players={props.players}/>
   } else {
     showAddMatchComponent = "";
   }

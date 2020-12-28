@@ -61,7 +61,7 @@ export default function Serie() {
     }
     if (displaySection === "matchesPlayed") {
       return(
-        <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie} newGameRegistered={newGameRegistered}/>
+        <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie}/>
       );
     }
   };

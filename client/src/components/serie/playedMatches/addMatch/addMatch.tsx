@@ -1,11 +1,11 @@
 import React, { ChangeEvent, useState } from "react";
 import "../../../../scss/_addMatch.scss";
 import { PlayersModel } from "../../../../models/serieModel";
+import moment from "moment";
 
 interface IAddMatchProps{
   serieId: Number;
   players: PlayersModel[];
-  newGameRegistered: Boolean;
   updateParentWithPostData(data: any): void;
 }
 
@@ -18,6 +18,9 @@ export default function AddMatch(props: IAddMatchProps) {
   const [teamOneGames, setTeamOneGames] = useState(0);
   const [teamTwoGames, setTeamTwoGames] = useState(0);
 
+  console.log(props.serieId);
+  console.log(props.players);
+  
   const clearState = () => {
     setTeamOnePlayerOne(0);
     setTeamOnePlayerTwo(0);
@@ -25,7 +28,7 @@ export default function AddMatch(props: IAddMatchProps) {
     setTeamTwoPlayerTwo(0);
     setTeamOneGames(0);
     setTeamTwoGames(0);
-}
+  }
 
   function updateDate(e: ChangeEvent<HTMLInputElement>){
     let inputDate = e.currentTarget.value;
@@ -150,7 +153,7 @@ export default function AddMatch(props: IAddMatchProps) {
   return (
     <div id="add-match">
       <div className="add-date">
-        <input type="date" onChange={updateDate}/>
+        <input type="date" value={moment(date).format('YYYY-MM-DD')} onChange={updateDate}/>
       </div>
       <div className="add-team add-team-one">
         <div className="player-select-container">
