@@ -17,9 +17,6 @@ export default function AddMatch(props: IAddMatchProps) {
   const [teamTwoPlayerTwo, setTeamTwoPlayerTwo] = useState(0);
   const [teamOneGames, setTeamOneGames] = useState(0);
   const [teamTwoGames, setTeamTwoGames] = useState(0);
-
-  console.log(props.serieId);
-  console.log(props.players);
   
   const clearState = () => {
     setTeamOnePlayerOne(0);

@@ -16,8 +16,13 @@ export default function QuickStat(props: IQuickStats) {
     let icon: any;
     let arrowUp = (<i className="fas fa-arrow-up"></i>);
     let arrowDown = (<i className="fas fa-arrow-down"></i>);
-    icon = (props.change <= 0 ? arrowDown:arrowUp);
-    // Fixa denna så att right läggs till vid = 0
+    let arrowRight = (<i className="fas fa-arrow-right"></i>);
+    
+    if (props.change === 0) {
+        icon = arrowRight;
+    } else {
+        icon = (props.change < 0 ? arrowDown:arrowUp);
+    }
     
   return (
     <div id="quick-stat">
