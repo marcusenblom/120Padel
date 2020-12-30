@@ -34,7 +34,7 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
       }
     });
     
-    return <div className="single-played-match"><SinglePlayedMatch key={match.matchId} match={match} showSerieName={true} serieName={serieName} players={players}/></div>
+    return <div className="single-played-match" key={match.matchId}><SinglePlayedMatch match={match} showSerieName={true} serieName={serieName} players={players}/></div>
   });
 
   return (

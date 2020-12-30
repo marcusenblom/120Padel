@@ -16,7 +16,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
   const [showAddMatch, setShowAddMatch] = useState(false);
 
   let listOfMatches = props.playedMatches.map(match => {
-    return (<div className="single-played-match"><SinglePlayedMatch key={match.matchId} showSerieName={false} match={match} players={props.players} serieName={""}/></div>);
+    return (<div className="single-played-match" key={match.matchId}><SinglePlayedMatch showSerieName={false} match={match} players={props.players} serieName={""}/></div>);
   });
 
   let toggleButtonClass = "";
