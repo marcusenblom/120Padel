@@ -5,7 +5,7 @@ const {User, validateUser} = require('../models/User');
 
 router.get("/", async (req, res) => {
     const user = await User.findOne({
-        // CHANGE TO userId: req.params.userId
+        // userId: req.params.userId
         userId: 1
     }).populate("series.serie");
 

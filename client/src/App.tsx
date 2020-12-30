@@ -6,6 +6,7 @@ import Serie from "./components/serie/serie";
 import Home from './components/home/home';
 import RegisterMatch from './components/registerMatch/registerMatch';
 import Navbar from './components/navbar/navbar';
+import UserProfile from './components/userProfile/userProfile';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/registerMatch">
             <RegisterMatch/>
+          </Route>
+          <Route path="/profile">
+            <UserProfile/>
           </Route>
         </Switch>
       </Router>

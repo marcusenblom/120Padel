@@ -45,7 +45,6 @@ const userSchema = new Schema({
     }]
 });
 
-
 // Add serie to user
 userSchema.methods.addSerie = function(serie){
 

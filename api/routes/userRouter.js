@@ -2,9 +2,13 @@ const express = require('express');
 const router = express.Router();
 const {User, validateUser} = require('../models/User');
 
-router.get("/profile", async (req, res) => {
+router.get("/profile/:id", async (req, res) => {
 
-    res.send()
+    const user = await User.findOne({
+        userId: req.params.userId
+    });
+
+    res.send(user);
 });
 
 router.get("/allUsers", async (req, res) =>{
