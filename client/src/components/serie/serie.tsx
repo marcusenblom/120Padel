@@ -5,6 +5,7 @@ import { PlayersModel, PlayedMatchModel } from "../../models/serieModel";
 import Standings from "./standings/standings";
 import PlayedMatches from "./playedMatches/playedMatches";
 
+import DATABASE_URL from "../../db";
 
 export default function Serie() {
 
@@ -17,14 +18,14 @@ export default function Serie() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/serie/${serieId}`)
-      .then(axiosObject => {
-        let serieData = axiosObject.data;
+    .get(`${DATABASE_URL}/serie/${serieId}`)
+    .then(axiosObject => {
+      let serieData = axiosObject.data;
 
-        setId(serieData.serieId);
-        setName(serieData.name);
-        setPlayers(serieData.players);
-        setPlayedMatches(serieData.playedMatches);
+      setId(serieData.serieId);
+      setName(serieData.name);
+      setPlayers(serieData.players);
+      setPlayedMatches(serieData.playedMatches); 
     }); 
   }, [serieId]);
 
@@ -44,7 +45,7 @@ export default function Serie() {
     losersGame: Number}
     ){
 
-    axios.post('http://localhost:5000/addMatch', matchData).then(response => {
+    axios.post(`${DATABASE_URL}/addMatch`, matchData).then(response => {
       console.log(response);
     }).catch(function(err) {
       console.log(err);

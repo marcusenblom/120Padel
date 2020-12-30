@@ -7,6 +7,8 @@ import LastMatchesPlayed from "./lastMatchesPlayed/lastMatchesPlayed";
 import UserQuickStats from "./userQuickStats/userQuickStats";
 import HomePageButton from "./homePageButton/homePageButton";
 
+import DATABASE_URL from "../../db";
+
 
 export default function Home() {
 
@@ -15,7 +17,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/`)
+      .get(`${DATABASE_URL}/`)
       .then(axiosObject => {
         let userData = axiosObject.data;
 
@@ -28,7 +30,7 @@ export default function Home() {
   function fetchPlayerSeries(userId: Number){
 
     axios
-    .get(`http://localhost:5000/userSeries/${userId}`)
+    .get(`${DATABASE_URL}/userSeries/${userId}`)
     .then(axiosObject => {
       let serieData = axiosObject.data;
       setPlayerSeries(serieData);

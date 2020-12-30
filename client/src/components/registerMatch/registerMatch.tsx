@@ -4,6 +4,7 @@ import { PlayersModel, SerieModel } from "../../models/serieModel";
 import UserModel from "../../models/userModel";
 import AddMatch from "../serie/playedMatches/addMatch/addMatch";
 
+import DATABASE_URL from "../../db";
 
 export default function RegisterMatch() {
 
@@ -15,7 +16,7 @@ export default function RegisterMatch() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/`)
+      .get(`${DATABASE_URL}/`)
       .then(axiosObject => {
         let userData = axiosObject.data;
 
@@ -28,7 +29,7 @@ export default function RegisterMatch() {
   function fetchPlayerSeries(userId: Number){
 
     axios
-    .get(`http://localhost:5000/userSeries/${userId}`)
+    .get(`${DATABASE_URL}/${userId}`)
     .then(axiosObject => {
       let serieData = axiosObject.data;
       setPlayerSeries(serieData);
@@ -46,7 +47,7 @@ export default function RegisterMatch() {
     losersGame: Number}
     ){
 
-    axios.post('http://localhost:5000/addMatch', matchData).then(response => {
+    axios.post(`${DATABASE_URL}/addMatch`, matchData).then(response => {
       console.log(response);
     }).catch(function(err) {
       console.log(err);
