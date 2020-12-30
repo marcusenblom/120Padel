@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import "../../../../scss/_addMatch.scss";
 import { PlayersModel } from "../../../../models/serieModel";
 import moment from "moment";

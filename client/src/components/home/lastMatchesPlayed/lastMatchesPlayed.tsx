@@ -30,12 +30,11 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
     props.playerSeries.forEach(serie => {
       if (serie.serieId === match.serie) {
         serieName = serie.name;
-
         players = serie.players;
       }
     });
     
-    return <SinglePlayedMatch key={match.matchId} match={match} showSerieName={true} serieName={serieName} players={players}/>
+    return <div className="single-played-match"><SinglePlayedMatch key={match.matchId} match={match} showSerieName={true} serieName={serieName} players={players}/></div>
   });
 
   return (

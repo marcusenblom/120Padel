@@ -1,6 +1,3 @@
-import { spawn } from "child_process";
-import React from "react";
-
 interface IQuickStats{
     header: String;
     mainStat: Number;

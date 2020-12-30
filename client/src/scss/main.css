@@ -269,9 +269,12 @@
           align-items: center;
 }
 
+#played-matches .single-played-match {
+  margin-bottom: 12px;
+}
+
 #singlePlayedMatch {
   width: 335px;
-  margin-right: 8px;
   padding: 8px 0 16px 0;
   -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
   box-shadow: 0px 0px 3px 0px #C4C4C4;
@@ -610,6 +613,10 @@
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   overflow: scroll;
+}
+
+#last-matches-container .last-matches .single-played-match {
+  margin-right: 8px;
 }
 
 #quick-stats-container .quick-stats-header {
