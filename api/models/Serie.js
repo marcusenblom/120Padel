@@ -18,7 +18,7 @@ const serieSchema = new Schema({
     players: [{
         standing: {
             type: Number,
-            required: true
+            default: 0
         },
         user: {
             type: mongoose.Schema.Types.ObjectId,

@@ -79,6 +79,9 @@ export default function UserProfile(){
     setPlayerGameWon(gameWon);
     setPlayerWins(wins);
   }
+
+  console.log(JSON.stringify(playerMatches));
+  
   
 
   return(
