@@ -15,7 +15,7 @@ export default function Navbar() {
         <a href="/"><img src={homeIcon} alt=""/></a>
       </div>
       <div className="icon-container">
-        <a href="/serie"><img src={profileIcon} alt=""/></a>
+        <a href="/profile"><img src={profileIcon} alt=""/></a>
       </div>
     </div>
   );
