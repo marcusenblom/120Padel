@@ -9,7 +9,7 @@ import DATABASE_URL from "../../db";
 
 export default function Serie() {
 
-  const [serieId, setId] = useState(2);
+  const [serieId, setId] = useState(1);
   const [name, setName] = useState("");
   const [players, setPlayers] = useState([new PlayersModel()]);
   const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel()]);

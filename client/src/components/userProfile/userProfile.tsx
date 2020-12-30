@@ -41,12 +41,12 @@ export default function UserProfile(){
 
     playerSeries.forEach(serie => {
         serie.playedMatches.forEach(match => {
-        if ( (match.winners.players.find(player => player.userId === user.userId)) || (match.losers.players.find(player => player.userId === user.userId) )) {
+        if ( (match.winners.players.find(player => player.userId === user.userId)) || (match.losers.players.find(player => player.userId === user.userId)) ) {
             playerMatches.push(match);
         }
         });
     });
-    
+
     // Sort all players played matches as date
     playerMatches.sort((a, b) => (a.date < b.date) ? 1 : -1);
 
@@ -58,7 +58,6 @@ export default function UserProfile(){
   }, [playerSeries]);
 
   function calculateMatchStats(){
-    let winRatio = 0;
     let wins = 0;
     let gamePlayed = 0;
     let gameWon = 0;
@@ -69,18 +68,17 @@ export default function UserProfile(){
             wins += player.matchesWon;
             gamePlayed += (player.gameWon + player.gameLost);
             gameWon += player.gameWon;
-            winRatio += player.matchesWon / player.matchesPlayed;
         }
     });
-    let winRatioAsString = winRatio.toFixed(2).slice(0, 4);
+
+    // Calculate winrate
+    let winRatioAsString = (wins / playerMatches.length).toFixed(4).slice(0, 10);
     
-    setPlayerWinRatio(Number(winRatioAsString) / 2);
+    setPlayerWinRatio(Number(winRatioAsString));
     setPlayerGamePlayed(gamePlayed);
     setPlayerGameWon(gameWon);
     setPlayerWins(wins);
   }
-
-  console.log(JSON.stringify(playerMatches));
   
   
 
@@ -89,7 +87,7 @@ export default function UserProfile(){
         <p>Spelade matcher: {playerMatches.length}</p>
         <p>Vunna matcher: {playerWins}</p>
         <p>Matchsnitt: {playerWinRatio}</p>
-        <p>Spelade Game: {playerGamePlayed}</p>
+        <p>Spelade game: {playerGamePlayed}</p>
         <p>Game: {playerGameWon} - {playerGamePlayed - playerGameWon} ( + {playerGameWon - (playerGamePlayed - playerGameWon)} )</p>
     </div>
   );

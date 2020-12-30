@@ -30,7 +30,7 @@ export default function UserQuickStats(props: IUserQuickStats) {
     })
     });
 
-    let winRatioAsString = (numberOfWins / props.playerMatches.length).toFixed(2).slice(0, 4);
+    let winRatioAsString = (numberOfWins / props.playerMatches.length);
     let winLossRatio = Number(winRatioAsString);
     return winLossRatio;
   };
@@ -50,7 +50,7 @@ export default function UserQuickStats(props: IUserQuickStats) {
     
     let winRatio = numberOfWins / numberOfGames;
 
-    let winRatioAsString = winRatio.toFixed(2).slice(1, 4);
+    let winRatioAsString = winRatio.toFixed(4).slice(1, 10);
     let winLossRatio = Number(winRatioAsString);
     return winLossRatio;
   };
@@ -100,6 +100,7 @@ export default function UserQuickStats(props: IUserQuickStats) {
     return totalGameWon - totalGameLost;
   };
 
+console.log(totalWinRatio);
 
 
   return (
