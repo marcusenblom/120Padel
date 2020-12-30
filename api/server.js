@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const db = require("./config/config").databaseURI;
 const cors = require("cors");
+require("dotenv").config();
 
 const homeRouter = require('./routes/homeRouter');
 const userRouter = require('./routes/userRouter');
@@ -25,13 +26,13 @@ app.use(
     loginRouter
 );
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("client/build"));
 
-    app.get("*", (req, re) => {
-        res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"))
-    });
-};
+//     app.get("*", (req, re) => {
+//         res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"))
+//     });
+// };
 
 // Connect to MongoDB
 const options = {
