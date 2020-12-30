@@ -39,9 +39,9 @@
 
 #serie {
   width: auto;
-  padding: 0 20px;
+  padding: 0 10px;
   margin: 0px auto;
-  width: calc(100% - 40px);
+  width: calc(100% - 20px);
 }
 
 #serie .serie-header-section {
