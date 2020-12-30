@@ -29,7 +29,7 @@ export default function RegisterMatch() {
   function fetchPlayerSeries(userId: Number){
 
     axios
-    .get(`${DATABASE_URL}/${userId}`)
+    .get(`${DATABASE_URL}/userSeries/${userId}`)
     .then(axiosObject => {
       let serieData = axiosObject.data;
       setPlayerSeries(serieData);
