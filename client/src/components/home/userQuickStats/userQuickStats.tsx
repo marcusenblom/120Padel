@@ -100,9 +100,6 @@ export default function UserQuickStats(props: IUserQuickStats) {
     return totalGameWon - totalGameLost;
   };
 
-console.log(totalWinRatio);
-
-
   return (
     <div id="quick-stats-container">
 

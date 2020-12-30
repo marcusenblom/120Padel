@@ -28,7 +28,6 @@ export default function Home() {
   }, []);
 
   function fetchPlayerSeries(userId: Number){
-
     axios
     .get(`${DATABASE_URL}/userSeries/${userId}`)
     .then(axiosObject => {
@@ -37,6 +36,8 @@ export default function Home() {
     });
   }
 
+  console.log(JSON.stringify(user));
+  
   let playerMatches: PlayedMatchModel[] = [];
 
   if (playerSeries.length > 0) {
