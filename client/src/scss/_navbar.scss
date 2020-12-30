@@ -1,11 +1,13 @@
 @import "variables";
 
 .navbar{
-    width: 100%;
+    width: 375px;
     height: 70px;
     background-color: white;
     color: black;
     display: flex;
+    position: fixed;
+    bottom: 0;
     align-items: center;
     justify-content: center;
 }
