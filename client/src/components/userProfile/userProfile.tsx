@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import DATABASE_URL from "../../../db";
+import DATABASE_URL from "../../db";
 import { PlayedMatchModel, SerieModel } from "../../models/serieModel";
 import UserModel from "../../models/userModel";
 import ProfileStat from "./profileStat/profileStat";
