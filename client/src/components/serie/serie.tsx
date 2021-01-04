@@ -16,8 +16,13 @@ export default function Serie() {
   const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel()]);
   const [displaySection, setDisplaySection] = useState("serie");
   const [newGameRegistered, setNewGameRegistered] = useState(false);
+  const [newPlayerAdded, setNewPlayerAdded] = useState(false);
 
   useEffect(() => {
+    fetchSerieData()
+  }, [newPlayerAdded, newGameRegistered]);
+
+  function fetchSerieData(){
     axios
     .get(`${DATABASE_URL}/serie/${serieId}`)
     .then(axiosObject => {
@@ -28,7 +33,7 @@ export default function Serie() {
       setPlayers(serieData.players);
       setPlayedMatches(serieData.playedMatches); 
     }); 
-  }, [serieId]);
+  }
 
   function showSerie(){
     setDisplaySection("serie");
@@ -43,24 +48,39 @@ export default function Serie() {
     winners: Number[];
     losers: Number[];
     winnersGame: Number;
-    losersGame: Number}
+    losersGame: Number
+  }
     ){
 
     axios.post(`${DATABASE_URL}/addMatch`, matchData).then(response => {
       console.log(response);
+      setNewGameRegistered(true);
     }).catch(function(err) {
       console.log(err);
     });
-
-    setNewGameRegistered(true);
   }
+
+  function addPlayerToSerie(userId: number){
+
+    let data = {
+      userId: userId,
+      serieId: serieId
+    }
+    axios.post(`${DATABASE_URL}/addPlayer`, data).then(response => {
+      console.log(response);
+      // fetchPlayers();
+      setNewPlayerAdded(true);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  };
 
   function renderComponent(){
     if (displaySection === "serie") {
       return(
         <>
           <Standings players={players}/>
-          <AddPlayerToSerie serieId={serieId} playersInThisSerie={players}/>
+          <AddPlayerToSerie serieId={serieId} playersInThisSerie={players} sendPlayerToParent={addPlayerToSerie}/>
         </>
       );
     }

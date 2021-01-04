@@ -11,6 +11,7 @@ import PlayersToAdd from "./playersToAdd/playersToAdd";
 interface IAddPlayerToSerie{
     serieId: number;
     playersInThisSerie: PlayersModel[];
+    sendPlayerToParent(playerId: number): void;
 }
 
 export default function AddPlayerToSerie(props: IAddPlayerToSerie){
@@ -43,11 +44,15 @@ export default function AddPlayerToSerie(props: IAddPlayerToSerie){
         }
         setInput(input);
     }
+
+    function addPlayer(playerId: number){
+        props.sendPlayerToParent(playerId);
+    }
     
     return (
         <div id="add-player-to-serie">
             <PlayerSearchBar placeholder="Search player" value={input} updateParentState={updateInput} />
-            <PlayersToAdd players={filteredUsers}/>
+            <PlayersToAdd players={filteredUsers} sendPlayerToParent={addPlayer}/>
         </div>
     );
 }
