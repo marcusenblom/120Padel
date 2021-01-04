@@ -3,7 +3,7 @@ import { PlayersModel } from "../../../models/serieModel";
 import UserModel from "../../../models/userModel";
 import PlayerSearchBar from "./playerSearchBar/playerSearchBar";
 
-import DATABASE_URL from "../../../db";
+import DATABASE_URL from "../../../../db";
 import axios from "axios";
 import PlayersToAdd from "./playersToAdd/playersToAdd";
 

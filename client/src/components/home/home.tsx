@@ -7,7 +7,7 @@ import LastMatchesPlayed from "./lastMatchesPlayed/lastMatchesPlayed";
 import UserQuickStats from "./userQuickStats/userQuickStats";
 import HomePageButton from "./homePageButton/homePageButton";
 
-import DATABASE_URL from "../../db";
+import DATABASE_URL from "../../../db";
 
 
 export default function Home() {

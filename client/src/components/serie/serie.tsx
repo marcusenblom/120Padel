@@ -5,7 +5,7 @@ import { PlayersModel, PlayedMatchModel } from "../../models/serieModel";
 import Standings from "./standings/standings";
 import PlayedMatches from "./playedMatches/playedMatches";
 
-import DATABASE_URL from "../../db";
+import DATABASE_URL from "../../../db";
 import AddPlayerToSerie from "./addPlayerToSerie/addPlayerToSerie";
 
 export default function Serie() {
