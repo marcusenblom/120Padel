@@ -52,7 +52,8 @@ export default function AddPlayerToSerie(props: IAddPlayerToSerie){
     
     return (
         <div id="add-player-to-serie">
-            <PlayerSearchBar placeholder="Search player" value={input} updateParentState={updateInput} />
+            <div><h3>Lägg till spelare i serie</h3></div>
+            <PlayerSearchBar placeholder="Sök spelare" value={input} updateParentState={updateInput} />
             <PlayersToAdd players={filteredUsers} sendPlayerToParent={addPlayer}/>
         </div>
     );

@@ -1,5 +1,6 @@
 import UserModel from "../../../../models/userModel";
 import SinglePlayerToAdd from "./singlePlayerToAdd/singlePlayerToAdd";
+import "../../../../scss/_playersToAdd.scss";
 
 
 interface IPlayersToAdd{
@@ -22,9 +23,12 @@ export default function PlayersToAdd(props: IPlayersToAdd){
         }
     });
 
-    return (
-        <div className="players-to-add">
-            {listOfPlayersDiv}
-        </div>
-    );
+    if (listOfPlayersDiv.length > 0 && props.players[0].userName.length > 0) {
+        return (
+            <div className="players-to-add">{listOfPlayersDiv}</div>
+        );
+    } else {
+        return (<></>);
+    }
+    
 }
