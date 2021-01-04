@@ -12,7 +12,7 @@ export default function SinglePlayerToAdd(props: ISinglePlayerToAdd){
     };
 
     return (
-        <div>
+        <div className="player">
             <span>{props.userName}</span> <button type="button" onClick={addPlayer}>Lägg till</button>
         </div>
     );

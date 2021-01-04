@@ -47,6 +47,7 @@ export default function AddPlayerToSerie(props: IAddPlayerToSerie){
 
     function addPlayer(playerId: number){
         props.sendPlayerToParent(playerId);
+        updateInput("");
     }
     
     return (
