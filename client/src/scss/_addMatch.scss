@@ -18,31 +18,42 @@
         margin: 10px 0;
     }
 
-    .add-team{
-        padding: 10px;
-        width: calc(50% - 20px);
-    }
-
-    .add-team-one{
+    .add-teams{
+        width: 100%;
         display: flex;
-        justify-content: flex-start;
+        flex-direction: row;
+        flex-wrap: nowrap;
 
-        .game-select-container{
-            width: 50%;
-            text-align: right;
+        .add-team{
+            padding: 10px;
+            width: calc(50% - 20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-    }
-
-    .add-team-two{
-        display: flex;
-        justify-content: flex-end;
-
-        .game-select-container{
-            width: 50%;
-            text-align: left;
+    
+        .add-team-one{
+            display: flex;
+            justify-content: center;
+    
+            .game-select-container{
+                text-align: center;
+            }
+            .player-select-container{
+                text-align: center;
+            }
         }
-        .player-select-container{
-            text-align: right;
+    
+        .add-team-two{
+            display: flex;
+            justify-content: center;
+    
+            .game-select-container{
+                text-align: center;
+            }
+            .player-select-container{
+                text-align: center;
+            }
         }
     }
 

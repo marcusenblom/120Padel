@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import settingsLogo from "../../images/settings.svg";
 import '../../scss/_serie.scss';
 import axios from "axios";
 import { PlayersModel, PlayedMatchModel } from "../../models/serieModel";
@@ -78,15 +79,18 @@ export default function Serie() {
   function renderComponent(){
     if (displaySection === "serie") {
       return(
-        <>
           <Standings players={players}/>
-          <AddPlayerToSerie serieId={serieId} playersInThisSerie={players} sendPlayerToParent={addPlayerToSerie}/>
-        </>
+          // <AddPlayerToSerie serieId={serieId} playersInThisSerie={players} sendPlayerToParent={addPlayerToSerie}/>
       );
     }
     if (displaySection === "matchesPlayed") {
       return(
         <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie}/>
+      );
+    }
+    if (displaySection === "settings") {
+      return(
+        <div></div>
       );
     }
   };
@@ -96,6 +100,7 @@ export default function Serie() {
       <section className="serie-header-section">
         <div className="serie-header-container">
           <h1 className="serie-header">{name}</h1>
+          <span className="settings"><img src={settingsLogo} alt="settings-logo"/></span>
         </div>
         <div className="serie-button-container">
           <button type="button" className="serie-button" onClick={showSerie}>Poängställning</button>

@@ -59,7 +59,7 @@
 
 #serie .serie-header-section .serie-header-container {
   width: 100%;
-  height: 100px;
+  margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -69,10 +69,21 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
 }
 
 #serie .serie-header-section .serie-header-container .serie-header {
   text-align: center;
+}
+
+#serie .serie-header-section .serie-header-container .settings {
+  position: absolute;
+  right: 8px;
+  height: 20px;
+}
+
+#serie .serie-header-section .serie-header-container .settings img {
+  height: 100%;
 }
 
 #serie .serie-header-section .serie-button-container {
@@ -90,7 +101,7 @@
   height: 40px;
   width: 45%;
   background-color: white;
-  border: 1px solid #6041FF;
+  border: 1px solid #720909;
   border-radius: 3px;
   cursor: pointer;
   font-weight: 600;
@@ -104,17 +115,17 @@
 }
 
 #serie .serie-header-section .serie-button-container .serie-button:hover {
-  background-color: #6041FF;
+  background-color: #720909;
   color: white;
 }
 
 #serie .serie-header-section .serie-button-container .serie-button-active {
-  background-color: #6041FF;
+  background-color: #720909;
   color: white;
 }
 
 #serie #rendered-component {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 #standings {
@@ -133,7 +144,7 @@
 
 #standings table thead {
   color: white;
-  background-color: #6041FF;
+  background-color: #720909;
   font-size: 15px;
 }
 
@@ -169,12 +180,15 @@
   color: #929292;
 }
 
-#single-standing .hot-streak {
+#single-standing .profile-image {
   width: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-#single-standing .hot-streak i {
-  color: #e73204;
+#single-standing .profile-image img {
+  height: 42px;
 }
 
 #single-standing .player {
@@ -461,7 +475,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #6041FF;
+  background-color: #720909;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -491,7 +505,7 @@
 #singlePlayedMatch .teams .team .team-score {
   font-size: 22px;
   font-weight: 600;
-  color: #6041FF;
+  color: #720909;
 }
 
 #add-match {
@@ -519,41 +533,66 @@
   margin: 10px 0;
 }
 
-#add-match .add-team {
+#add-match .add-teams {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+#add-match .add-teams .add-team {
   padding: 10px;
   width: calc(50% - 20px);
-}
-
-#add-match .add-team-one {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#add-match .add-team-one .game-select-container {
-  width: 50%;
-  text-align: right;
-}
-
-#add-match .add-team-two {
+#add-match .add-teams .add-team-one {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-#add-match .add-team-two .game-select-container {
-  width: 50%;
-  text-align: left;
+#add-match .add-teams .add-team-one .game-select-container {
+  text-align: center;
 }
 
-#add-match .add-team-two .player-select-container {
-  text-align: right;
+#add-match .add-teams .add-team-one .player-select-container {
+  text-align: center;
+}
+
+#add-match .add-teams .add-team-two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#add-match .add-teams .add-team-two .game-select-container {
+  text-align: center;
+}
+
+#add-match .add-teams .add-team-two .player-select-container {
+  text-align: center;
 }
 
 #add-match .submit-button-container {
@@ -737,7 +776,7 @@
   width: 335px;
   border: none;
   border-radius: 4px;
-  background-color: #6041FF;
+  background-color: #720909;
   color: white;
   font-size: 18px;
   font-family: inherit;
@@ -766,7 +805,7 @@
   font-size: 18px;
   border: none;
   border-radius: 4px;
-  background-color: #6041FF;
+  background-color: #720909;
   color: white;
   font-weight: 600;
 }

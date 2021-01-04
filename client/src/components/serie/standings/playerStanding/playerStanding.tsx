@@ -1,4 +1,10 @@
 import '../../../../scss/_playerStanding.scss';
+import ronaldo from "../../../../images/ronaldo.svg";
+import bale from "../../../../images/bale.svg"
+import buffon from "../../../../images/buffon.svg";
+import pepe from "../../../../images/pepe.svg";
+import marcelo from "../../../../images/marcelo.svg";
+import suarez from "../../../../images/suarez.svg";
 
 interface IPlayerStandingProps{
   userName: string;
@@ -13,11 +19,28 @@ interface IPlayerStandingProps{
 
 export default function PlayerStanding(props: IPlayerStandingProps) {
 
-  let fire;
-  // Change the if statement to hotStreak === true
-  if (props.userName === "Jensa" || props.userName === "Hasse" || props.userName === "Jerka") {
-    fire = <i className="fab fa-hotjar"></i>;
+  let dude = ronaldo;
+
+  if (props.userName === "Hasse") {
+      dude = buffon;
   }
+  if (props.userName === "Jensa") {
+      dude = pepe;
+  }
+  if (props.userName === "Generalen") {
+      dude = suarez;
+  }
+  if (props.userName === "Burt") {
+      dude = marcelo;
+  }
+  if (props.userName === "Jerka") {
+      dude = bale;
+  }
+  if (props.userName === "Unde") {
+      dude = ronaldo;
+  }
+  
+
 
   let winsPerMatch;
   if (!(props.matchesPlayed === props.matchesWon)) {
@@ -35,7 +58,7 @@ export default function PlayerStanding(props: IPlayerStandingProps) {
     <>
       <tr id="single-standing">
         <td className="standing">{props.standing}</td>
-        <td className="hot-streak">{fire}</td>
+        <td className="profile-image"><img src={dude} alt=""/></td>
         <td className="player">{props.userName}</td>
         <td className="games-played">{props.matchesPlayed}</td>
         <td className="games-won">{props.matchesWon}</td>

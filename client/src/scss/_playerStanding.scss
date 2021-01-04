@@ -6,11 +6,13 @@
     .standing{
         color: $greyed-font;
     }
-    .hot-streak{
+    .profile-image{
         width: 25px;
+        display: flex;
 
-        i{
-            color: rgb(231, 50, 4);
+        img{
+            height: 42px;
+
         }
     }
     .player{
