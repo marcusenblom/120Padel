@@ -5,9 +5,9 @@ import axios from "axios";
 import { PlayersModel, PlayedMatchModel } from "../../models/serieModel";
 import Standings from "./standings/standings";
 import PlayedMatches from "./playedMatches/playedMatches";
-
 import DATABASE_URL from "../../db";
-import AddPlayerToSerie from "./addPlayerToSerie/addPlayerToSerie";
+import SerieSettings from "./serieSettings/serieSettings";
+import SerieNavigation from "./serieNavigation/serieNavigation";
 
 export default function Serie() {
 
@@ -41,6 +41,9 @@ export default function Serie() {
   };
   function showMatchesPlayed(){
     setDisplaySection("matchesPlayed");
+  };
+  function showSettings(){
+    setDisplaySection("settings");
   };
 
   function postMatchToSerie(matchData: {
@@ -79,18 +82,26 @@ export default function Serie() {
   function renderComponent(){
     if (displaySection === "serie") {
       return(
+        <>
+          <SerieNavigation showMatchesPlayed={showMatchesPlayed} showSerie={showSerie} showSettings={showSettings} displaySection={displaySection}/>
           <Standings players={players}/>
-          // <AddPlayerToSerie serieId={serieId} playersInThisSerie={players} sendPlayerToParent={addPlayerToSerie}/>
+        </>        
       );
     }
     if (displaySection === "matchesPlayed") {
       return(
-        <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie}/>
+        <>
+          <SerieNavigation showMatchesPlayed={showMatchesPlayed} showSerie={showSerie} showSettings={showSettings} displaySection={displaySection}/>
+          <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie}/>
+        </>
       );
     }
     if (displaySection === "settings") {
       return(
-        <div></div>
+        <>
+          <SerieNavigation showMatchesPlayed={showMatchesPlayed} showSerie={showSerie} showSettings={showSettings} displaySection={displaySection}/>
+          <SerieSettings serieId={serieId} players={players} sendPlayerToParent={addPlayerToSerie}/>
+        </>
       );
     }
   };
@@ -100,11 +111,7 @@ export default function Serie() {
       <section className="serie-header-section">
         <div className="serie-header-container">
           <h1 className="serie-header">{name}</h1>
-          <span className="settings"><img src={settingsLogo} alt="settings-logo"/></span>
-        </div>
-        <div className="serie-button-container">
-          <button type="button" className="serie-button" onClick={showSerie}>Poängställning</button>
-          <button type="button" className="serie-button" onClick={showMatchesPlayed}>Spelade matcher</button>
+          <span className="settings" onClick={showSettings}><img src={settingsLogo} alt="settings-logo"/></span>
         </div>
       </section>
       

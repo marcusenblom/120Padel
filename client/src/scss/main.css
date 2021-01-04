@@ -46,7 +46,8 @@
 }
 
 #serie .serie-header-section {
-  width: 100%;
+  width: calc(100% + 20px);
+  margin-left: -10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,6 +61,7 @@
 #serie .serie-header-section .serie-header-container {
   width: 100%;
   margin-bottom: 20px;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,7 +80,7 @@
 
 #serie .serie-header-section .serie-header-container .settings {
   position: absolute;
-  right: 8px;
+  right: 16px;
   height: 20px;
 }
 
@@ -86,7 +88,7 @@
   height: 100%;
 }
 
-#serie .serie-header-section .serie-button-container {
+#serie #rendered-component .serie-button-container {
   width: 100%;
   height: 50px;
   display: -webkit-box;
@@ -95,9 +97,10 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 
-#serie .serie-header-section .serie-button-container .serie-button {
+#serie #rendered-component .serie-button-container .serie-button {
   height: 40px;
   width: 45%;
   background-color: white;
@@ -108,24 +111,43 @@
   font-family: inherit;
 }
 
-#serie .serie-header-section .serie-button-container .serie-button:focus {
+#serie #rendered-component .serie-button-container .serie-button:focus {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-#serie .serie-header-section .serie-button-container .serie-button:hover {
+#serie #rendered-component .serie-button-container .serie-button:hover {
   background-color: #720909;
   color: white;
 }
 
-#serie .serie-header-section .serie-button-container .serie-button-active {
+#serie #rendered-component .serie-button-container .serie-button-active {
   background-color: #720909;
   color: white;
 }
 
-#serie #rendered-component {
-  margin-top: 20px;
+#serie #rendered-component .back-to-serie {
+  width: 100%;
+  padding: 0 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#serie #rendered-component .back-to-serie span {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+#serie #rendered-component .back-to-serie i {
+  font-size: 14px;
 }
 
 #standings {
@@ -811,7 +833,41 @@
 }
 
 #add-player-to-serie {
-  min-height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#add-player-to-serie .add-player-header {
+  width: 100%;
+  text-align: center;
+}
+
+#add-player-to-serie .player-search {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#add-player-to-serie .player-search input {
+  height: 28px;
+  width: 60%;
+  font-family: inherit;
+}
+
+#add-player-to-serie .players-to-add {
+  width: 90%;
 }
 
 .players-to-add {
