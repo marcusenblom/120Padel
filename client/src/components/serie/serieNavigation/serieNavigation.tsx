@@ -14,8 +14,8 @@ interface ISerieNavigation{
 
     let serieButtonContainer = (
         <div className="serie-button-container">
-            <button type="button" className="serie-button" onClick={props.showSerie}>Poängställning</button>
-            <button type="button" className="serie-button" onClick={props.showMatchesPlayed}>Spelade matcher</button>
+            <button type="button"  className={ props.displaySection === "serie" ? "serie-button active" : "serie-button" } onClick={props.showSerie}>Poängställning</button>
+            <button type="button" className={ props.displaySection === "matchesPlayed" ? "serie-button active" : "serie-button" } onClick={props.showMatchesPlayed}>Spelade matcher</button>
         </div>
     );
 

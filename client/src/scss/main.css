@@ -97,15 +97,15 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 #serie #rendered-component .serie-button-container .serie-button {
-  height: 40px;
+  height: 36px;
   width: 45%;
   background-color: white;
   border: 1px solid #720909;
-  border-radius: 3px;
+  border-radius: 2px;
   cursor: pointer;
   font-weight: 600;
   font-family: inherit;
@@ -123,6 +123,11 @@
 }
 
 #serie #rendered-component .serie-button-container .serie-button-active {
+  background-color: #720909;
+  color: white;
+}
+
+#serie #rendered-component .serie-button-container .active {
   background-color: #720909;
   color: white;
 }
@@ -251,7 +256,6 @@
 
 #add-match-container .register-match {
   width: 100%;
-  margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -549,6 +553,11 @@
   box-shadow: 0px 0px 3px 0px #C4C4C4;
 }
 
+#add-match input {
+  height: 28px;
+  font-family: inherit;
+}
+
 #add-match .add-date {
   width: 100%;
   text-align: center;
@@ -569,7 +578,8 @@
 }
 
 #add-match .add-teams .add-team {
-  padding: 10px;
+  margin: 10px;
+  padding: 8px 0;
   width: calc(50% - 20px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -581,46 +591,43 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-#add-match .add-teams .add-team-one {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border: 1px solid #cecece;
+  border-radius: 4px;
 }
 
-#add-match .add-teams .add-team-one .game-select-container {
+#add-match .add-teams .add-team h4 {
+  margin: 4px 0;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+#add-match .add-teams .add-team .game-select-container {
   text-align: center;
 }
 
-#add-match .add-teams .add-team-one .player-select-container {
+#add-match .add-teams .add-team .game-select-container select {
+  height: 28px;
+  margin: 4px 0;
+  font-family: inherit;
+}
+
+#add-match .add-teams .add-team .player-select-container {
   text-align: center;
 }
 
-#add-match .add-teams .add-team-two {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#add-match .add-teams .add-team-two .game-select-container {
-  text-align: center;
-}
-
-#add-match .add-teams .add-team-two .player-select-container {
-  text-align: center;
+#add-match .add-teams .add-team .player-select-container select {
+  height: 28px;
+  margin: 4px 0;
+  font-family: inherit;
 }
 
 #add-match .submit-button-container {
   width: 100%;
   text-align: center;
-  padding: 20px 0;
+  padding: 8px 0;
 }
 
 #add-match .submit-button-container button {

@@ -154,6 +154,7 @@ export default function AddMatch(props: IAddMatchProps) {
       </div>
       <div className="add-teams">
         <div className="add-team add-team-one">
+          <h4>Lag 1</h4>
           <div className="game-select-container">
             <select name="teamOneGame" id="teamOneGame" className="game-select" onChange={changeTeamOneGame}>
               <option value="">Game</option>
@@ -173,6 +174,7 @@ export default function AddMatch(props: IAddMatchProps) {
         </div>
 
         <div className="add-team add-team-two">
+        <h4>Lag 2</h4>
           <div className="game-select-container">
             <select name="teamOnePlayerOne" id="teamOneGame" className="game-select" onChange={changeTeamTwoGame}>
               <option value="">Game</option>
