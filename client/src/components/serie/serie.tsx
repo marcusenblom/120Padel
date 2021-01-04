@@ -6,6 +6,7 @@ import Standings from "./standings/standings";
 import PlayedMatches from "./playedMatches/playedMatches";
 
 import DATABASE_URL from "../../db";
+import AddPlayerToSerie from "./addPlayerToSerie/addPlayerToSerie";
 
 export default function Serie() {
 
@@ -57,7 +58,10 @@ export default function Serie() {
   function renderComponent(){
     if (displaySection === "serie") {
       return(
-        <Standings players={players}/>
+        <>
+          <Standings players={players}/>
+          <AddPlayerToSerie serieId={serieId} playersInThisSerie={players}/>
+        </>
       );
     }
     if (displaySection === "matchesPlayed") {
