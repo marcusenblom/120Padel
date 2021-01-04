@@ -771,6 +771,10 @@
   font-weight: 600;
 }
 
+#add-player-to-serie {
+  min-height: 300px;
+}
+
 .players-to-add {
   margin: 10px 0;
   border-radius: 4px;
@@ -803,6 +807,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.players-to-add .player button {
+  height: 30px;
+  background-color: green;
+  color: white;
+  font-family: inherit;
+  border: none;
+  border-radius: 3px;
+  padding: 0 10px;
+  font-weight: 600;
 }
 
 .players-to-add .player:nth-child(1) {
