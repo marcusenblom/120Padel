@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PlayersModel } from "../../../../models/serieModel";
 import UserModel from "../../../../models/userModel";
 import PlayerSearchBar from "./playerSearchBar/playerSearchBar";

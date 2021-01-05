@@ -69,11 +69,6 @@ export default function RegisterMatch() {
   let serieOptions = playerSeries.map(serie => {
     return <option key={serie.serieId} value={serie.serieId}>{serie.name}</option>
   });
-
-
-  // serieId: Number;
-  // players: PlayersModel[];
-  // updateParentWithPostData(data: any): void;
   
   return (
     <div id="register-match-container">

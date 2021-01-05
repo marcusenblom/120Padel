@@ -1,4 +1,3 @@
-import react from "react";
 
 interface IPlayerSearchBar{
     placeholder: string;

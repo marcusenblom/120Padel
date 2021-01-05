@@ -20,6 +20,8 @@ export default function PlayersToAdd(props: IPlayersToAdd){
             return ( 
                 <SinglePlayerToAdd key={player.userId} userId={player.userId} userName={player.userName} sendPlayerToParent={addPlayer}/>
             )
+        } else {
+            return "";
         }
     });
 
