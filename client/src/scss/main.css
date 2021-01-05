@@ -1010,6 +1010,7 @@
   height: 28px;
   padding-left: 8px;
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid #a0a0a0;
 }
 
