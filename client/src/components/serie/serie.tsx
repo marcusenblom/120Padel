@@ -18,10 +18,12 @@ export default function Serie() {
   const [displaySection, setDisplaySection] = useState("serie");
   const [newGameRegistered, setNewGameRegistered] = useState(false);
   const [newPlayerAdded, setNewPlayerAdded] = useState(false);
+  const [serieNameChanged, setSerieNameChanged] = useState(false);
 
   useEffect(() => {
+    setSerieNameChanged(false);
     fetchSerieData()
-  }, [newPlayerAdded, newGameRegistered]);
+  }, [newPlayerAdded, newGameRegistered, serieNameChanged]);
 
   function fetchSerieData(){
     axios
@@ -79,6 +81,20 @@ export default function Serie() {
     });
   };
 
+  function changeSerieName(newName: string){
+    let data = {
+      serieId: serieId,
+      newName: newName
+    }
+    axios.post(`${DATABASE_URL}/serieName`, data).then(response => {
+      console.log(response);
+      setSerieNameChanged(true);
+      
+      }).catch(function(err) {
+      console.log(err);
+    });
+  };
+
   function renderComponent(){
     if (displaySection === "serie") {
       return(
@@ -100,7 +116,7 @@ export default function Serie() {
       return(
         <>
           <SerieNavigation showMatchesPlayed={showMatchesPlayed} showSerie={showSerie} showSettings={showSettings} displaySection={displaySection}/>
-          <SerieSettings serieId={serieId} players={players} sendPlayerToParent={addPlayerToSerie}/>
+          <SerieSettings serieId={serieId} players={players} sendNewNameToParent={changeSerieName} sendPlayerToParent={addPlayerToSerie}/>
         </>
       );
     }
