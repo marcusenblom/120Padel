@@ -889,6 +889,8 @@
   padding-left: 8px;
   border: none;
   border-bottom: 1px solid #a0a0a0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
 }
 
 #add-player-to-serie .players-to-add {
@@ -1010,8 +1012,9 @@
   height: 28px;
   padding-left: 8px;
   border: none;
-  border-radius: 0;
   border-bottom: 1px solid #a0a0a0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
 }
 
 #change-name-container .change-name-input-container button {
