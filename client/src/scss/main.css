@@ -854,11 +854,22 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 20px 0;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 0px 3px 0px #C4C4C4;
 }
 
 #add-player-to-serie .add-player-header {
   width: 100%;
   text-align: center;
+  margin: 0 0 20px 0;
+}
+
+#add-player-to-serie .add-player-header h3 {
+  margin: 0;
 }
 
 #add-player-to-serie .player-search {
@@ -875,6 +886,7 @@
   height: 28px;
   width: 60%;
   font-family: inherit;
+  padding-left: 8px;
 }
 
 #add-player-to-serie .players-to-add {
@@ -942,15 +954,22 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 20px 0;
   margin: 20px 0;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 0px 3px 0px #C4C4C4;
 }
 
 #change-name-container .change-name-header {
   width: 100%;
+  margin: 0 0 20px 0;
 }
 
 #change-name-container .change-name-header h3 {
   text-align: center;
+  margin: 0;
 }
 
 #change-name-container .change-name-input-container {
@@ -969,7 +988,9 @@
 
 #change-name-container .change-name-input-container input {
   width: 60%;
+  font-family: inherit;
   height: 28px;
+  padding-left: 8px;
 }
 
 #change-name-container .change-name-input-container button {
@@ -980,7 +1001,7 @@
   border-radius: 3px;
   border: none;
   font-weight: 600;
-  margin: 12px 0;
+  margin: 20px 0 0 0;
 }
 
 body {

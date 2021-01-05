@@ -23,8 +23,9 @@ export default function SerieSettings(props: ISerieSettings){
 
     return(
         <div id="serieSettings">
-            <AddPlayerToSerie serieId={props.serieId} playersInThisSerie={props.players} sendPlayerToParent={addPlayer}/>
             <ChangeSerieName sendNewNameToParent={changeName}/>
+            <AddPlayerToSerie serieId={props.serieId} playersInThisSerie={props.players} sendPlayerToParent={addPlayer}/>
+
         </div>
     );
 }

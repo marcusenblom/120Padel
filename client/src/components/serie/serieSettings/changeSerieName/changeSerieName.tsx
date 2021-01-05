@@ -17,6 +17,7 @@ export default function ChangeSerieName(props: IChangeSerieName){
 
     function sendName(){
         props.sendNewNameToParent(input);
+        setInput("");
     };
     
     return (

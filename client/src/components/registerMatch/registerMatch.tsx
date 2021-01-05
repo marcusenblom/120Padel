@@ -74,8 +74,6 @@ export default function RegisterMatch() {
   // serieId: Number;
   // players: PlayersModel[];
   // updateParentWithPostData(data: any): void;
-
-  console.log(serieIdChosen);
   
   return (
     <div id="register-match-container">
