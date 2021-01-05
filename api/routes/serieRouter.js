@@ -13,8 +13,7 @@ router.get("/serie/:serieId", async (req, res) => {
     .populate("playedMatches.winners.players")
     .populate("playedMatches.losers.players");
 
-    //Update scoreboard (for testing purposes, this will happen in serie.add/remove/editMatch)
-    serie.updateScoreBoard();
+    await serie.updateScoreBoard();
 
     res.send(serie);
 });

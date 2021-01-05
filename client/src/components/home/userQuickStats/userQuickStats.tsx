@@ -104,8 +104,8 @@ export default function UserQuickStats(props: IUserQuickStats) {
     <div id="quick-stats-container">
 
       <div className="quick-stats-header">
-        <h2>Min statistik</h2>
-        <span>Se alla</span>
+        <h2>Min senaste statistik</h2>
+        {/* <span>Se alla</span> */}
       </div>
 
       <div className="quick-stats">

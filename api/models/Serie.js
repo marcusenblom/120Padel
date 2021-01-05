@@ -170,6 +170,7 @@ serieSchema.methods.addPlayer = function(user){
         // Add user to serie
         listOfPlayers.push({user: user});
     }
+
     return this.save();
 };
 serieSchema.methods.removePlayer = function(user){
