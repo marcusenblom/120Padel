@@ -217,6 +217,16 @@ serieSchema.methods.addMatch = function(gameStats){
     this.updateScoreBoard();
 };
 
+serieSchema.methods.changeName = function(newName){
+
+    if (newName.length > 0) {
+        this.name = newName;
+    }
+
+    return this.save();
+
+};
+
 
 const Serie = mongoose.model("Serie", serieSchema);
 

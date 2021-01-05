@@ -57,6 +57,23 @@ router.post("/createSerie", async (req, res) => {
 
 });
 
+router.post("/serieName", async (req, res) => {
+
+    const serie = await Serie.findOne({
+        serieId: req.body.serieId
+    });
+
+    let newName = req.body.newName;
+
+    if (newName.length > 0) {
+        await serie.changeName(newName);
+        res.send("Serie name has been changed: " + newName)
+    } else {
+        res.send("Could not change serie name")
+    }
+    
+});
+
 router.post("/addPlayer", async (req, res) => {
 
     const playerToAdd = await User.findOne({
