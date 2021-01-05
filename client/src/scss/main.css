@@ -854,7 +854,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px 0;
+  padding: 20px 0 24px 0;
   margin: 20px 0;
   border-radius: 8px;
   background-color: white;
@@ -884,7 +884,7 @@
 
 #add-player-to-serie .player-search input {
   height: 28px;
-  width: 60%;
+  width: 77%;
   font-family: inherit;
   padding-left: 8px;
 }
@@ -954,7 +954,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px 0;
+  padding: 20px 0 24px 0;
   margin: 20px 0;
   border-radius: 8px;
   background-color: white;
@@ -977,13 +977,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #change-name-container .change-name-input-container input {
@@ -994,14 +997,14 @@
 }
 
 #change-name-container .change-name-input-container button {
-  height: 30px;
+  height: 34px;
   background-color: green;
   color: white;
   font-family: inherit;
   border-radius: 3px;
   border: none;
   font-weight: 600;
-  margin: 20px 0 0 0;
+  margin: 0 0 0 12px;
 }
 
 body {
