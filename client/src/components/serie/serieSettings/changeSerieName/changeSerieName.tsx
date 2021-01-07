@@ -27,7 +27,7 @@ export default function ChangeSerieName(props: IChangeSerieName){
             </div>
             <div className="change-name-input-container">
                 <input type="text" placeholder="Skriv in nytt namn" value={input} onChange={updateInput}/>
-                <button type="button" onClick={sendName}>Ändra</button>
+                <button type="button" onClick={sendName}>Spara</button>
             </div>
             
         </div>
