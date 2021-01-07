@@ -589,6 +589,7 @@
   position: absolute;
   right: 12px;
   top: calc(50% - 8px);
+  pointer-events: none;
 }
 
 #add-match .add-date .date-picker-container .fa-calendar {
@@ -1004,6 +1005,7 @@
   position: absolute;
   right: 12px;
   top: calc(50% - 8px);
+  pointer-events: none;
 }
 
 #register-match-container #registering-game {
