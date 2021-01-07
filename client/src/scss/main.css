@@ -768,6 +768,10 @@
   box-shadow: 0px 2px 5px 0px #7a7a7a;
 }
 
+#add-match .submit-button-container button:focus {
+  outline: none;
+}
+
 #add-match .submit-button-container .ball-container {
   height: 60px;
   width: 100%;
