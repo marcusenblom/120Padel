@@ -43,7 +43,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
 
   let showAddMatchComponent;
   if (showAddMatch){
-    showAddMatchComponent = <AddMatch serieId={props.serieId} updateParentWithPostData={registerMatch} players={props.players}/>
+    showAddMatchComponent = <AddMatch serieId={props.serieId} updateParentWithPostData={registerMatch} players={props.players} gameRegistered={false}/>
   } else {
     showAddMatchComponent = "";
   }

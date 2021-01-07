@@ -12,7 +12,8 @@ export default function RegisterMatch() {
   const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
   const [serieIdChosen, setSerieIdChosen] = useState(0);
   const [players, setPlayers] = useState([new PlayersModel()])
-  const [newGameRegistered, setNewGameRegistered] = useState(false);
+  const [gameRegistered, setGameRegistered] = useState(false);
+  const [creatingGame, setCreatingGame] = useState(false);
 
   useEffect(() => {
     axios
@@ -47,13 +48,15 @@ export default function RegisterMatch() {
     losersGame: Number}
     ){
 
+    setCreatingGame(true);
     axios.post(`${DATABASE_URL}/addMatch`, matchData).then(response => {
       console.log(response);
+      setCreatingGame(false);
+      setGameRegistered(true);
     }).catch(function(err) {
       console.log(err);
+      setCreatingGame(false);
     });
-
-    setNewGameRegistered(true);
   }
 
   function changeSerie(e: ChangeEvent<HTMLSelectElement>){
@@ -64,28 +67,41 @@ export default function RegisterMatch() {
     if (playersToFind) {
       setPlayers(playersToFind);
     }
+
   }
 
   let serieOptions = playerSeries.map(serie => {
     return <option key={serie.serieId} value={serie.serieId}>{serie.name}</option>
   });
+
+  let registeringGame = (
+    <span className="registering">Registrerar match..</span>
+  );
+  let registeredGame = (
+    <span className="registered">Match registrerad!</span>
+  );
   
   return (
     <div id="register-match-container">
-        <div className="header-container">
-            <h2>Registrera match</h2>
-        </div>
-        <div className="serie-select-container">
-          <h3>Serie</h3>
-            <div className="serie-select">
-              <select name="serie" id="serie" className="serie-select" onChange={changeSerie}>
-                {serieOptions}
-              </select>
-              <i className="fas fa-chevron-down"></i>
-            </div>
-        </div>
+      <div className="header-container">
+          <h2>Registrera match</h2>
+      </div>
+      <div className="serie-select-container">
+        <h3>Serie</h3>
+          <div className="serie-select">
+            <select name="serie" id="serie" className="serie-select" onChange={changeSerie}>
+              {serieOptions}
+            </select>
+            <i className="fas fa-chevron-down"></i>
+          </div>
+      </div>
 
-        <AddMatch serieId={serieIdChosen} players={players} updateParentWithPostData={postMatchToSerie}/>
+      <AddMatch serieId={serieIdChosen} players={players} updateParentWithPostData={postMatchToSerie} gameRegistered={gameRegistered}/>
+    
+      <div id="registering-game">
+        {creatingGame && !gameRegistered? registeringGame : ""}
+        {gameRegistered? registeredGame : ""}
+      </div>
     </div>
   );
 }

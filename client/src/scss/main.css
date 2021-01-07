@@ -539,7 +539,6 @@
 
 #add-match {
   width: 100%;
-  margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -569,17 +568,21 @@
 #add-match .add-date .date-picker-container {
   position: relative;
   width: 100%;
-}
-
-#add-match .add-date .date-picker-container .date-picker {
-  width: 100%;
-  height: 55px;
-  text-align: left;
+  background-color: white;
   border: none;
   border-radius: 4px;
   -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
   box-shadow: 0px 0px 3px 0px #C4C4C4;
+}
+
+#add-match .add-date .date-picker-container .date-picker {
+  width: 86%;
+  margin-left: 10%;
+  height: 55px;
+  text-align: left;
   background-color: white;
+  border: none;
+  -webkit-appearance: none;
 }
 
 #add-match .add-date .date-picker-container .fa-chevron-down {
@@ -597,9 +600,9 @@
 }
 
 #add-match .add-date .date-picker-container .date-picker::-webkit-datetime-edit {
-  padding: 44px;
+  padding: 8px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #add-match .add-date .date-picker-container .date-picker::-webkit-calendar-picker-indicator {
@@ -673,13 +676,10 @@
   pointer-events: none;
 }
 
-#add-match .game-header {
+#add-match .player-error {
   width: 100%;
-  margin: 14px 0 0 0;
-}
-
-#add-match .game-header h3 {
-  margin: 0;
+  color: red;
+  font-size: 14px;
 }
 
 #add-match .add-games {
@@ -696,7 +696,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 24px;
+}
+
+#add-match .add-games h4 {
+  margin: 0 0 8px 0;
 }
 
 #add-match .add-games .add-game {
@@ -741,30 +744,31 @@
   pointer-events: none;
 }
 
+#add-match .game-error {
+  width: 100%;
+  color: red;
+  font-size: 14px;
+}
+
 #add-match .submit-button-container {
   width: 100%;
   text-align: center;
-  padding: 8px 0;
   position: relative;
+  margin-top: 24px;
 }
 
 #add-match .submit-button-container button {
   height: 60px;
   width: 100%;
   background-color: #02ac02;
-  color: white;
-  font-family: inherit;
   border: none;
-  padding: 0 10px;
   border-radius: 30px;
-  font-weight: 600;
-  font-size: 18px;
   -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
-  box-shadow: 0px 2px 3px 0px #7a7a7a;
+  box-shadow: 0px 2px 5px 0px #7a7a7a;
 }
 
 #add-match .submit-button-container .ball-container {
-  height: 100%;
+  height: 60px;
   width: 100%;
   position: absolute;
   top: 0;
@@ -783,7 +787,7 @@
 #add-match .submit-button-container span {
   color: white;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   margin-right: 12px;
 }
 
@@ -1000,6 +1004,29 @@
   position: absolute;
   right: 12px;
   top: calc(50% - 8px);
+}
+
+#register-match-container #registering-game {
+  height: 30px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#register-match-container #registering-game .registering {
+  color: black;
+}
+
+#register-match-container #registering-game .registered {
+  color: #02ac02;
+  font-weight: 700;
 }
 
 #add-player-to-serie {

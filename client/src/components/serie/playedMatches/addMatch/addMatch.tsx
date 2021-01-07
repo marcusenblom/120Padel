@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import "../../../../scss/_addMatch.scss";
 import { PlayersModel } from "../../../../models/serieModel";
 import moment from "moment";
@@ -8,6 +8,7 @@ interface IAddMatchProps{
   serieId: Number;
   players: PlayersModel[];
   updateParentWithPostData(data: any): void;
+  gameRegistered: Boolean;
 }
 
 export default function AddMatch(props: IAddMatchProps) {
@@ -16,57 +17,48 @@ export default function AddMatch(props: IAddMatchProps) {
   const [teamOnePlayerTwo, setTeamOnePlayerTwo] = useState(0);
   const [teamTwoPlayerOne, setTeamTwoPlayerOne] = useState(0);
   const [teamTwoPlayerTwo, setTeamTwoPlayerTwo] = useState(0);
-  const [teamOneGames, setTeamOneGames] = useState(0);
-  const [teamTwoGames, setTeamTwoGames] = useState(0);
-  
-  const clearState = () => {
-    setTeamOnePlayerOne(0);
-    setTeamOnePlayerTwo(0);
-    setTeamTwoPlayerOne(0);
-    setTeamTwoPlayerTwo(0);
-    setTeamOneGames(0);
-    setTeamTwoGames(0);
-  }
+  const [teamOneGames, setTeamOneGames] = useState(99);
+  const [teamTwoGames, setTeamTwoGames] = useState(99);
+  const [gameCreated, setGameCreated] = useState(false);
 
+  const [duplicatePlayerError, setDuplicatePlayerError] = useState(false);
+  const [missingGameError, setMissingGameError] = useState(false);
+  const [noWinnerError, setNoWinnerError] = useState(false);
+  const [invalidGameError, setInvalidGameError] = useState(false);
+  
+  useEffect(() => {
+    clearState();
+  }, [gameCreated]);
+
+  function clearState(){ 
+    setTeamOneGames(99);
+    setTeamTwoGames(99);
+
+    setGameCreated(false);
+
+    console.log(teamOnePlayerOne);
+  }
+  
   function updateDate(e: ChangeEvent<HTMLInputElement>){
     let inputDate = e.currentTarget.value;
     setDate(new Date(inputDate));
   }
 
   function changeTeamOnePlayerOne(e: ChangeEvent<HTMLSelectElement>){
-    let nameFromSelect = e.currentTarget.value;
-    props.players.forEach(player => {
-      if (player.user.userName === nameFromSelect) {
-        setTeamOnePlayerOne(player.user.userId);
-      }
-    });
+    setTeamOnePlayerOne(Number(e.currentTarget.value));
+    
   }
 
   function changeTeamOnePlayerTwo(e: ChangeEvent<HTMLSelectElement>){
-    let nameFromSelect = e.currentTarget.value;
-    props.players.forEach(player => {
-      if (player.user.userName === nameFromSelect) {
-        setTeamOnePlayerTwo(player.user.userId);
-      }
-    });
+    setTeamOnePlayerTwo(Number(e.currentTarget.value));
   }
 
   function changeTeamTwoPlayerOne(e: ChangeEvent<HTMLSelectElement>){
-    let nameFromSelect = e.currentTarget.value;
-    props.players.forEach(player => {
-      if (player.user.userName === nameFromSelect) {
-        setTeamTwoPlayerOne(player.user.userId);
-      }
-    });
+    setTeamTwoPlayerOne(Number(e.currentTarget.value));
   }
 
   function changeTeamTwoPlayerTwo(e: ChangeEvent<HTMLSelectElement>){
-    let nameFromSelect = e.currentTarget.value;
-    props.players.forEach(player => {
-      if (player.user.userName === nameFromSelect) {
-        setTeamTwoPlayerTwo(player.user.userId);
-      }
-    });
+    setTeamTwoPlayerTwo(Number(e.currentTarget.value));
   }
 
   function changeTeamOneGame(e: ChangeEvent<HTMLSelectElement>){
@@ -119,22 +111,25 @@ export default function AddMatch(props: IAddMatchProps) {
       );
       return data;
     }
-    console.log("Can not create game that has no winner");
   }
   
   function sendNewMatchDataToParent(e: any){
     let data = getDataToSend();
-    console.log(teamOneGames);
-    
-    if (data?.losersGame !== data?.winnersGame) {
+
+    let winners = confirmIfWinnerExist(data);
+    let defaultGames = confirmIfGameExists(data);
+    let duplicatePlayers = confirmNoDuplicatePlayers(data);
+    let validResult = confirmValidResult(data);
+
+    if (winners && defaultGames && duplicatePlayers && validResult) {
+      console.log("skapar match");
       props.updateParentWithPostData(data);
-      clearState();
-      console.log(teamOneGames);
+      setGameCreated(true);
     }
   }
 
   let listOfPlayers = props.players.map(player => {
-    return <option className="select-option" key={player.user.userName} value={player.user.userName}>{player.user.userName}</option>
+    return <option className="select-option" key={player.user.userName} value={player.user.userId}>{player.user.userName}</option>
   });
 
   let listOfGameTeamOne = [];
@@ -147,6 +142,58 @@ export default function AddMatch(props: IAddMatchProps) {
     let valueTwo = i;
     listOfGameTeamTwo.push(<option key={i} value={valueTwo}>{i}</option>);
   }
+
+  // Error messages
+  let noWinnerErrorMessage = "En match måste innehålla vinnare";
+  let missingGameErrorMessage = "Du måste fylla i korrekt vunna game";
+  let playerErrorMessage = "En spelare kan ej registrerars två gånger";
+  let invalidGameErrorMEssage = "Ej tillåten vinstmarginal"
+
+  function confirmNoDuplicatePlayers(data: DataToParentModel | undefined){
+    let players = [teamOnePlayerOne, teamOnePlayerTwo, teamTwoPlayerOne, teamTwoPlayerTwo];
+    let startLength = players.length;
+    let newLength = new Set(players).size;
+    if (startLength !== newLength) {
+      setDuplicatePlayerError(true);
+      return false;
+    } else {
+      setDuplicatePlayerError(false);
+      return true;
+    }
+  };
+
+  function confirmIfWinnerExist(data: DataToParentModel | undefined){
+    if (data?.losersGame == data?.winnersGame) {
+      setNoWinnerError(true);
+      return false;
+    } else {
+      setNoWinnerError(false);
+      return true;
+    }
+  };
+  function confirmIfGameExists(data: DataToParentModel | undefined){
+    if (data?.losersGame == 99 || data?.winnersGame == 99) {
+      setMissingGameError(true);
+      return false;
+    } else {
+      setMissingGameError(false);
+      return true;
+    }
+  };
+  function confirmValidResult(data: DataToParentModel | undefined){
+    let twoGameDifferenceAtSevenGamesWon = ((data?.losersGame === 7 && data?.winnersGame >= 5) || data?.winnersGame === 7 && data?.losersGame >= 5);
+    
+    let twoGameDifferenceAtSixGamesWon = ((data?.losersGame === 6 && data?.winnersGame < 5) || (data?.winnersGame === 6 &&  data?.losersGame < 5));
+
+    if (twoGameDifferenceAtSevenGamesWon || twoGameDifferenceAtSixGamesWon) {
+      setInvalidGameError(false);
+      return true;
+    } else {
+      setInvalidGameError(true);
+      return false;
+    }
+  }
+
 
 
   return (
@@ -202,15 +249,16 @@ export default function AddMatch(props: IAddMatchProps) {
           </div>
         </div>
       </div>
-
-      <div className="game-header">
-        <h3>Game</h3>
+      <div className="player-error">
+        <span>{duplicatePlayerError ? playerErrorMessage : ""}</span>
       </div>
+
       <div className="add-games">
         <div className="add-game">
+          <h4>Vunna game</h4>
           <div className="game-select-container">
-            <select name="teamOneGame" id="teamOneGame" className="game-select" onChange={changeTeamOneGame}>
-              <option value="">Game</option>
+            <select name="teamOneGame" id="teamOneGame" className="game-select" onChange={changeTeamOneGame} value={teamOneGames.toString()}>
+              <option value={99}>Game</option>
               {listOfGameTeamOne}
             </select>
             <i className="fas fa-chevron-down"></i>
@@ -218,14 +266,20 @@ export default function AddMatch(props: IAddMatchProps) {
         </div>
 
         <div className="add-game">
+          <h4>Vunna game</h4>
           <div className="game-select-container">
-            <select name="teamTwoGame" id="teamTwoGame" className="game-select" onChange={changeTeamTwoGame}>
-              <option value="">Game</option>
+            <select name="teamTwoGame" id="teamTwoGame" className="game-select" onChange={changeTeamTwoGame} value={teamTwoGames.toString()}>
+              <option value={99}>Game</option>
               {listOfGameTeamTwo}
             </select>
             <i className="fas fa-chevron-down"></i>
           </div>
         </div>
+      </div>
+      <div className="game-error">
+        <span>{missingGameError ? missingGameErrorMessage : ""}</span>
+        <span>{noWinnerError && !missingGameError? noWinnerErrorMessage : ""}</span>
+        <span>{invalidGameError && !missingGameError && !noWinnerError ? invalidGameErrorMEssage : ""}</span>
       </div>
 
       <div className="submit-button-container">
