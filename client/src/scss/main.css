@@ -568,6 +568,7 @@
 
 #add-match .add-date .date-picker-container {
   position: relative;
+  width: 100%;
 }
 
 #add-match .add-date .date-picker-container .date-picker {
