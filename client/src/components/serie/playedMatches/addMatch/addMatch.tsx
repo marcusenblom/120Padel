@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from "react";
 import "../../../../scss/_addMatch.scss";
 import { PlayersModel } from "../../../../models/serieModel";
 import moment from "moment";
+import ball from "../../../../images/ball.svg";
 
 interface IAddMatchProps{
   serieId: Number;
@@ -133,7 +134,7 @@ export default function AddMatch(props: IAddMatchProps) {
   }
 
   let listOfPlayers = props.players.map(player => {
-    return <option key={player.user.userName} value={player.user.userName}>{player.user.userName}</option>
+    return <option className="select-option" key={player.user.userName} value={player.user.userName}>{player.user.userName}</option>
   });
 
   let listOfGameTeamOne = [];
@@ -147,55 +148,92 @@ export default function AddMatch(props: IAddMatchProps) {
     listOfGameTeamTwo.push(<option key={i} value={valueTwo}>{i}</option>);
   }
 
+
   return (
     <div id="add-match">
       <div className="add-date">
-        <input type="date" value={moment(date).format('YYYY-MM-DD')} onChange={updateDate}/>
+        <h3>Datum</h3>
+        <div className="date-picker-container">
+          <input className="date-picker" type="date" value={moment(date).format('YYYY-MM-DD')} onChange={updateDate}/>
+          <i className="fas fa-chevron-down"></i>
+          <i className="far fa-calendar"></i>
+        </div>
       </div>
       <div className="add-teams">
-        <div className="add-team add-team-one">
-          <h4>Lag 1</h4>
+        <div className="add-team">
+          <h3>Lag 1</h3>
+          <div className="player-select-container">
+            <div className="select-wrapper">
+              <select name="teamOnePlayerOne" id="teamOnePlayerOne" className="player-select" onChange={changeTeamOnePlayerOne}>
+                <option value="">Välj spelare</option>
+                {listOfPlayers}
+              </select>
+              <i className="fas fa-chevron-down"></i>
+            </div>
+            <div className="select-wrapper">
+              <select name="teamOnePlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamOnePlayerTwo}>
+                <option value="">Välj spelare</option>
+                {listOfPlayers}
+              </select>
+              <i className="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <div className="add-team">
+        <h3>Lag 2</h3>
+          <div className="player-select-container">
+            <div className="select-wrapper">
+              <select name="teamTwoPlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamTwoPlayerTwo}>
+                <option value="">Välj spelare</option>
+                {listOfPlayers}
+              </select>
+              <i className="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div className="player-select-container">
+            <div className="select-wrapper">
+              <select name="teamTwoPlayerOne" id="teamTwoPlayerOne" className="player-select" onChange={changeTeamTwoPlayerOne}>
+                <option value="">Välj spelare</option>
+                {listOfPlayers}
+              </select>
+              <i className="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="game-header">
+        <h3>Game</h3>
+      </div>
+      <div className="add-games">
+        <div className="add-game">
           <div className="game-select-container">
             <select name="teamOneGame" id="teamOneGame" className="game-select" onChange={changeTeamOneGame}>
               <option value="">Game</option>
               {listOfGameTeamOne}
             </select>
-          </div>
-          <div className="player-select-container">
-            <select name="teamOnePlayerOne" id="teamOnePlayerOne" className="player-select" onChange={changeTeamOnePlayerOne}>
-              <option value="">Välj spelare</option>
-              {listOfPlayers}
-            </select>
-            <select name="teamOnePlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamOnePlayerTwo}>
-              <option value="">Välj spelare</option>
-              {listOfPlayers}
-            </select>
+            <i className="fas fa-chevron-down"></i>
           </div>
         </div>
 
-        <div className="add-team add-team-two">
-        <h4>Lag 2</h4>
+        <div className="add-game">
           <div className="game-select-container">
-            <select name="teamOnePlayerOne" id="teamOneGame" className="game-select" onChange={changeTeamTwoGame}>
+            <select name="teamTwoGame" id="teamTwoGame" className="game-select" onChange={changeTeamTwoGame}>
               <option value="">Game</option>
               {listOfGameTeamTwo}
             </select>
-          </div>
-          <div className="player-select-container">
-            <select name="teamTwoPlayerOne" id="teamTwoPlayerOne" className="player-select" onChange={changeTeamTwoPlayerOne}>
-              <option value="">Välj spelare</option>
-              {listOfPlayers}
-            </select>
-            <select name="teamTwoPlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamTwoPlayerTwo}>
-              <option value="">Välj spelare</option>
-              {listOfPlayers}
-            </select>
+            <i className="fas fa-chevron-down"></i>
           </div>
         </div>
       </div>
 
       <div className="submit-button-container">
-        <button type="submit" onClick={sendNewMatchDataToParent}>Lägg till match</button>
+        <button type="submit" onClick={sendNewMatchDataToParent}></button>
+        <div className="ball-container">
+          <span>Registrera match</span>
+          <img src={ball} alt="tennis-ball" className="ball"/>
+        </div>
       </div>
     </div>
   );

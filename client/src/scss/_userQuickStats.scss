@@ -1,3 +1,5 @@
+@import "variables";
+
 #quick-stats-container{
 
     .quick-stats-header{
@@ -30,8 +32,8 @@
 
             border-radius: 8px;
             background-color: white;
-            -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4; 
-            box-shadow: 0px 0px 3px 0px #C4C4C4;
+            -webkit-box-shadow: $box-shadow; 
+            box-shadow: $box-shadow;
 
             .stat{
                 height: 52px;

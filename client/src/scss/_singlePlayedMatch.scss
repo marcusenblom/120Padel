@@ -3,8 +3,8 @@
 #singlePlayedMatch{
     width: 335px;
     padding: 8px 0 16px 0;
-    -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4; 
-    box-shadow: 0px 0px 3px 0px #C4C4C4;
+    -webkit-box-shadow: $box-shadow; 
+    box-shadow: $box-shadow;
     background-color: white;
     display: flex;
     flex-direction: row;

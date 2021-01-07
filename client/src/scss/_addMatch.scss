@@ -3,14 +3,9 @@
 #add-match{
     width: 100%;
     margin-bottom: 20px;
-    padding: 12px 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border-radius: 4px;
-    background-color: white;
-    -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4; 
-    box-shadow: 0px 0px 3px 0px #C4C4C4;
 
     input{
         height: $input-height;
@@ -19,8 +14,54 @@
 
     .add-date{
         width: 100%;
-        text-align: center;
         margin: 10px 0;
+
+        h3{
+            width: 100%;
+            text-align: left;
+        }
+
+        .date-picker-container{
+            position: relative;
+
+            .date-picker{
+                width: 100%;
+                height: 55px;
+                text-align: left;
+                border: none;
+                border-radius: 4px;
+                -webkit-box-shadow: $box-shadow; 
+                box-shadow: $box-shadow;
+                background-color: white;
+            }
+            .fa-chevron-down{
+                position: absolute;
+                right: 12px;
+                top: calc(50% - 8px);
+            }
+            .fa-calendar{
+                position: absolute;
+                left: 12px;
+                font-size: 24px;
+                top: calc(50% - 14px);
+                color: rgb(29, 29, 29);
+            }
+    
+            .date-picker::-webkit-datetime-edit {
+                padding: 44px;
+                font-weight: 500;
+                font-size: 16px;
+            }
+            .date-picker::-webkit-calendar-picker-indicator { 
+                position: absolute;
+                left: -12px;
+                font-size: 30px;
+                width: calc(100% - 30px);
+                height: 90%;
+                opacity: 0;
+            }
+        }
+
     }
 
     .add-teams{
@@ -28,40 +69,97 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        justify-content: space-between;
 
         .add-team{
-            margin: 10px;
-            padding: 8px 0;
-            width: calc(50% - 20px);
+            margin: 10px 0;
+            width: 46%;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            border: 1px solid rgb(206, 206, 206);
-            border-radius: 4px;
 
-            h4{
+            h3{
                 margin: 4px 0;
-                font-weight: 700;
-                text-decoration: underline;
             }
 
-            .game-select-container{
-                text-align: center;
+            .player-select-container{
 
-                select{
-                    height: $input-height;
-                    margin: 4px 0;
-                    font-family: inherit;
+                .select-wrapper{
+                    position: relative;
+                        
+                    select{
+                        width: 100%;
+                        height: $match-select-height;
+                        margin: 4px 0;
+                        padding: 12px;
+                        font-family: inherit;
+                        background-color: white;
+                        border: none;
+                        border-radius: 4px;
+                        -webkit-box-shadow: $box-shadow; 
+                        box-shadow: $box-shadow;
+                        //Remove default arrow
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                    }
+                    .fa-chevron-down{
+                        position: absolute;
+                        right: 12px;
+                        top: calc(50% - 8px);
+                        pointer-events: none;
+                    }
                 }
             }
-            .player-select-container{
-                text-align: center;
+        }
+    }
 
+    .game-header{
+        width: 100%;
+        margin: 14px 0 0 0;
+
+        h3{
+            margin: 0;
+        }
+    }
+    .add-games{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        .add-game{
+            margin: 10px 0;
+            width: 46%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .game-select-container{
+                position: relative;
+    
                 select{
-                    height: $input-height;
+                    width: 100%;
+                    height: $match-select-height;
+                    border: none;
+                    border-radius: 4px;
+                    background-color: white;
                     margin: 4px 0;
+                    padding: 12px;
                     font-family: inherit;
+                    -webkit-box-shadow: $box-shadow; 
+                    box-shadow: $box-shadow;
+                    //Remove default arrow
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                }
+                .fa-chevron-down{
+                    position: absolute;
+                    right: 12px;
+                    top: calc(50% - 8px);
+                    pointer-events: none;
                 }
             }
         }
@@ -71,16 +169,38 @@
         width: 100%;
         text-align: center;
         padding: 8px 0;
+        position: relative;
 
         button {
-            height: 30px;
-            background-color: green;
+            height: 60px;
+            width: 100%;
+            background-color: rgb(2, 172, 2);
             color: white;
             font-family: inherit;
             border: none;
-            border-radius: 3px;
             padding: 0 10px;
+            border-radius: 30px;
             font-weight: 600;
+            font-size: 18px;
+            -webkit-box-shadow: $box-shadow; 
+            box-shadow: 0px 2px 3px 0px #7a7a7a;
+        }
+        
+        .ball-container{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+            justify-content: center;
+        }
+        span{
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-right: 12px;
         }
     }
 }

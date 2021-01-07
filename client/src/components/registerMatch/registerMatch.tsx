@@ -73,12 +73,16 @@ export default function RegisterMatch() {
   return (
     <div id="register-match-container">
         <div className="header-container">
-            <h2>Välj vilken serie du vill registrera en match i</h2>
+            <h2>Registrera match</h2>
         </div>
         <div className="serie-select-container">
-            <select name="serie" id="serie" className="serie-select" onChange={changeSerie}>
-              {serieOptions}
-            </select>
+          <h3>Serie</h3>
+            <div className="serie-select">
+              <select name="serie" id="serie" className="serie-select" onChange={changeSerie}>
+                {serieOptions}
+              </select>
+              <i className="fas fa-chevron-down"></i>
+            </div>
         </div>
 
         <AddMatch serieId={serieIdChosen} players={players} updateParentWithPostData={postMatchToSerie}/>
