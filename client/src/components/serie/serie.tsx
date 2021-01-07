@@ -16,14 +16,15 @@ export default function Serie() {
   const [players, setPlayers] = useState([new PlayersModel()]);
   const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel()]);
   const [displaySection, setDisplaySection] = useState("serie");
-  const [newGameRegistered, setNewGameRegistered] = useState(false);
+  const [matchRegistered, setMatchRegistered] = useState(false);
+  const [creatingGame, setCreatingGame] = useState(false);
   const [newPlayerAdded, setNewPlayerAdded] = useState(false);
   const [serieNameChanged, setSerieNameChanged] = useState(false);
 
   useEffect(() => {
     setSerieNameChanged(false);
     fetchSerieData()
-  }, [newPlayerAdded, newGameRegistered, serieNameChanged]);
+  }, [newPlayerAdded, matchRegistered, serieNameChanged]);
 
   function fetchSerieData(){
     axios
@@ -57,11 +58,13 @@ export default function Serie() {
     losersGame: Number
   }
     ){
-
+    setCreatingGame(true);
     axios.post(`${DATABASE_URL}/addMatch`, matchData).then(response => {
+      setCreatingGame(false); 
       console.log(response);
-      setNewGameRegistered(true);
+      setMatchRegistered(true);
     }).catch(function(err) {
+      setCreatingGame(false);
       console.log(err);
     });
   }
@@ -108,7 +111,7 @@ export default function Serie() {
       return(
         <>
           <SerieNavigation showMatchesPlayed={showMatchesPlayed} showSerie={showSerie} showSettings={showSettings} displaySection={displaySection}/>
-          <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie}/>
+          <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie} creatingGame={creatingGame} matchRegistered={matchRegistered}/>
         </>
       );
     }

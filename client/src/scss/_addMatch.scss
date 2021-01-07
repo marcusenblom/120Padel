@@ -37,6 +37,7 @@
                 background-color: white;
                 border: none;
                 -webkit-appearance: none;
+                cursor: pointer;
             }
             .fa-chevron-down{
                 position: absolute;
@@ -107,6 +108,7 @@
                         -webkit-appearance: none;
                         -moz-appearance: none;
                         appearance: none;
+                        cursor: pointer;
                     }
                     .fa-chevron-down{
                         position: absolute;
@@ -161,6 +163,7 @@
                     -webkit-appearance: none;
                     -moz-appearance: none;
                     appearance: none;
+                    cursor: pointer;
                 }
                 .fa-chevron-down{
                     position: absolute;
@@ -192,6 +195,10 @@
             border-radius: 30px;
             -webkit-box-shadow: $box-shadow; 
             box-shadow: 0px 2px 5px 0px #7a7a7a;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(0, 180, 0);
         }
         button:focus {
             outline: none;
@@ -212,6 +219,21 @@
             font-size: 18px;
             font-weight: 700;
             margin-right: 12px;
+        }
+    }
+    #registering-game{
+        height: 30px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .registering{
+            color: black;
+        }
+        .registered{
+            color: rgb(2, 172, 2);
+            font-weight: 700;
         }
     }
 }

@@ -8,7 +8,8 @@ interface IAddMatchProps{
   serieId: Number;
   players: PlayersModel[];
   updateParentWithPostData(data: any): void;
-  gameRegistered: Boolean;
+  matchRegistered: Boolean;
+  creatingGame: Boolean;
 }
 
 export default function AddMatch(props: IAddMatchProps) {
@@ -20,6 +21,7 @@ export default function AddMatch(props: IAddMatchProps) {
   const [teamOneGames, setTeamOneGames] = useState(99);
   const [teamTwoGames, setTeamTwoGames] = useState(99);
   const [gameCreated, setGameCreated] = useState(false);
+  const [gameRegistered, setGameRegistered] = useState(false); 
 
   const [duplicatePlayerError, setDuplicatePlayerError] = useState(false);
   const [missingGameError, setMissingGameError] = useState(false);
@@ -29,6 +31,15 @@ export default function AddMatch(props: IAddMatchProps) {
   useEffect(() => {
     clearState();
   }, [gameCreated]);
+
+  useEffect(() => {
+    if (props.matchRegistered) {
+      setGameRegistered(true);
+      setTimeout(() => {
+        setGameRegistered(false);
+      }, 5000);
+    }
+  }, [props.matchRegistered]);
 
   function clearState(){ 
     setTeamOneGames(99);
@@ -164,7 +175,7 @@ export default function AddMatch(props: IAddMatchProps) {
   };
 
   function confirmIfWinnerExist(data: DataToParentModel | undefined){
-    if (data?.losersGame == data?.winnersGame) {
+    if (data?.losersGame === data?.winnersGame) {
       setNoWinnerError(true);
       return false;
     } else {
@@ -173,7 +184,7 @@ export default function AddMatch(props: IAddMatchProps) {
     }
   };
   function confirmIfGameExists(data: DataToParentModel | undefined){
-    if (data?.losersGame == 99 || data?.winnersGame == 99) {
+    if (data?.losersGame === 99 || data?.winnersGame === 99) {
       setMissingGameError(true);
       return false;
     } else {
@@ -182,7 +193,7 @@ export default function AddMatch(props: IAddMatchProps) {
     }
   };
   function confirmValidResult(data: DataToParentModel | undefined){
-    let twoGameDifferenceAtSevenGamesWon = ((data?.losersGame === 7 && data?.winnersGame >= 5) || data?.winnersGame === 7 && data?.losersGame >= 5);
+    let twoGameDifferenceAtSevenGamesWon = ((data?.losersGame === 7 && data?.winnersGame >= 5) || (data?.winnersGame === 7 && data?.losersGame >= 5));
     
     let twoGameDifferenceAtSixGamesWon = ((data?.losersGame === 6 && data?.winnersGame < 5) || (data?.winnersGame === 6 &&  data?.losersGame < 5));
 
@@ -195,6 +206,13 @@ export default function AddMatch(props: IAddMatchProps) {
     }
   }
 
+
+  let registeringGame = (
+    <span className="registering">Registrerar match..</span>
+  );
+  let registeredGame = (
+    <span className="registered">Match registrerad!</span>
+  );
 
 
   return (
@@ -289,6 +307,11 @@ export default function AddMatch(props: IAddMatchProps) {
           <span>Registrera match</span>
           <img src={ball} alt="tennis-ball" className="ball"/>
         </div>
+      </div>
+
+      <div id="registering-game">
+        {props.creatingGame && !props.matchRegistered? registeringGame : ""}
+        {gameRegistered ? registeredGame : ""}
       </div>
     </div>
   );

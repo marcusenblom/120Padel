@@ -12,7 +12,7 @@ export default function RegisterMatch() {
   const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
   const [serieIdChosen, setSerieIdChosen] = useState(0);
   const [players, setPlayers] = useState([new PlayersModel()])
-  const [gameRegistered, setGameRegistered] = useState(false);
+  const [matchRegistered, setMatchRegistered] = useState(false);
   const [creatingGame, setCreatingGame] = useState(false);
 
   useEffect(() => {
@@ -52,7 +52,8 @@ export default function RegisterMatch() {
     axios.post(`${DATABASE_URL}/addMatch`, matchData).then(response => {
       console.log(response);
       setCreatingGame(false);
-      setGameRegistered(true);
+      setMatchRegistered(true);
+      setMatchRegistered(false);
     }).catch(function(err) {
       console.log(err);
       setCreatingGame(false);
@@ -73,13 +74,6 @@ export default function RegisterMatch() {
   let serieOptions = playerSeries.map(serie => {
     return <option key={serie.serieId} value={serie.serieId}>{serie.name}</option>
   });
-
-  let registeringGame = (
-    <span className="registering">Registrerar match..</span>
-  );
-  let registeredGame = (
-    <span className="registered">Match registrerad!</span>
-  );
   
   return (
     <div id="register-match-container">
@@ -96,12 +90,7 @@ export default function RegisterMatch() {
           </div>
       </div>
 
-      <AddMatch serieId={serieIdChosen} players={players} updateParentWithPostData={postMatchToSerie} gameRegistered={gameRegistered}/>
-    
-      <div id="registering-game">
-        {creatingGame && !gameRegistered? registeringGame : ""}
-        {gameRegistered? registeredGame : ""}
-      </div>
+      <AddMatch serieId={serieIdChosen} players={players} updateParentWithPostData={postMatchToSerie} matchRegistered={matchRegistered} creatingGame={creatingGame}/>
     </div>
   );
 }

@@ -36,6 +36,7 @@
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 appearance: none;
+                cursor: pointer;
             }
             .fa-chevron-down{
                 position: absolute;
@@ -46,19 +47,4 @@
         }
     }
 
-    #registering-game{
-        height: 30px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .registering{
-            color: black;
-        }
-        .registered{
-            color: rgb(2, 172, 2);
-            font-weight: 700;
-        }
-    }
 }

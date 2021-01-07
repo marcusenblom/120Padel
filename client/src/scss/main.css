@@ -583,6 +583,7 @@
   background-color: white;
   border: none;
   -webkit-appearance: none;
+  cursor: pointer;
 }
 
 #add-match .add-date .date-picker-container .fa-chevron-down {
@@ -668,6 +669,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
 }
 
 #add-match .add-teams .add-team .player-select-container .select-wrapper .fa-chevron-down {
@@ -736,6 +738,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
 }
 
 #add-match .add-games .add-game .game-select-container .fa-chevron-down {
@@ -766,6 +769,11 @@
   border-radius: 30px;
   -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
   box-shadow: 0px 2px 5px 0px #7a7a7a;
+  cursor: pointer;
+}
+
+#add-match .submit-button-container button:hover {
+  background-color: #00b400;
 }
 
 #add-match .submit-button-container button:focus {
@@ -794,6 +802,29 @@
   font-size: 18px;
   font-weight: 700;
   margin-right: 12px;
+}
+
+#add-match #registering-game {
+  height: 30px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#add-match #registering-game .registering {
+  color: black;
+}
+
+#add-match #registering-game .registered {
+  color: #02ac02;
+  font-weight: 700;
 }
 
 #home {
@@ -1003,6 +1034,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
 }
 
 #register-match-container .serie-select-container .serie-select .fa-chevron-down {
@@ -1010,29 +1042,6 @@
   right: 12px;
   top: calc(50% - 8px);
   pointer-events: none;
-}
-
-#register-match-container #registering-game {
-  height: 30px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#register-match-container #registering-game .registering {
-  color: black;
-}
-
-#register-match-container #registering-game .registered {
-  color: #02ac02;
-  font-weight: 700;
 }
 
 #add-player-to-serie {
