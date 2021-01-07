@@ -38,7 +38,6 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
     losersGame: Number}){
 
     props.updateParentWithPostData(postData);
-    setShowAddMatch(false);
   }
 
   let showAddMatchComponent;

@@ -43,6 +43,7 @@ export default function AddMatch(props: IAddMatchProps) {
     let inputDate = e.currentTarget.value;
     setDate(new Date(inputDate));
   }
+  let today = new Date().toISOString().split("T")[0];
 
   function changeTeamOnePlayerOne(e: ChangeEvent<HTMLSelectElement>){
     setTeamOnePlayerOne(Number(e.currentTarget.value));
@@ -201,7 +202,7 @@ export default function AddMatch(props: IAddMatchProps) {
       <div className="add-date">
         <h3>Datum</h3>
         <div className="date-picker-container">
-          <input className="date-picker" type="date" value={moment(date).format('YYYY-MM-DD')} onChange={updateDate}/>
+          <input className="date-picker" type="date" max={today} value={moment(date).format('YYYY-MM-DD')} onChange={updateDate}/>
           <i className="fas fa-chevron-down"></i>
           <i className="far fa-calendar"></i>
         </div>
