@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import settingsLogo from "../../images/settings.svg";
-import '../../scss/_serie.scss';
+import settingsLogo from "../../../images/settings.svg";
+import '../../../scss/_serie.scss';
 import axios from "axios";
-import { PlayersModel, PlayedMatchModel } from "../../models/serieModel";
+import { PlayersModel, PlayedMatchModel } from "../../../models/serieModel";
 import Standings from "./standings/standings";
 import PlayedMatches from "./playedMatches/playedMatches";
-import DATABASE_URL from "../../db";
+import DATABASE_URL from "../../../db";
 import SerieSettings from "./serieSettings/serieSettings";
 import SerieNavigation from "./serieNavigation/serieNavigation";
 

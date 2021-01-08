@@ -32,6 +32,9 @@ const userSchema = new Schema({
         required: true,
         maxlength: 100
     },
+    profilePicture: {
+        type: String
+    },
     series: [{
         serieId: {
             type: Number,

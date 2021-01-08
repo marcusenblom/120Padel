@@ -1,5 +1,5 @@
 import React from "react";
-import { PlayersModel } from "../../../models/serieModel";
+import { PlayersModel } from "../../../../models/serieModel";
 import AddPlayerToSerie from "./addPlayerToSerie/addPlayerToSerie";
 import ChangeSerieName from "./changeSerieName/changeSerieName";
 

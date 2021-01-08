@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import '../../../scss/_playedMatches.scss';
-import { PlayedMatchModel } from "../../../models/serieModel";
-import { PlayersModel } from "../../../models/serieModel";
+import '../../../../scss/_playedMatches.scss';
+import { PlayedMatchModel } from "../../../../models/serieModel";
+import { PlayersModel } from "../../../../models/serieModel";
 import SinglePlayedMatch from "./singlePlayedMatch/singlePlayedMatch";
 import AddMatch from "./addMatch/addMatch";
 

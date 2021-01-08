@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import "../../../../scss/_addMatch.scss";
-import { PlayersModel } from "../../../../models/serieModel";
+import "../../../../../scss/_addMatch.scss";
+import { PlayersModel } from "../../../../../models/serieModel";
 import moment from "moment";
-import ball from "../../../../images/ball.svg";
+import ball from "../../../../../images/ball.svg";
 
 interface IAddMatchProps{
   serieId: Number;

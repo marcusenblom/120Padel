@@ -2,7 +2,7 @@ import React from "react";
 import { PlayedMatchModel, PlayersModel, SerieModel } from "../../../models/serieModel";
 import UserModel from "../../../models/userModel";
 import "../../../scss/_lastMatchesPlayed.scss";
-import SinglePlayedMatch from "../../serie/playedMatches/singlePlayedMatch/singlePlayedMatch";
+import SinglePlayedMatch from "../../series/serie/playedMatches/singlePlayedMatch/singlePlayedMatch";
 
 interface ILastMatchesPlayed{
   player: UserModel;

@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import "../../../../scss/_changeSerieName.scss";
+import "../../../../../scss/_changeSerieName.scss";
 
 interface IChangeSerieName{
     sendNewNameToParent(newName: string): void;

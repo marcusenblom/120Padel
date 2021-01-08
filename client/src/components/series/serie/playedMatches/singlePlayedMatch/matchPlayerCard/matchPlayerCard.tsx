@@ -1,20 +1,22 @@
-import ronaldo from "../../../../../images/ronaldo.svg";
-import bale from "../../../../../images/bale.svg";
-import buffon from "../../../../../images/buffon.svg";
-import pepe from "../../../../../images/pepe.svg";
-import marcelo from "../../../../../images/marcelo.svg";
-import suarez from "../../../../../images/suarez.svg";
+import ronaldo from "../../../../../../images/ronaldo.svg";
+import bale from "../../../../../../images/bale.svg";
+import buffon from "../../../../../../images/buffon.svg";
+import pepe from "../../../../../../images/pepe.svg";
+import marcelo from "../../../../../../images/marcelo.svg";
+import suarez from "../../../../../../images/suarez.svg";
 
+import pics from "../../../../../getProfilePictures";
 
 interface IMatchPlayerCardProps{
-    imageUrl: string;
     name: string;
     standing: any;
+    profilePicture: string;
 }
 
 export default function MatchPlayerCard(props: IMatchPlayerCardProps) {
 
     let dude = ronaldo;
+
 
     if (props.name === "Hasse") {
         dude = buffon;

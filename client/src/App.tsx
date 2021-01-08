@@ -2,7 +2,7 @@ import React from 'react';
 import './scss/main.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/header/header";
-import Serie from "./components/serie/serie";
+import Series from "./components/series/series";
 import Home from './components/home/home';
 import RegisterMatch from './components/registerMatch/registerMatch';
 import Navbar from './components/navbar/navbar';
@@ -18,7 +18,7 @@ function App() {
             <Home/>
           </Route>
           <Route path="/serie">
-            <Serie/>
+            <Series/>
           </Route>
           <Route path="/registerMatch">
             <RegisterMatch/>

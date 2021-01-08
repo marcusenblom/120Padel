@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { PlayersModel, SerieModel } from "../../models/serieModel";
 import UserModel from "../../models/userModel";
-import AddMatch from "../serie/playedMatches/addMatch/addMatch";
+import AddMatch from "../series/serie/playedMatches/addMatch/addMatch";
 
 import DATABASE_URL from "../../db";
 

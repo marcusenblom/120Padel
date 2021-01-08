@@ -14,6 +14,7 @@ class UserModel{
     firstName: string;
     lastName: string;
     userName: string;
+    profilePicture: string;
     password: string;
     series: UserSeriesModel[];
 
@@ -22,6 +23,7 @@ class UserModel{
         this.firstName = "";
         this.lastName = "";
         this.userName = "";
+        this.profilePicture = "";
         this.password = "";
         this.series = [new UserSeriesModel()];
         // this.userId = userId;

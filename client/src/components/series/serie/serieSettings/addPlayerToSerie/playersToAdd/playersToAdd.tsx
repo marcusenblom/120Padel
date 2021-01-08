@@ -1,6 +1,6 @@
-import UserModel from "../../../../../models/userModel";
+import UserModel from "../../../../../../models/userModel";
 import SinglePlayerToAdd from "./singlePlayerToAdd/singlePlayerToAdd";
-import "../../../../../scss/_playersToAdd.scss";
+import "../../../../../../scss/_playersToAdd.scss";
 
 
 interface IPlayersToAdd{

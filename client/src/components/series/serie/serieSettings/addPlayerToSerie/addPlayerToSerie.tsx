@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { PlayersModel } from "../../../../models/serieModel";
-import UserModel from "../../../../models/userModel";
+import { PlayersModel } from "../../../../../models/serieModel";
+import UserModel from "../../../../../models/userModel";
 import PlayerSearchBar from "./playerSearchBar/playerSearchBar";
-import "../../../../scss/_addPlayerToSerie.scss";
+import "../../../../../scss/_addPlayerToSerie.scss";
 
-import DATABASE_URL from "../../../../db";
+import DATABASE_URL from "../../../../../db";
 import axios from "axios";
 import PlayersToAdd from "./playersToAdd/playersToAdd";
 

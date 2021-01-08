@@ -1,10 +1,10 @@
-import '../../../../scss/_playerStanding.scss';
-import ronaldo from "../../../../images/ronaldo.svg";
-import bale from "../../../../images/bale.svg"
-import buffon from "../../../../images/buffon.svg";
-import pepe from "../../../../images/pepe.svg";
-import marcelo from "../../../../images/marcelo.svg";
-import suarez from "../../../../images/suarez.svg";
+import '../../../../../scss/_playerStanding.scss';
+import ronaldo from "../../../../../images/ronaldo.svg";
+import bale from "../../../../../images/bale.svg"
+import buffon from "../../../../../images/buffon.svg";
+import pepe from "../../../../../images/pepe.svg";
+import marcelo from "../../../../../images/marcelo.svg";
+import suarez from "../../../../../images/suarez.svg";
 
 interface IPlayerStandingProps{
   userName: string;

@@ -1,6 +1,6 @@
 import React from "react";
-import { PlayedMatchModel, PlayersModel } from "../../../../models/serieModel";
-import '../../../../scss/_singlePlayedMatch.scss';
+import { PlayedMatchModel, PlayersModel } from "../../../../../models/serieModel";
+import '../../../../../scss/_singlePlayedMatch.scss';
 import MatchPlayerCard from "./matchPlayerCard/matchPlayerCard";
 
 interface ISinglePlayedMatchProps{
@@ -17,7 +17,7 @@ export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
     let playerStanding = props.players.find(player => player.user.userId === user.userId)?.standing;
 
     return (
-    <MatchPlayerCard key={user.userName} imageUrl={"bild"} name={user.userName} standing={playerStanding}/>
+    <MatchPlayerCard key={user.userName} profilePicture={user.profilePicture} name={user.userName} standing={playerStanding}/>
     );
   });
 
@@ -26,7 +26,7 @@ export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
     let playerStanding = props.players.find(player => player.user.userId === user.userId)?.standing;
 
     return (
-    <MatchPlayerCard key={user.userName} imageUrl={"bild"} name={user.userName} standing={playerStanding}/>
+    <MatchPlayerCard key={user.userName} profilePicture={user.profilePicture} name={user.userName} standing={playerStanding}/>
     );
   });
 
