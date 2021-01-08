@@ -9,7 +9,7 @@ interface IStandingProps{
 
 export default function Standing(props: IStandingProps) {
 
-  let listOfPlayers = props.players.map(function(player, i) {
+  let listOfPlayers = props.players?.map(function(player, i) {
     return (
       <PlayerStanding key={player.user.firstName} standing={i+1} userName={player.user.userName} matchesPlayed={player.matchesPlayed} matchesWon={player.matchesWon} gameWon={player.gameWon} gameLost={player.gameLost} points={player.points} hotStreak={true}/>
     );
@@ -23,10 +23,10 @@ export default function Standing(props: IStandingProps) {
             <th>#</th>
             <th></th>
             <th>Spelare</th>
-            <th>M</th>
-            <th>V</th>
-            <th>+</th>
-            <th>-</th>
+            <th>SM</th>
+            <th>VM</th>
+            <th>VG</th>
+            <th>FG</th>
             <th>V%</th>
           </tr>
         </thead>

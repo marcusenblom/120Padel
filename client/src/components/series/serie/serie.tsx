@@ -9,9 +9,13 @@ import DATABASE_URL from "../../../db";
 import SerieSettings from "./serieSettings/serieSettings";
 import SerieNavigation from "./serieNavigation/serieNavigation";
 
-export default function Serie() {
+interface ISerie{
+  serieId: number;
+}
 
-  const [serieId, setId] = useState(1);
+export default function Serie(props: ISerie) {
+
+  // const [serieId, setId] = useState(props.serieId);
   const [name, setName] = useState("");
   const [players, setPlayers] = useState([new PlayersModel()]);
   const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel()]);
@@ -24,19 +28,24 @@ export default function Serie() {
   useEffect(() => {
     setSerieNameChanged(false);
     fetchSerieData()
-  }, [newPlayerAdded, matchRegistered, serieNameChanged]);
+  }, [props.serieId, newPlayerAdded, matchRegistered, serieNameChanged]);
+
+  console.log("id från series: " + props.serieId);
+  
 
   function fetchSerieData(){
-    axios
-    .get(`${DATABASE_URL}/serie/${serieId}`)
-    .then(axiosObject => {
-      let serieData = axiosObject.data;
+    if (props.serieId > 0) {
+      axios
+      .get(`${DATABASE_URL}/serie/${props.serieId}`)
+      .then(axiosObject => {
+        let serieData = axiosObject.data;
 
-      setId(serieData.serieId);
-      setName(serieData.name);
-      setPlayers(serieData.players);
-      setPlayedMatches(serieData.playedMatches); 
-    }); 
+        // setId(serieData.serieId);
+        setName(serieData.name);
+        setPlayers(serieData.players);
+        setPlayedMatches(serieData.playedMatches); 
+      }); 
+    }
   }
 
   function showSerie(){
@@ -46,7 +55,12 @@ export default function Serie() {
     setDisplaySection("matchesPlayed");
   };
   function showSettings(){
-    setDisplaySection("settings");
+    if (displaySection === "settings") {
+      setDisplaySection("serie");
+    } else {
+      setDisplaySection("settings");
+    }
+    
   };
 
   function postMatchToSerie(matchData: {
@@ -73,7 +87,7 @@ export default function Serie() {
 
     let data = {
       userId: userId,
-      serieId: serieId
+      serieId: props.serieId
     }
     axios.post(`${DATABASE_URL}/addPlayer`, data).then(response => {
       console.log(response);
@@ -86,7 +100,7 @@ export default function Serie() {
 
   function changeSerieName(newName: string){
     let data = {
-      serieId: serieId,
+      serieId: props.serieId,
       newName: newName
     }
     axios.post(`${DATABASE_URL}/serieName`, data).then(response => {
@@ -111,7 +125,7 @@ export default function Serie() {
       return(
         <>
           <SerieNavigation showMatchesPlayed={showMatchesPlayed} showSerie={showSerie} showSettings={showSettings} displaySection={displaySection}/>
-          <PlayedMatches playedMatches={playedMatches} players={players} serieId={serieId} updateParentWithPostData={postMatchToSerie} creatingGame={creatingGame} matchRegistered={matchRegistered}/>
+          <PlayedMatches playedMatches={playedMatches} players={players} serieId={props.serieId} updateParentWithPostData={postMatchToSerie} creatingGame={creatingGame} matchRegistered={matchRegistered}/>
         </>
       );
     }
@@ -119,7 +133,7 @@ export default function Serie() {
       return(
         <>
           <SerieNavigation showMatchesPlayed={showMatchesPlayed} showSerie={showSerie} showSettings={showSettings} displaySection={displaySection}/>
-          <SerieSettings serieId={serieId} players={players} sendNewNameToParent={changeSerieName} sendPlayerToParent={addPlayerToSerie}/>
+          <SerieSettings serieId={props.serieId} players={players} sendNewNameToParent={changeSerieName} sendPlayerToParent={addPlayerToSerie}/>
         </>
       );
     }
@@ -127,9 +141,9 @@ export default function Serie() {
 
   return (
     <div id="serie">
-      <section className="serie-header-section">
-        <div className="serie-header-container">
-          <h1 className="serie-header">{name}</h1>
+      <section className="serie-name-section">
+        <div className="serie-name-container">
+          <h1 className="serie-name">{name}</h1>
           <span className="settings" onClick={showSettings}><img src={settingsLogo} alt="settings-logo"/></span>
         </div>
       </section>

@@ -13,7 +13,9 @@ router.get("/serie/:serieId", async (req, res) => {
     .populate("playedMatches.winners.players")
     .populate("playedMatches.losers.players");
 
-    await serie.updateScoreBoard();
+    if (serie) {
+        await serie.updateScoreBoard();
+    }
 
     res.send(serie);
 });

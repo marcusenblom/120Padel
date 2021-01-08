@@ -38,14 +38,32 @@
   border-top: 1px solid #dbdbdb;
 }
 
+#series .serie-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 70px;
+  background-color: white;
+}
+
+#series .serie-header h2 {
+  margin: 0;
+}
+
 #serie {
   width: auto;
   padding: 0 10px;
-  margin: 0px auto;
+  margin: 20px auto;
   width: calc(100% - 20px);
 }
 
-#serie .serie-header-section {
+#serie .serie-name-section {
   width: calc(100% + 20px);
   margin-left: -10px;
   display: -webkit-box;
@@ -58,10 +76,8 @@
       flex-wrap: wrap;
 }
 
-#serie .serie-header-section .serie-header-container {
+#serie .serie-name-section .serie-name-container {
   width: 100%;
-  margin-bottom: 20px;
-  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -75,18 +91,19 @@
   cursor: default;
 }
 
-#serie .serie-header-section .serie-header-container .serie-header {
+#serie .serie-name-section .serie-name-container .serie-name {
   text-align: center;
+  margin: 0;
 }
 
-#serie .serie-header-section .serie-header-container .settings {
+#serie .serie-name-section .serie-name-container .settings {
   position: absolute;
   right: 16px;
   height: 20px;
   cursor: pointer;
 }
 
-#serie .serie-header-section .serie-header-container .settings img {
+#serie .serie-name-section .serie-name-container .settings img {
   height: 100%;
 }
 
@@ -137,6 +154,7 @@
 #serie #rendered-component .back-to-serie {
   width: 100%;
   padding: 0 8px;
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
