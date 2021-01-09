@@ -9,7 +9,9 @@ export default function QuickStat(props: IQuickStats) {
 
     let change = (props.change).toString().slice(0, 5);
     let main = props.mainStat.toString().slice(0, 4);
-    main = (!props.game && props.mainStat > 0?"":"+") + main;
+    if (props.game) {
+        main = (props.mainStat > 0 ? "+":"") + main;
+    }
 
     let icon: any;
     let arrowUp = (<i className="fas fa-arrow-up"></i>);
