@@ -59,7 +59,7 @@
 #serie {
   width: auto;
   padding: 0 10px;
-  margin: 20px auto;
+  margin: 20px auto 50px auto;
   width: calc(100% - 20px);
 }
 
@@ -84,9 +84,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0 16px;
   position: relative;
   cursor: default;
 }
@@ -108,20 +109,20 @@
 }
 
 #serie #rendered-component .serie-button-container {
-  width: 100%;
+  width: auto;
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 20px 0 8px 0;
 }
 
 #serie #rendered-component .serie-button-container .serie-button {
   height: 36px;
-  width: 45%;
+  width: 48%;
   background-color: white;
   border: 1px solid #720909;
   border-radius: 2px;
@@ -177,7 +178,6 @@
 
 #standings {
   width: 100%;
-  margin-bottom: 50px;
 }
 
 #standings table {

@@ -3,7 +3,7 @@
 #serie{
     width: auto;
     padding: 0 10px;
-    margin: 20px auto;
+    margin: 20px auto 50px auto;
     width: calc(100% - 20px);
     
     .serie-name-section{
@@ -17,7 +17,8 @@
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            padding: 0 16px;
             position: relative;
             cursor: default;
 
@@ -42,15 +43,15 @@
     #rendered-component{
 
         .serie-button-container{
-            width: 100%;
+            width: auto;
             height: 50px;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             margin: 20px 0 8px 0;
 
             .serie-button{
                 height: 36px;
-                width: 45%;
+                width: 48%;
                 background-color: white;
                 border: 1px solid $blue-color;
                 border-radius: 2px;

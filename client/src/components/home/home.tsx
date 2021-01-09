@@ -24,6 +24,7 @@ export default function Home() {
         setUser(userData);
         
         fetchPlayerSeries(userData.userId);
+
     });
   }, []);
 
@@ -54,6 +55,7 @@ export default function Home() {
 
 
   return (
+
     <div id="home">
       <LastMatchesPlayed player={user} playerSeries={playerSeries} playerMatches={playerMatches}/>
       <UserQuickStats userId={user.userId} playerMatches={playerMatches} />

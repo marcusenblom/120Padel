@@ -5,6 +5,7 @@ import UserModel, { UserSeriesModel } from "../../models/userModel";
 import { SerieModel } from "../../models/serieModel";
 import axios from "axios";
 import DATABASE_URL from "../../db";
+import NoSerie from "./noSerie/noSerie";
 
 
 export default function Series(){
@@ -65,9 +66,9 @@ export default function Series(){
                 <h2>Mina serier</h2>
             </div>
 
-            {noSerie ? "Du är inte kopplad till någon serie" : <Serie serieId={serieIdToShow}/>}
+            {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie"/> : <Serie serieId={serieIdToShow}/>}
 
-            <div></div>
+            
         </section>
     );
 

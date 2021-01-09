@@ -9,31 +9,37 @@ interface IStandingProps{
 
 export default function Standing(props: IStandingProps) {
 
-  let listOfPlayers = props.players?.map(function(player, i) {
-    return (
-      <PlayerStanding key={player.user.firstName} standing={i+1} userName={player.user.userName} matchesPlayed={player.matchesPlayed} matchesWon={player.matchesWon} gameWon={player.gameWon} gameLost={player.gameLost} points={player.points} hotStreak={true}/>
-    );
-  });
+  let listOfPlayers;
+  let componentReady = false;
+
+  if (props.players[0].user.userId !== 0) {
+    componentReady = true;
+
+    listOfPlayers = props.players?.map(function(player, i) {
+      return (
+        <PlayerStanding key={player.user.firstName} standing={i+1} userName={player.user.userName} matchesPlayed={player.matchesPlayed} matchesWon={player.matchesWon} gameWon={player.gameWon} gameLost={player.gameLost} points={player.points} hotStreak={true}/>
+      );
+    });
+  }
 
   return (
-    <div id="standings">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th></th>
-            <th>Spelare</th>
-            <th>SM</th>
-            <th>VM</th>
-            <th>VG</th>
-            <th>FG</th>
-            <th>V%</th>
-          </tr>
-        </thead>
-        <tbody>
-          {listOfPlayers}
-        </tbody>
-      </table>
-    </div>
+    <div id="standings">{componentReady ?
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th></th>
+          <th>Spelare</th>
+          <th>SM</th>
+          <th>VM</th>
+          <th>VG</th>
+          <th>FG</th>
+          <th>V%</th>
+        </tr>
+      </thead>
+      <tbody>
+        {listOfPlayers}
+      </tbody>
+    </table> : ""}</div>
   );
 }

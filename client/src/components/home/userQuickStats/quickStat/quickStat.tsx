@@ -25,6 +25,19 @@ export default function QuickStat(props: IQuickStats) {
     } else {
         icon = (props.change < 0 ? arrowDown:arrowUp);
     }
+
+    // If props.mainstat is NaN (player has 0 games played)
+    if (!Number(props.mainStat)) {
+        main = "0";
+    }
+    if (!Number(props.change)) {
+        change = "0";
+        if (props.game) {
+            icon = "+/-"
+        } else {
+            icon = "";
+        }
+    }
     
   return (
     <div id="quick-stat">
