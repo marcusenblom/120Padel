@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { PlayedMatchModel, PlayersModel, SerieModel } from "../../../models/serieModel";
 import UserModel from "../../../models/userModel";
 import "../../../scss/_lastMatchesPlayed.scss";
@@ -8,9 +8,12 @@ interface ILastMatchesPlayed{
   player: UserModel;
   playerSeries: SerieModel[];
   playerMatches: PlayedMatchModel[];
+  matchesExist: boolean;
 }
 
 export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
+
+  let noGamesMessage = "laddar matcher..";
 
   let playersMatches = props.playerMatches;
 
@@ -22,6 +25,11 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
       playersMatches = playersMatches.slice(0, 3);
     }
   }
+
+  if (!props.matchesExist) {
+    noGamesMessage = "Du har ännu inga registrerade matcher. Klicka på knappen \"Registrera match\" för att komma igång";
+  }
+  
   
   let singlePlayedMatches = playersMatches.map(match => {
     let serieName = "";
@@ -33,8 +41,8 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
         players = serie.players;
       }
     });
-    
     return <div className="single-played-match" key={match.matchId}><SinglePlayedMatch match={match} showSerieName={true} serieName={serieName} players={players}/></div>
+
   });
 
   return (
@@ -43,9 +51,16 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
         <h2>Senaste matcher</h2>
         {/* <span>Se alla</span> */}
       </div>
+
+      {playersMatches.length > 0 ?
       <div className="last-matches">
         {singlePlayedMatches}
       </div>
+      :
+      <div className="no-games">
+        <p>{noGamesMessage}</p>
+      </div>
+      }
 
     </div>
   );
