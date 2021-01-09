@@ -6,6 +6,7 @@ import { SerieModel } from "../../models/serieModel";
 import axios from "axios";
 import DATABASE_URL from "../../db";
 import NoSerie from "./noSerie/noSerie";
+import AllSeries from "./allSeries/allSeries";
 
 
 export default function Series(){
@@ -13,7 +14,6 @@ export default function Series(){
     const [serieIdToShow, setSerieIdToShow] = useState(0);
     const [user, setUser] = useState(new UserModel());
     const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
-    const [favoriteSerie, setFavoriteSerie] = useState(0);
     const [noSerie, setNoSerie] = useState(false);
   
     useEffect(() => {
@@ -30,7 +30,6 @@ export default function Series(){
                     favorite = serie.serieId;
                 }
                 });
-                console.log("favvo i get req: " + favoriteSerie);
                 
                 if (favorite !== 0) {
                     setSerieIdToShow(favorite);
@@ -48,7 +47,6 @@ export default function Series(){
 
     console.log(user);
     console.log(playerSeries);
-    console.log("favvo: " + favoriteSerie);
 
     function fetchPlayerSeries(userId: Number){
         axios
@@ -59,6 +57,7 @@ export default function Series(){
         });
     }
 
+    let restOfSeries = playerSeries.filter(serie => serie.serieId !== serieIdToShow);
 
     return (
         <section id="series">
@@ -68,6 +67,7 @@ export default function Series(){
 
             {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie"/> : <Serie serieId={serieIdToShow}/>}
 
+            {playerSeries.length > 1 ? <AllSeries playerSeries={restOfSeries}/> : ""}
             
         </section>
     );

@@ -1,0 +1,31 @@
+@import "variables";
+
+#all-series{
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+
+    .all-series-header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 12px 0 20px 0;
+        h3{
+            margin: 0;
+        }
+    }
+
+    .serie-button{
+        height: 55px;
+        -webkit-box-shadow: $box-shadow;
+        box-shadow: $box-shadow;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        padding-left: 12px;
+        
+        span{
+            font-weight: 600;
+        }
+    }
+}
