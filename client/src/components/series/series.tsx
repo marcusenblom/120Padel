@@ -60,6 +60,7 @@ export default function Series(){
         <section id="series">
             <div className="serie-header">
                 <h2>Mina serier</h2>
+                <i className="fas fa-plus"></i>
             </div>
 
             {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie"/> : <Serie serieId={serieIdToShow} userId={user.userId} updateSerie={fetchPlayerSeries}/>}

@@ -39,6 +39,7 @@
 }
 
 #series .serie-header {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,6 +55,11 @@
 
 #series .serie-header h2 {
   margin: 0;
+}
+
+#series .serie-header .fa-plus {
+  position: absolute;
+  right: 18px;
 }
 
 #serie {
@@ -181,17 +187,20 @@
 }
 
 #standings table {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  display: table;
   width: 100%;
-  border: none;
-  border-spacing: none;
-  border-collapse: collapse;
+  border-spacing: 0 8px;
+  border-collapse: separate;
+  border-style: hidden;
   font-weight: bold;
   font-size: 14px;
 }
 
 #standings table thead {
-  color: white;
-  background-color: #720909;
+  color: black;
   font-size: 15px;
 }
 
@@ -211,16 +220,45 @@
   text-align: center;
 }
 
-#standings table tbody tr:nth-child(odd) {
-  background-color: #f5f5f5;
+#standings table tbody tr {
+  display: table-row;
+  background-color: white;
+  margin-top: 20px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 0px 3px 0px #C4C4C4;
+}
+
+#standings table tbody tr td {
+  display: table-cell;
+}
+
+#standings table tbody tr td span {
+  display: block;
+  height: auto;
 }
 
 #standings table tbody tr td:nth-child(1) {
   text-align: center;
+  border-left-style: solid;
+  border-left-width: 0px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+#standings table tbody tr td:nth-child(8) {
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 #single-standing {
   height: 40px;
+  font-size: 13px;
 }
 
 #single-standing .standing {

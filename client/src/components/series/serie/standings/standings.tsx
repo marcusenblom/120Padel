@@ -7,7 +7,7 @@ interface IStandingProps{
   players: PlayersModel[];
 }
 
-export default function Standing(props: IStandingProps) {
+export default function Standings(props: IStandingProps) {
 
   let listOfPlayers;
   let componentReady = false;
@@ -23,23 +23,29 @@ export default function Standing(props: IStandingProps) {
   }
 
   return (
-    <div id="standings">{componentReady ?
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th></th>
-          <th>Spelare</th>
-          <th>SM</th>
-          <th>VM</th>
-          <th>VG</th>
-          <th>FG</th>
-          <th>V%</th>
-        </tr>
-      </thead>
-      <tbody>
-        {listOfPlayers}
-      </tbody>
-    </table> : ""}</div>
+    <div id="standings">
+      {/* <div className="standings-head">
+        <div></div>
+      </div>
+      {listOfPlayers} */}
+
+      <table>
+         <thead>
+           <tr>
+             <th>#</th>
+             <th></th>
+             <th>Spelare</th>
+             <th>SM</th>
+             <th>VM</th>
+             <th>VG</th>
+             <th>FG</th>
+             <th>V%</th>
+           </tr>
+         </thead>
+         <tbody>
+           {listOfPlayers}
+         </tbody>
+       </table>
+    </div>
   );
 }
