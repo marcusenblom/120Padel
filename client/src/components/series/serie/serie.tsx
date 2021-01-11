@@ -10,7 +10,9 @@ import SerieSettings from "./serieSettings/serieSettings";
 import SerieNavigation from "./serieNavigation/serieNavigation";
 
 interface ISerie{
+  userId: number;
   serieId: number;
+  updateSerie(userId: number): void;
 }
 
 export default function Serie(props: ISerie) {
@@ -28,13 +30,10 @@ export default function Serie(props: ISerie) {
   useEffect(() => {
     setSerieNameChanged(false);
     fetchSerieData()
-  }, [props.serieId, newPlayerAdded, matchRegistered, serieNameChanged]);
-
-  console.log("id från series: " + props.serieId);
-  
+  }, [props.serieId, newPlayerAdded, matchRegistered, serieNameChanged]);  
 
   function fetchSerieData(){
-    if (props.serieId > 0) {
+    if (props.serieId !== 0) {
       axios
       .get(`${DATABASE_URL}/serie/${props.serieId}`)
       .then(axiosObject => {
@@ -106,7 +105,9 @@ export default function Serie(props: ISerie) {
     axios.post(`${DATABASE_URL}/serieName`, data).then(response => {
       console.log(response);
       setSerieNameChanged(true);
-      
+
+      props.updateSerie(props.userId);
+
       }).catch(function(err) {
       console.log(err);
     });

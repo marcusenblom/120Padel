@@ -45,9 +45,6 @@ export default function Series(){
 
     }, []);
 
-    console.log(user);
-    console.log(playerSeries);
-
     function fetchPlayerSeries(userId: Number){
         axios
         .get(`${DATABASE_URL}/userSeries/${userId}`)
@@ -65,9 +62,9 @@ export default function Series(){
                 <h2>Mina serier</h2>
             </div>
 
-            {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie"/> : <Serie serieId={serieIdToShow}/>}
+            {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie"/> : <Serie serieId={serieIdToShow} userId={user.userId} updateSerie={fetchPlayerSeries}/>}
 
-            {playerSeries.length > 1 ? <AllSeries playerSeries={restOfSeries}/> : ""}
+            {playerSeries.length > 1 ? <AllSeries playerSeries={restOfSeries} updateSerie={setSerieIdToShow}/> : ""}
             
         </section>
     );

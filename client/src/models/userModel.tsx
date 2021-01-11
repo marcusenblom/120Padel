@@ -1,6 +1,6 @@
 
 export class UserSeriesModel{
-    serieId: Number;
+    serieId: number;
     favoriteSerie: Boolean;
 
     constructor(){
