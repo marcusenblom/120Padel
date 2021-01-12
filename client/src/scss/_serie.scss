@@ -8,7 +8,8 @@
     
     .serie-name-section{
         width: calc(100% + 20px);
-        margin-left: -10px;
+        margin: 0 0 20px -10px;
+        min-height: 28px;
         display: flex;
         justify-content: row;
         flex-wrap: wrap;
@@ -41,7 +42,7 @@
     }
 
     #rendered-component{
-        margin: 20px 0;
+        margin: 0 0 20px 0;
         padding: 0 4px;
         // border: thin solid rgb(199, 199, 199);
         border-top: none;

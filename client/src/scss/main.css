@@ -57,11 +57,6 @@
   margin: 0;
 }
 
-#series .serie-header .fa-plus {
-  position: absolute;
-  right: 18px;
-}
-
 #serie {
   width: auto;
   padding: 0 10px;
@@ -71,7 +66,8 @@
 
 #serie .serie-name-section {
   width: calc(100% + 20px);
-  margin-left: -10px;
+  margin: 0 0 20px -10px;
+  min-height: 28px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,7 +111,7 @@
 }
 
 #serie #rendered-component {
-  margin: 20px 0;
+  margin: 0 0 20px 0;
   padding: 0 4px;
   border-top: none;
   border-radius: 4px;
@@ -861,7 +857,7 @@
   outline: none;
 }
 
-#add-match .submit-button-container .ball-container {
+#add-match .submit-button-container .content-container {
   height: 60px;
   width: 100%;
   position: absolute;
@@ -1326,9 +1322,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1351,11 +1347,68 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 12px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 12px;
 }
 
 #all-series .serie-button span {
   font-weight: 600;
+}
+
+#all-series .create-new-serie {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: 40px;
+}
+
+#all-series .create-new-serie button {
+  height: 60px;
+  width: 100%;
+  background-color: #02ac02;
+  border: none;
+  border-radius: 30px;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 2px 5px 0px #7a7a7a;
+  cursor: pointer;
+}
+
+#all-series .create-new-serie button:hover {
+  background-color: #00b400;
+}
+
+#all-series .create-new-serie button:focus {
+  outline: none;
+}
+
+#all-series .create-new-serie .content-container {
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#all-series .create-new-serie .content-container span {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 12px;
+}
+
+#all-series .create-new-serie .content-container i {
+  color: white;
 }
 
 body {
