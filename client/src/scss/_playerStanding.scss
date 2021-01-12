@@ -1,8 +1,8 @@
 @import "variables";
 
 #single-standing{
-    height: 40px;
     font-size: 13px;
+    position: relative;
 
     .standing{
         color: $greyed-font;
@@ -35,6 +35,17 @@
     .points{
         width: 32px;
         color: black;
+    }
+
+    .shadow{
+        position: absolute;
+        // top: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        border-radius: 8px;
+        -webkit-box-shadow: $box-shadow;
+        box-shadow: $box-shadow;
     }
 
 }

@@ -65,6 +65,7 @@ export default function PlayerStanding(props: IPlayerStandingProps) {
         <td className="game"><span>{props.gameWon}</span></td>
         <td className="game"><span>{props.gameLost}</span></td>
         <td className="points"><span>{winsPerMatch}</span></td>
+        <div className="shadow"></div>
       </tr>
     </>
   );
