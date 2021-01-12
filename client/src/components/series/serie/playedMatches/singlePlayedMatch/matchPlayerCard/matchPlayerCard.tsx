@@ -5,8 +5,6 @@ import pepe from "../../../../../../images/pepe.svg";
 import marcelo from "../../../../../../images/marcelo.svg";
 import suarez from "../../../../../../images/suarez.svg";
 
-import pics from "../../../../../getProfilePictures";
-
 interface IMatchPlayerCardProps{
     name: string;
     standing: any;

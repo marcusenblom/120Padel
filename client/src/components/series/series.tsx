@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Serie from "./serie/serie";
 import "../../scss/_series.scss";
-import UserModel, { UserSeriesModel } from "../../models/userModel";
+import UserModel from "../../models/userModel";
 import { SerieModel } from "../../models/serieModel";
 import axios from "axios";
 import DATABASE_URL from "../../db";
@@ -15,6 +15,7 @@ export default function Series(){
     const [user, setUser] = useState(new UserModel());
     const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
     const [noSerie, setNoSerie] = useState(false);
+    const [displayOtherSeries, setDisplayOtherSeries] = useState(true);
   
     useEffect(() => {
         axios
@@ -62,9 +63,9 @@ export default function Series(){
                 <h2>Mina serier</h2>
             </div>
 
-            {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie. Skapa en ny serie genom att klicka på +"/> : <Serie serieId={serieIdToShow} userId={user.userId} updateSerie={fetchPlayerSeries}/>}
+            {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie. Skapa en ny serie genom att klicka på +"/> : <Serie serieId={serieIdToShow} userId={user.userId} updateSerie={fetchPlayerSeries} displayOtherSeries={setDisplayOtherSeries}/>}
 
-            {playerSeries.length > 1 ? <AllSeries playerSeries={restOfSeries} updateSerie={setSerieIdToShow}/> : ""}
+            {playerSeries.length > 1 && displayOtherSeries ? <AllSeries playerSeries={restOfSeries} updateSerie={setSerieIdToShow}/> : ""}
             
         </section>
     );

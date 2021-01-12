@@ -10,10 +10,8 @@ interface IStandingProps{
 export default function Standings(props: IStandingProps) {
 
   let listOfPlayers;
-  let componentReady = false;
 
   if (props.players[0].user.userId !== 0) {
-    componentReady = true;
 
     listOfPlayers = props.players?.map(function(player, i) {
       return (

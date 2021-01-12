@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import settingsLogo from "../../../images/setting3.svg";
 import '../../../scss/_serie.scss';
 import axios from "axios";
 import { PlayersModel, PlayedMatchModel } from "../../../models/serieModel";
@@ -13,6 +12,7 @@ interface ISerie{
   userId: number;
   serieId: number;
   updateSerie(userId: number): void;
+  displayOtherSeries(bool: boolean): void;
 }
 
 export default function Serie(props: ISerie) {
@@ -29,7 +29,7 @@ export default function Serie(props: ISerie) {
 
   useEffect(() => {
     setSerieNameChanged(false);
-    fetchSerieData()
+    fetchSerieData();
   }, [props.serieId, newPlayerAdded, matchRegistered, serieNameChanged]);  
 
   function fetchSerieData(){
@@ -49,15 +49,22 @@ export default function Serie(props: ISerie) {
 
   function showSerie(){
     setDisplaySection("serie");
+    props.displayOtherSeries(true);
   };
   function showMatchesPlayed(){
     setDisplaySection("matchesPlayed");
+    props.displayOtherSeries(false);
+
   };
   function showSettings(){
     if (displaySection === "settings") {
       setDisplaySection("serie");
+      props.displayOtherSeries(true);
+
     } else {
       setDisplaySection("settings");
+      props.displayOtherSeries(false);
+
     }
     
   };

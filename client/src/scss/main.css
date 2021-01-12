@@ -190,10 +190,10 @@
   border-bottom: thin solid #FAFAFA;
 }
 
-#serie #rendered-component .serie-button-container .back-to-serie {
+#serie #rendered-component .back-to-serie {
   width: 100%;
   padding: 0 8px;
-  margin-top: 20px;
+  margin: 8px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -205,13 +205,13 @@
           justify-content: flex-start;
 }
 
-#serie #rendered-component .serie-button-container .back-to-serie span {
-  margin-left: 4px;
+#serie #rendered-component .back-to-serie span {
   font-size: 12px;
 }
 
-#serie #rendered-component .serie-button-container .back-to-serie i {
+#serie #rendered-component .back-to-serie i {
   font-size: 14px;
+  margin-right: 12px;
 }
 
 #standings {
