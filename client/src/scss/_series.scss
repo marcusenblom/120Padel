@@ -1,8 +1,14 @@
 @import "variables";
 
 #series{
+    width: auto;
+    padding: 0 16px;
+    width: calc(100% - 32px);
 
     .serie-header{
+        width: auto;
+        margin: 0 0 20px -16px;
+        width: calc(100% + 32px);
         position: relative;
         display: flex;
         align-items: center;

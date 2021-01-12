@@ -6,19 +6,25 @@
 
     .standing{
         color: $greyed-font;
+        width: 24px;
     }
     .profile-image{
-        width: 25px;
-        display: flex;
+        width: 46px;
+        // display: flex;
 
         img{
             height: 42px;
-
         }
     }
     .player{
         color: black;
         font-weight: 600;
+        
+        span{
+            max-width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
     .games-played{
         width: 30px;

@@ -1,9 +1,9 @@
 @import "variables";
 
 #register-match-container{
-    width: calc(100%-40px);
+    width: calc(100%-32px);
     min-height: 80vh;
-    padding: 0 20px;
+    padding: 0 16px;
     margin-top: 10px;
 
     .header-container{
@@ -26,6 +26,7 @@
                 font-size: 18px;
                 border: none;
                 border-radius: 4px;
+                padding-left: 12px;
                 -webkit-box-shadow: $box-shadow; 
                 box-shadow: $box-shadow;
                 background-color: white;
