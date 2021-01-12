@@ -107,12 +107,26 @@
 #serie .serie-name-section .serie-name-container .settings {
   position: absolute;
   right: 0;
-  height: 20px;
+  height: 30px;
+  width: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
 }
 
 #serie .serie-name-section .serie-name-container .settings img {
   height: 100%;
+}
+
+#serie .serie-name-section .serie-name-container .settings i {
+  color: #4b4b4b;
 }
 
 #serie #rendered-component {

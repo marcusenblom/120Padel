@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import settingsLogo from "../../../images/settings.svg";
+import settingsLogo from "../../../images/setting3.svg";
 import '../../../scss/_serie.scss';
 import axios from "axios";
 import { PlayersModel, PlayedMatchModel } from "../../../models/serieModel";
@@ -145,7 +145,11 @@ export default function Serie(props: ISerie) {
       <section className="serie-name-section">
         <div className="serie-name-container">
           <h1 className="serie-name">{name}</h1>
-          <span className="settings" onClick={showSettings}><img src={settingsLogo} alt="settings-logo"/></span>
+          <span className="settings" onClick={showSettings}>
+            {/* <img src={settingsLogo} alt="settings-logo"/> */}
+            <i className="fas fa-cogs"></i>
+            {/* <i className="fas fa-ellipsis-h"></i> */}
+          </span>
         </div>
       </section>
       
