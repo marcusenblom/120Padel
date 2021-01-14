@@ -16,10 +16,8 @@ export default function QuickStat(props: IQuickStats) {
     let icon: any;
     let arrowUp = (<i className="fas fa-arrow-up"></i>);
     let arrowDown = (<i className="fas fa-arrow-down"></i>);
-    // let arrowRight = (<i className="fas fa-arrow-right"></i>);
-    // let noChange = (<span><i className="fas fa-arrow-left"></i><i className="fas fa-arrow-right"></i></span>);
     
-    if (props.change === 0) {
+    if (change === "0") {
         icon = "+/- 0";
         change = "";
     } else {
@@ -29,8 +27,6 @@ export default function QuickStat(props: IQuickStats) {
     // If props.mainstat is NaN (player has 0 games played)
     if (!Number(props.mainStat)) {
         main = "0";
-    }
-    if (!Number(props.change)) {
         change = "0";
         if (props.game) {
             icon = "+/-"
