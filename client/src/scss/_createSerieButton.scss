@@ -1,0 +1,48 @@
+@import"variables";
+
+.create-new-serie {
+    width: calc(100% - 8px);
+    text-align: center;
+    position: relative;
+    margin-top: 40px;
+    padding: 0 4px;
+
+    button {
+        height: 60px;
+        width: 100%;
+        background-color: rgb(2, 172, 2);
+        border: none;
+        border-radius: 30px;
+        -webkit-box-shadow: $box-shadow; 
+        box-shadow: 0px 2px 5px 0px #7a7a7a;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: rgb(0, 180, 0);
+    }
+    button:focus {
+        outline: none;
+    }
+    
+    .content-container{
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+        justify-content: center;
+
+        span{
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+        i{
+            color: white;
+        }
+    }
+    
+}

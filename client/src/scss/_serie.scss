@@ -24,6 +24,26 @@
                 margin: 0;
             }
 
+            .star{
+                position: relative;
+                width: 40px;
+                height: inherit;
+
+                .empty-star{
+                    top: calc(50% - 8px);
+                    left: 0;
+                    margin-left: 12px;
+                    position: absolute;
+                }
+                .filled-star{
+                    top: calc(50% - 8px);
+                    left: 0;
+                    margin-left: 12px;
+                    position: absolute;
+                    color: rgb(240, 240, 2);
+                }
+            }
+
             .settings{
                 position: absolute;
                 right: 0;

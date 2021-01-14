@@ -7,6 +7,7 @@ import axios from "axios";
 import DATABASE_URL from "../../db";
 import NoSerie from "./noSerie/noSerie";
 import AllSeries from "./allSeries/allSeries";
+import CreateSerieButton from "./createSerieButton/createSerieButton";
 
 
 export default function Series(){
@@ -16,6 +17,7 @@ export default function Series(){
     const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
     const [noSerie, setNoSerie] = useState(false);
     const [displayOtherSeries, setDisplayOtherSeries] = useState(true);
+    const [favorite, setFavorite] = useState(0);
   
     useEffect(() => {
         axios
@@ -34,10 +36,10 @@ export default function Series(){
                 
                 if (favorite !== 0) {
                     setSerieIdToShow(favorite);
+                    setFavorite(favorite);
                 } else {
                     setSerieIdToShow(userData.series[0].serieId);
                 }
-                
                 fetchPlayerSeries(userData.userId);
             } else {
                 setNoSerie(true);
@@ -46,6 +48,7 @@ export default function Series(){
 
     }, []);
 
+    console.log(favorite);
     function fetchPlayerSeries(userId: Number){
         axios
         .get(`${DATABASE_URL}/userSeries/${userId}`)
@@ -63,9 +66,11 @@ export default function Series(){
                 <h2>Mina serier</h2>
             </div>
 
-            {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie. Skapa en ny serie genom att klicka på +"/> : <Serie serieId={serieIdToShow} userId={user.userId} updateSerie={fetchPlayerSeries} displayOtherSeries={setDisplayOtherSeries}/>}
+            {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie. Kom igång genom att skapa en ny serie här nedan"/> : <Serie serieId={serieIdToShow} userId={user.userId} updateSerie={fetchPlayerSeries} displayOtherSeries={setDisplayOtherSeries} isFavorite={serieIdToShow === favorite && favorite !== 0} updateParentFavorite={setFavorite}/>}
 
             {playerSeries.length > 1 && displayOtherSeries ? <AllSeries playerSeries={restOfSeries} updateSerie={setSerieIdToShow}/> : ""}
+
+            {displayOtherSeries ? <CreateSerieButton /> : ""}
             
         </section>
     );

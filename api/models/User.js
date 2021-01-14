@@ -88,6 +88,26 @@ userSchema.methods.removeSerie = function(serie){
     this.save();
 };
 
+userSchema.methods.toggleFavorite = function(serieId){
+
+    let userSeries = this.series;
+
+    let serieToFind = userSeries.find(serie => serie.serieId === serieId);
+
+    if (serieToFind) {
+        if (!(serieToFind.favoriteSerie)) {
+
+            userSeries.forEach(serie => {
+                serie.favoriteSerie = false;
+            });
+        }
+        
+        serieToFind.favoriteSerie = !serieToFind.favoriteSerie;
+    }
+
+    return this.save();
+};
+
 
 const User = mongoose.model("User", userSchema);
 

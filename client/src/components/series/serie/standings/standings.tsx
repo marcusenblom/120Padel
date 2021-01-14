@@ -22,11 +22,7 @@ export default function Standings(props: IStandingProps) {
 
   return (
     <div id="standings">
-      {/* <div className="standings-head">
-        <div></div>
-      </div>
-      {listOfPlayers} */}
-
+      {props.players[0].user.userId !== 0 ? 
       <table>
          <thead>
            <tr>
@@ -44,6 +40,8 @@ export default function Standings(props: IStandingProps) {
            {listOfPlayers}
          </tbody>
        </table>
+       :
+       <div><p>Laddar serie...</p></div>}
     </div>
   );
 }

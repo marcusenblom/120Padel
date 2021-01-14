@@ -104,6 +104,27 @@
   margin: 0;
 }
 
+#serie .serie-name-section .serie-name-container .star {
+  position: relative;
+  width: 40px;
+  height: inherit;
+}
+
+#serie .serie-name-section .serie-name-container .star .empty-star {
+  top: calc(50% - 8px);
+  left: 0;
+  margin-left: 12px;
+  position: absolute;
+}
+
+#serie .serie-name-section .serie-name-container .star .filled-star {
+  top: calc(50% - 8px);
+  left: 0;
+  margin-left: 12px;
+  position: absolute;
+  color: #f0f002;
+}
+
 #serie .serie-name-section .serie-name-container .settings {
   position: absolute;
   right: 0;
@@ -1336,7 +1357,6 @@
 }
 
 #all-series {
-  padding: 0 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1366,6 +1386,7 @@
 #all-series .serie-button {
   background-color: white;
   height: 55px;
+  margin: 0 4px;
   -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
   box-shadow: 0px 0px 3px 0px #C4C4C4;
   border-radius: 4px;
@@ -1385,14 +1406,15 @@
   font-weight: 600;
 }
 
-#all-series .create-new-serie {
-  width: 100%;
+.create-new-serie {
+  width: calc(100% - 8px);
   text-align: center;
   position: relative;
   margin-top: 40px;
+  padding: 0 4px;
 }
 
-#all-series .create-new-serie button {
+.create-new-serie button {
   height: 60px;
   width: 100%;
   background-color: #02ac02;
@@ -1403,15 +1425,15 @@
   cursor: pointer;
 }
 
-#all-series .create-new-serie button:hover {
+.create-new-serie button:hover {
   background-color: #00b400;
 }
 
-#all-series .create-new-serie button:focus {
+.create-new-serie button:focus {
   outline: none;
 }
 
-#all-series .create-new-serie .content-container {
+.create-new-serie .content-container {
   height: 60px;
   width: 100%;
   position: absolute;
@@ -1428,15 +1450,33 @@
           justify-content: center;
 }
 
-#all-series .create-new-serie .content-container span {
+.create-new-serie .content-container span {
   color: white;
   font-size: 18px;
   font-weight: 700;
   margin-right: 12px;
 }
 
-#all-series .create-new-serie .content-container i {
+.create-new-serie .content-container i {
   color: white;
+}
+
+#no-serie {
+  margin: 40px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#no-serie h4 {
+  text-align: center;
+  width: 80%;
 }
 
 body {

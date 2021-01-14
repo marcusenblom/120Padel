@@ -36,5 +36,17 @@ router.post("/createUser", async (req, res) => {
 
 });
 
+router.post("/favorite", async (req, res) => {
+
+    const user = await User.findOne({
+        userId: req.body.userId
+    });
+
+    user.toggleFavorite(req.body.serieId);
+
+    res.send("Favorite changed");
+
+});
+
 
 module.exports = router;

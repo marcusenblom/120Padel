@@ -11,8 +11,10 @@ import SerieNavigation from "./serieNavigation/serieNavigation";
 interface ISerie{
   userId: number;
   serieId: number;
+  isFavorite: boolean;
   updateSerie(userId: number): void;
   displayOtherSeries(bool: boolean): void;
+  updateParentFavorite(serieId: number): void;
 }
 
 export default function Serie(props: ISerie) {
@@ -26,6 +28,11 @@ export default function Serie(props: ISerie) {
   const [creatingGame, setCreatingGame] = useState(false);
   const [newPlayerAdded, setNewPlayerAdded] = useState(false);
   const [serieNameChanged, setSerieNameChanged] = useState(false);
+  // const [isFavorite, setIsFavorite] = useState(props.isFavorite);
+
+  // console.log(props.isFavorite);
+  // console.log(isFavorite);
+  
 
   useEffect(() => {
     setSerieNameChanged(false);
@@ -120,6 +127,30 @@ export default function Serie(props: ISerie) {
     });
   };
 
+  function toggleFavorite(){
+    axios.post(`${DATABASE_URL}/favorite`, {
+      serieId: props.serieId,
+      userId: props.userId
+    }).then(response => {
+      console.log(response);
+
+      if (props.isFavorite) {
+        props.updateParentFavorite(0);
+      } else {
+        props.updateParentFavorite(props.serieId);
+      }
+
+    }).catch(function(err) {
+      console.log(err);
+    });
+  };
+
+  function favoriteStar(){
+    let star = props.isFavorite ? (<div className="star" onClick={toggleFavorite}><i className="fas fa-star filled-star"></i><i className="far fa-star empty-star"></i></div>) : (<div className="star" onClick={toggleFavorite}><i className="far fa-star empty-star"></i></div>);
+
+    return star;
+  }
+
   function renderComponent(){
     if (displaySection === "serie") {
       return(
@@ -152,6 +183,7 @@ export default function Serie(props: ISerie) {
       <section className="serie-name-section">
         <div className="serie-name-container">
           <h1 className="serie-name">{name}</h1>
+          {favoriteStar()}
           <span className="settings" onClick={showSettings}>
             {/* <img src={settingsLogo} alt="settings-logo"/> */}
             <i className="fas fa-cogs"></i>

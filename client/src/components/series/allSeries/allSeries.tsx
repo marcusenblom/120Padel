@@ -32,15 +32,6 @@ export default function AllSeries(props: IAllSeries){
             </div>
 
             {serieButtons}
-
-            <div className="create-new-serie">
-                <button type="button"></button>
-                <div className="content-container">
-                    <span>Skapa ny serie</span>
-                    <i className="fas fa-bars"></i>
-                    {/* <i className="fas fa-stream"></i> */}
-                </div>
-            </div>
         </div>
     );
 }
