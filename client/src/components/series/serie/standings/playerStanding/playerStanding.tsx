@@ -58,7 +58,7 @@ export default function PlayerStanding(props: IPlayerStandingProps) {
     <>
       <tr id="single-standing">
         <td className="standing"><span>{props.standing}</span></td>
-        <td className="profile-image"><span><img src={dude} alt=""/></span></td>
+        <td className="profile-image"><span className="img-container"><img src={dude} alt=""/></span></td>
         <td className="player"><span>{props.userName}</span></td>
         <td className="games-played"><span>{props.matchesPlayed}</span></td>
         <td className="games-won"><span>{props.matchesWon}</span></td>

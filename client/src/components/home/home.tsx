@@ -8,6 +8,7 @@ import UserQuickStats from "./userQuickStats/userQuickStats";
 import HomePageButton from "./homePageButton/homePageButton";
 
 import DATABASE_URL from "../../db";
+import PageHeader from "../pageHeader/pageHeader";
 
 
 export default function Home() {
@@ -57,6 +58,7 @@ export default function Home() {
   return (
 
     <div id="home">
+      <PageHeader header="Startsida"/>
       <LastMatchesPlayed player={user} playerSeries={playerSeries} matchesExist={playerSeries.length > 0} playerMatches={playerMatches}/>
       <UserQuickStats userId={user.userId} playerMatches={playerMatches} />
       <HomePageButton content="Registrera match" link="/registerMatch"/>

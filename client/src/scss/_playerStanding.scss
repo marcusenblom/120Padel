@@ -7,13 +7,18 @@
     .standing{
         color: $greyed-font;
         width: 24px;
+        padding-left: 4px;
     }
     .profile-image{
         width: 46px;
         // display: flex;
 
-        img{
-            height: 42px;
+        .img-container{
+            height: 46px;
+
+            img{
+                height: 100%;
+            }
         }
     }
     .player{
@@ -47,7 +52,7 @@
         position: absolute;
         // top: 0;
         left: 0;
-        height: 50px;
+        height: 48px;
         width: 100%;
         border-radius: 8px;
         -webkit-box-shadow: $box-shadow;

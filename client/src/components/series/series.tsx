@@ -8,6 +8,7 @@ import DATABASE_URL from "../../db";
 import NoSerie from "./noSerie/noSerie";
 import AllSeries from "./allSeries/allSeries";
 import CreateSerieButton from "./createSerieButton/createSerieButton";
+import PageHeader from "../pageHeader/pageHeader";
 
 
 export default function Series(){
@@ -62,9 +63,7 @@ export default function Series(){
 
     return (
         <section id="series">
-            <div className="serie-header">
-                <h2>Mina serier</h2>
-            </div>
+            <PageHeader header="Mina serier"/>
 
             {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie. Kom igång genom att skapa en ny serie här nedan"/> : <Serie serieId={serieIdToShow} userId={user.userId} updateSerie={fetchPlayerSeries} displayOtherSeries={setDisplayOtherSeries} isFavorite={serieIdToShow === favorite && favorite !== 0} updateParentFavorite={setFavorite}/>}
 
