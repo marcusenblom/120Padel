@@ -5,40 +5,52 @@ import UserModel from "../../models/userModel";
 import AddMatch from "../series/serie/playedMatches/addMatch/addMatch";
 
 import DATABASE_URL from "../../db";
+import PageHeader from "../pageHeader/pageHeader";
 
 export default function RegisterMatch() {
 
   const [user, setUser] = useState(new UserModel());
   const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
   const [serieIdChosen, setSerieIdChosen] = useState(0);
-  const [players, setPlayers] = useState([new PlayersModel()])
   const [matchRegistered, setMatchRegistered] = useState(false);
   const [creatingGame, setCreatingGame] = useState(false);
+  const [favoriteSerie, setFavoriteSerie] = useState(0);
 
   useEffect(() => {
     axios
       .get(`${DATABASE_URL}/`)
       .then(axiosObject => {
         let userData = axiosObject.data;
-
         setUser(userData);
-        
+        let favoriteId = findFavoriteSerie(userData);
+        setFavoriteSerie(favoriteId);
+        setSerieIdChosen(favoriteId);
         fetchPlayerSeries(userData.userId);
-    });
+      });
   }, []);
 
-  function fetchPlayerSeries(userId: Number){
+  function findFavoriteSerie(user: UserModel){
+    let favorite = user.series.find((serie: any) => serie.favoriteSerie === true);
+    if (favorite !== undefined) {
+      return favorite.serieId;
+    } 
+    if (user.series.length > 0) {
+      return user.series[0].serieId;
+    }
+    else {
+      return 0;
+    }
+  }
 
+  function fetchPlayerSeries(userId: number){
     axios
     .get(`${DATABASE_URL}/userSeries/${userId}`)
     .then(axiosObject => {
       let serieData = axiosObject.data;
       setPlayerSeries(serieData);
-      setSerieIdChosen(serieData[0].serieId);
-      setPlayers(serieData[0].players);
     });
   }
-
+  
   function postMatchToSerie(matchData: {
     date: Date;
     serieId: Number;
@@ -63,23 +75,25 @@ export default function RegisterMatch() {
   function changeSerie(e: ChangeEvent<HTMLSelectElement>){
     let serieFromSelect = Number(e.currentTarget.value);
     setSerieIdChosen(serieFromSelect);
-
-    let playersToFind = playerSeries.find(serie => serie.serieId === serieFromSelect)?.players;
-    if (playersToFind) {
-      setPlayers(playersToFind);
-    }
-
   }
 
+  // Rearrange playerSeries so that favorite is first
+  playerSeries.forEach(function(serie, i){
+    if (serie.serieId === favoriteSerie) {
+      playerSeries.splice(i, 1);
+      playerSeries.unshift(serie);
+    }
+  });
+  
   let serieOptions = playerSeries.map(serie => {
     return <option key={serie.serieId} value={serie.serieId}>{serie.name}</option>
   });
+
+  let players = playerSeries.find((serie: any) => serie.serieId === serieIdChosen)?.players;
   
   return (
     <div id="register-match-container">
-      <div className="header-container">
-          <h2>Registrera match</h2>
-      </div>
+      <PageHeader header="Registrera match"/>
       <div className="serie-select-container">
         <h3>Serie</h3>
           <div className="serie-select">

@@ -6,7 +6,7 @@ import ball from "../../../../../images/ball.svg";
 
 interface IAddMatchProps{
   serieId: Number;
-  players: PlayersModel[];
+  players: PlayersModel[] | undefined;
   updateParentWithPostData(data: any): void;
   matchRegistered: Boolean;
   creatingGame: Boolean;
@@ -140,7 +140,7 @@ export default function AddMatch(props: IAddMatchProps) {
     }
   }
 
-  let listOfPlayers = props.players.map(player => {
+  let listOfPlayers = props.players?.map(player => {
     return <option className="select-option" key={player.user.userName} value={player.user.userId}>{player.user.userName}</option>
   });
 

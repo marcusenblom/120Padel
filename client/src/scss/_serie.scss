@@ -42,6 +42,14 @@
                     position: absolute;
                     color: rgb(240, 240, 2);
                 }
+                .filled-star:hover{
+                    top: calc(50% - 9px);
+                    font-size: 18px;
+                }
+                .empty-star:hover{
+                    top: calc(50% - 9px);
+                    font-size: 18px;
+                }
             }
 
             .settings{
