@@ -7,6 +7,7 @@ import PlayedMatches from "./playedMatches/playedMatches";
 import DATABASE_URL from "../../../db";
 import SerieSettings from "./serieSettings/serieSettings";
 import SerieNavigation from "./serieNavigation/serieNavigation";
+import PopUp from "../../popup/popup";
 
 interface ISerie{
   userId: number;
@@ -28,6 +29,7 @@ export default function Serie(props: ISerie) {
   const [creatingGame, setCreatingGame] = useState(false);
   const [newPlayerAdded, setNewPlayerAdded] = useState(false);
   const [serieNameChanged, setSerieNameChanged] = useState(false);
+  const [favoritePopup, setFavoritePopup] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(props.isFavorite);
 
   // console.log(props.isFavorite);
@@ -143,13 +145,25 @@ export default function Serie(props: ISerie) {
     }).catch(function(err) {
       console.log(err);
     });
+
+    setFavoritePopup(false);
   };
 
+  function openFavoritePopup(){
+    setFavoritePopup(true);
+  }
+
+  
+
   function favoriteStar(){
-    let star = props.isFavorite ? (<div className="star" onClick={toggleFavorite}><i className="fas fa-star filled-star"></i><i className="far fa-star empty-star"></i></div>) : (<div className="star" onClick={toggleFavorite}><i className="far fa-star empty-star"></i></div>);
+    let star = props.isFavorite ? (<div className="star" onClick={openFavoritePopup}><i className="fas fa-star filled-star"></i><i className="far fa-star empty-star"></i></div>) : (<div className="star" onClick={openFavoritePopup}><i className="far fa-star empty-star"></i></div>);
 
     return star;
   }
+
+  let filledStarPopup = (<div className="popup-star"><i className="fas fa-star filled-star"></i><i className="far fa-star empty-star"></i></div>);
+  
+  let emptyStarPopup = (<div className="popup-star"><i className="far fa-star empty-star"></i></div>)
 
   function renderComponent(){
     if (displaySection === "serie") {
@@ -196,6 +210,8 @@ export default function Serie(props: ISerie) {
         {renderComponent()}
       </section>
 
+      {favoritePopup && props.isFavorite ? <PopUp icon={emptyStarPopup} header="Favoritserie" text={"Vill du ta bort " + name + " som din favoritserie?"} buttonOne="Fortsätt" buttonTwo="Tillbaka" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
+      {favoritePopup && !props.isFavorite ? <PopUp icon={filledStarPopup} header="Favoritserie" text={"Vill du göra " + name + " till din favoritserie?"} buttonOne="Fortsätt" buttonTwo="Avbryt" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
     </div>
   );
 }

@@ -103,16 +103,6 @@
   color: #f0f002;
 }
 
-#serie .serie-name-section .serie-name-container .star .filled-star:hover {
-  top: calc(50% - 9px);
-  font-size: 18px;
-}
-
-#serie .serie-name-section .serie-name-container .star .empty-star:hover {
-  top: calc(50% - 9px);
-  font-size: 18px;
-}
-
 #serie .serie-name-section .serie-name-container .settings {
   position: absolute;
   right: 0;
