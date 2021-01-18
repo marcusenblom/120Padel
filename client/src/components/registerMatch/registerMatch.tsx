@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { PlayersModel, SerieModel } from "../../models/serieModel";
+import { SerieModel } from "../../models/serieModel";
 import UserModel from "../../models/userModel";
 import AddMatch from "../series/serie/playedMatches/addMatch/addMatch";
 
@@ -9,7 +9,7 @@ import PageHeader from "../pageHeader/pageHeader";
 
 export default function RegisterMatch() {
 
-  const [user, setUser] = useState(new UserModel());
+  // const [user, setUser] = useState(new UserModel());
   const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
   const [serieIdChosen, setSerieIdChosen] = useState(0);
   const [matchRegistered, setMatchRegistered] = useState(false);
@@ -21,7 +21,7 @@ export default function RegisterMatch() {
       .get(`${DATABASE_URL}/`)
       .then(axiosObject => {
         let userData = axiosObject.data;
-        setUser(userData);
+        // setUser(userData);
         let favoriteId = findFavoriteSerie(userData);
         setFavoriteSerie(favoriteId);
         setSerieIdChosen(favoriteId);

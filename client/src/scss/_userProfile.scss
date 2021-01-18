@@ -1,0 +1,307 @@
+@import "variables";
+@import "_mixins";
+
+#profile{
+    width: calc(100% - 32px);
+    padding: 0 16px;
+
+
+    #user-profile-stats{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .user-profile-stat-win-ratio{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            // background-color: white;
+            border-radius: 12px;
+            margin: 0 100px 12px 100px;
+            height: 100px;
+
+            .user-profile-stat-value{
+                font-size: 40px;
+                font-weight: 900;
+                color: $blue-color;
+                
+            }
+    
+            .user-profile-stat-header{
+                font-size: 16px;
+            }
+        }
+
+        .user-profile-stat{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            background-color: white;
+            border-radius: 8px;
+            margin: 0 0 12px 0;
+            height: 100px;
+            box-shadow: $box-shadow;
+            -webkit-box-shadow: $box-shadow;
+
+    
+            .user-profile-stat-value{
+                font-size: 24px;
+                font-weight: 600;
+                color: $blue-color;
+
+                .fa-trophy{
+                    margin-left: 8px;
+                    color: gold;
+                    font-size: 20px;
+                }
+                img{
+                    margin-left: 8px;
+                }
+            }
+    
+            .user-profile-stat-header{
+                font-size: 14px;
+            }
+        }
+
+        
+    }
+    .profile-stat-headers{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 28px;
+
+        .profile-stat-header{
+            width: 180px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        .profile-stat-header:nth-child(2){
+            width: 180px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+    .profile-stat{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+
+        .user-profile-stat-win-ratio-percentage{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 180px;
+            height: 180px;
+    
+            .rect-auto {
+                clip: rect(auto, auto, auto, auto);
+            }
+    
+            .pie {
+                position: absolute;
+                border: $circle-width solid $primary-color;
+                width: 1 - (2 * $circle-width);
+                height: 1 - (2 * $circle-width);
+                clip: rect(0em, 0.5em, 1em, 0em);
+                border-radius: 50%;
+                @include rotate(0deg);
+            }
+    
+            .pie-fill {
+                @include rotate(180deg);
+            }
+    
+            // main
+            .c100 {
+                *,
+                *:before,
+                *:after {
+                    @include box-sizing(content-box);
+                }
+                position: relative;
+                font-size: 120px;
+                width: 1em;
+                height: 1em;
+                border-radius: 50%;
+                float: left;
+                // margin: 0 0.1em 0.1em 0;
+                background-color: $secondary-color;
+                // center circle to its parent
+                &.center {
+                    float: none;
+                    margin: 0 auto;
+                }
+                // size
+                &.size {
+                    font-size: 120px;
+                }
+                // centered value inside circle
+                >span {
+                    position: absolute;
+                    width: 100%;
+                    z-index: 1;
+                    left: 0;
+                    top: 0;
+                    width: 3.33em;
+                    line-height: 3.33em;
+                    font-size: 0.3em;
+                    color: $blue-color;
+                    display: block;
+                    text-align: center;
+                    white-space: nowrap;
+                    @include transition-property(all);
+                    @include transition-duration(0.2s);
+                    @include transition-timing-function(ease-out);
+                }
+                // background inside the circle
+                &:after {
+                    position: absolute;
+                    top: $circle-width;
+                    left: $circle-width;
+                    display: block;
+                    content: " ";
+                    border-radius: 50%;
+                    background-color: $bg-color;
+                    width: 1 - (2 * $circle-width);
+                    height: 1 - (2 * $circle-width);
+                    @include transition-property(all);
+                    @include transition-duration(0.2s);
+                    @include transition-timing-function(ease-in);
+                }
+                // the slice (mask)
+                .slice {
+                    position: absolute;
+                    width: 1em;
+                    height: 1em;
+                    clip: rect(0em, 1em, 1em, 0.5em);
+                }
+                // circle to show the status
+                .bar {
+                    @extend .pie;
+                }
+                // loop to create all needed elements automatically
+                @for $i from 51 through 100 {
+                    &.p#{$i} {
+                        & .slice {
+                            @extend .rect-auto;
+                        }
+                        &.bar:after {
+                            @extend .pie-fill;
+                        }
+                        & .fill {
+                            @extend .pie;
+                            @extend .pie-fill;
+                        }
+                    }
+                }
+                // loop to rotate all 100 circles
+                @for $i from 1 through 100 {
+                    &.p#{$i} .bar {
+                        $degs: (360/100 * $i);
+                        @include rotate(#{$degs}deg);
+                    }
+                }
+                // // hover styles
+                // &:hover {
+                //     cursor: default;
+                //     >span {
+                //         width: 3.33em;
+                //         line-height: 3.33em;
+                //         font-size: 0.3em;
+                //         color: $primary-color;
+                //     }
+                //     &:after {
+                //         top: $circle-width-hover;
+                //         left: $circle-width-hover;
+                //         width: 1 - (2 * $circle-width-hover);
+                //         height: 1 - (2 * $circle-width-hover);
+                //     }
+                // }
+                // override colors for the dark skin
+                &.dark {
+                    background-color: $secondary-color-dark;
+                    .bar,
+                    .fill {
+                        border-color: $primary-color-dark !important;
+                    }
+                    >span {
+                        color: $secondary-color-dark;
+                    }
+                    &:after {
+                        background-color: $bg-color-dark;
+                    }
+                    &:hover {
+                        >span {
+                            color: $primary-color-dark;
+                        }
+                    }
+                }
+                // green skin
+                &.green {
+                    .bar,
+                    .fill {
+                        border-color: $primary-color-green !important;
+                    }
+                    &:hover {
+                        >span {
+                            color: $primary-color-green;
+                        }
+                    }
+                }
+                &.green.dark {
+                    .bar,
+                    .fill {
+                        border-color: $primary-color-green-dark !important;
+                    }
+                    &:hover {
+                        >span {
+                            color: $primary-color-green-dark;
+                        }
+                    }
+                }
+                // orange skin
+                &.orange {
+                    .bar,
+                    .fill {
+                        border-color: $primary-color-orange !important;
+                    }
+                    &:hover {
+                        >span {
+                            color: $primary-color-orange;
+                        }
+                    }
+                }
+                &.orange.dark {
+                    .bar,
+                    .fill {
+                        border-color: $primary-color-orange-dark !important;
+                    }
+                    &:hover {
+                        >span {
+                            color: $primary-color-orange-dark;
+                        }
+                    }
+                }
+                &.main-color {
+                    .bar,
+                    .fill {
+                        border-color: $blue-color !important;
+                    }
+                }
+            }
+        }
+    }
+    
+}

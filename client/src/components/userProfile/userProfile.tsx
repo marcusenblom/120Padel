@@ -3,16 +3,18 @@ import React, { useEffect, useState } from "react";
 import DATABASE_URL from "../../db";
 import { PlayedMatchModel, SerieModel } from "../../models/serieModel";
 import UserModel from "../../models/userModel";
+import PageHeader from "../pageHeader/pageHeader";
+import ProfileImage from "./profileImage/profileImage";
 import ProfileStat from "./profileStat/profileStat";
 import ProfileStatGame from "./profileStatGame/profileStatGame";
+import ProfileStatWinRatio from "./profileStatWinRatio/profileStatWinRatio";
 
 
 
 export default function UserProfile(){
 
     const [user, setUser] = useState(new UserModel());
-    const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);
-  
+    const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);    
 
     useEffect(() => {
         axios
@@ -25,7 +27,7 @@ export default function UserProfile(){
             fetchPlayerSeries(userData.userId);
         });
 
-    }, [user]);
+    }, []);
 
     function fetchPlayerSeries(userId: Number){
         axios
@@ -59,15 +61,30 @@ export default function UserProfile(){
     // Sort all players played matches as date
     matches.sort((a, b) => (a.date < b.date) ? 1 : -1);
 
-    let winRatio = (wins / matches.length).toFixed(4).slice(0, 4);
+    let winRatio = (wins / matches.length).toFixed(4).slice(0, 4);    
 
   return(
-    <div>
-        <ProfileStat header="Spelade matcher" value={matches.length}/>
-        <ProfileStat header="Vunna matcher" value={wins}/>
-        <ProfileStat header="Matchsnitt" value={winRatio}/>
-        <ProfileStat header="Spelade game" value={gamePlayed}/>
-        <ProfileStatGame header="Game" gameWon={gameWon} gameLost={gameLost}/>
+    <div id="profile">
+        <PageHeader header="Spelarprofil"/>
+        <div className="profile-stat">
+            <ProfileImage name="Hasse"/>
+            <ProfileStatWinRatio header="Matchsnitt" value={winRatio}/>
+        </div>
+        <div className="profile-stat-headers">
+            <span className="profile-stat-header">
+                {user.userName}
+            </span>
+            <span className="profile-stat-header">
+                Matchsnitt
+            </span>
+        </div>
+        
+        <div id="user-profile-stats">
+            <ProfileStat header="Spelade matcher" value={matches.length} icon="ball"/>
+            <ProfileStat header="Vunna matcher" value={wins} icon="trophy"/>
+            <ProfileStat header="Spelade game" value={gamePlayed} icon="hej"/>
+            <ProfileStatGame header="Game" gameWon={gameWon} gameLost={gameLost}/>
+        </div>
     </div>
   );
 }

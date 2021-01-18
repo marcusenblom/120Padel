@@ -1453,22 +1453,825 @@
   color: white;
 }
 
-#no-serie {
-  margin: 40px 0;
+#profile {
+  width: calc(100% - 32px);
+  padding: 0 16px;
+}
+
+#profile #user-profile-stats {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
-#no-serie h4 {
+#profile #user-profile-stats .user-profile-stat-win-ratio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 150px;
+  border-radius: 12px;
+  margin: 0 100px 12px 100px;
+  height: 100px;
+}
+
+#profile #user-profile-stats .user-profile-stat-win-ratio .user-profile-stat-value {
+  font-size: 40px;
+  font-weight: 900;
+  color: #720909;
+}
+
+#profile #user-profile-stats .user-profile-stat-win-ratio .user-profile-stat-header {
+  font-size: 16px;
+}
+
+#profile #user-profile-stats .user-profile-stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 150px;
+  background-color: white;
+  border-radius: 8px;
+  margin: 0 0 12px 0;
+  height: 100px;
+  box-shadow: 0px 0px 3px 0px #C4C4C4;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+}
+
+#profile #user-profile-stats .user-profile-stat .user-profile-stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #720909;
+}
+
+#profile #user-profile-stats .user-profile-stat .user-profile-stat-value .fa-trophy {
+  margin-left: 8px;
+  color: gold;
+  font-size: 20px;
+}
+
+#profile #user-profile-stats .user-profile-stat .user-profile-stat-value img {
+  margin-left: 8px;
+}
+
+#profile #user-profile-stats .user-profile-stat .user-profile-stat-header {
+  font-size: 14px;
+}
+
+#profile .profile-stat-headers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 28px;
+}
+
+#profile .profile-stat-headers .profile-stat-header {
+  width: 180px;
   text-align: center;
-  width: 80%;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#profile .profile-stat-headers .profile-stat-header:nth-child(2) {
+  width: 180px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#profile .profile-stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 180px;
+  height: 180px;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .rect-auto, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p51 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p52 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p53 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p54 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p55 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p56 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p57 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p58 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p59 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p60 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p61 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p62 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p63 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p64 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p65 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p66 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p67 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p68 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p69 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p70 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p71 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p72 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p73 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p74 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p75 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p76 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p77 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p78 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p79 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p80 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p81 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p82 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p83 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p84 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p85 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p86 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p87 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p88 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p89 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p90 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p91 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p92 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p93 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p94 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p95 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p96 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p97 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p98 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p99 .slice, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p100 .slice {
+  clip: rect(auto, auto, auto, auto);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .pie, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100 .bar, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p51 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p52 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p53 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p54 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p55 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p56 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p57 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p58 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p59 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p60 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p61 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p62 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p63 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p64 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p65 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p66 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p67 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p68 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p69 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p70 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p71 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p72 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p73 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p74 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p75 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p76 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p77 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p78 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p79 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p80 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p81 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p82 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p83 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p84 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p85 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p86 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p87 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p88 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p89 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p90 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p91 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p92 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p93 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p94 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p95 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p96 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p97 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p98 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p99 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p100 .fill {
+  position: absolute;
+  border: 0.08em solid #307bbb;
+  width: 0.84em;
+  height: 0.84em;
+  clip: rect(0em, 0.5em, 1em, 0em);
+  border-radius: 50%;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .pie-fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p51.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p51 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p52.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p52 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p53.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p53 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p54.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p54 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p55.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p55 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p56.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p56 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p57.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p57 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p58.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p58 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p59.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p59 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p60.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p60 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p61.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p61 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p62.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p62 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p63.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p63 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p64.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p64 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p65.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p65 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p66.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p66 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p67.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p67 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p68.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p68 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p69.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p69 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p70.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p70 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p71.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p71 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p72.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p72 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p73.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p73 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p74.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p74 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p75.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p75 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p76.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p76 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p77.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p77 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p78.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p78 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p79.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p79 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p80.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p80 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p81.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p81 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p82.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p82 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p83.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p83 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p84.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p84 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p85.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p85 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p86.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p86 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p87.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p87 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p88.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p88 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p89.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p89 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p90.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p90 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p91.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p91 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p92.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p92 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p93.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p93 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p94.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p94 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p95.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p95 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p96.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p96 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p97.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p97 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p98.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p98 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p99.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p99 .fill, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p100.bar:after, #profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p100 .fill {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100 {
+  position: relative;
+  font-size: 120px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  float: left;
+  background-color: #ccc;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100 *,
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100 *:before,
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100 *:after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.center {
+  float: none;
+  margin: 0 auto;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.size {
+  font-size: 120px;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100 > span {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 3.33em;
+  line-height: 3.33em;
+  font-size: 0.3em;
+  color: #720909;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100:after {
+  position: absolute;
+  top: 0.08em;
+  left: 0.08em;
+  display: block;
+  content: " ";
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  width: 0.84em;
+  height: 0.84em;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100 .slice {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  clip: rect(0em, 1em, 1em, 0.5em);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p1 .bar {
+  -webkit-transform: rotate(3.6deg);
+  transform: rotate(3.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p2 .bar {
+  -webkit-transform: rotate(7.2deg);
+  transform: rotate(7.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p3 .bar {
+  -webkit-transform: rotate(10.8deg);
+  transform: rotate(10.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p4 .bar {
+  -webkit-transform: rotate(14.4deg);
+  transform: rotate(14.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p5 .bar {
+  -webkit-transform: rotate(18deg);
+  transform: rotate(18deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p6 .bar {
+  -webkit-transform: rotate(21.6deg);
+  transform: rotate(21.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p7 .bar {
+  -webkit-transform: rotate(25.2deg);
+  transform: rotate(25.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p8 .bar {
+  -webkit-transform: rotate(28.8deg);
+  transform: rotate(28.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p9 .bar {
+  -webkit-transform: rotate(32.4deg);
+  transform: rotate(32.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p10 .bar {
+  -webkit-transform: rotate(36deg);
+  transform: rotate(36deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p11 .bar {
+  -webkit-transform: rotate(39.6deg);
+  transform: rotate(39.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p12 .bar {
+  -webkit-transform: rotate(43.2deg);
+  transform: rotate(43.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p13 .bar {
+  -webkit-transform: rotate(46.8deg);
+  transform: rotate(46.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p14 .bar {
+  -webkit-transform: rotate(50.4deg);
+  transform: rotate(50.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p15 .bar {
+  -webkit-transform: rotate(54deg);
+  transform: rotate(54deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p16 .bar {
+  -webkit-transform: rotate(57.6deg);
+  transform: rotate(57.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p17 .bar {
+  -webkit-transform: rotate(61.2deg);
+  transform: rotate(61.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p18 .bar {
+  -webkit-transform: rotate(64.8deg);
+  transform: rotate(64.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p19 .bar {
+  -webkit-transform: rotate(68.4deg);
+  transform: rotate(68.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p20 .bar {
+  -webkit-transform: rotate(72deg);
+  transform: rotate(72deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p21 .bar {
+  -webkit-transform: rotate(75.6deg);
+  transform: rotate(75.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p22 .bar {
+  -webkit-transform: rotate(79.2deg);
+  transform: rotate(79.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p23 .bar {
+  -webkit-transform: rotate(82.8deg);
+  transform: rotate(82.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p24 .bar {
+  -webkit-transform: rotate(86.4deg);
+  transform: rotate(86.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p25 .bar {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p26 .bar {
+  -webkit-transform: rotate(93.6deg);
+  transform: rotate(93.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p27 .bar {
+  -webkit-transform: rotate(97.2deg);
+  transform: rotate(97.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p28 .bar {
+  -webkit-transform: rotate(100.8deg);
+  transform: rotate(100.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p29 .bar {
+  -webkit-transform: rotate(104.4deg);
+  transform: rotate(104.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p30 .bar {
+  -webkit-transform: rotate(108deg);
+  transform: rotate(108deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p31 .bar {
+  -webkit-transform: rotate(111.6deg);
+  transform: rotate(111.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p32 .bar {
+  -webkit-transform: rotate(115.2deg);
+  transform: rotate(115.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p33 .bar {
+  -webkit-transform: rotate(118.8deg);
+  transform: rotate(118.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p34 .bar {
+  -webkit-transform: rotate(122.4deg);
+  transform: rotate(122.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p35 .bar {
+  -webkit-transform: rotate(126deg);
+  transform: rotate(126deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p36 .bar {
+  -webkit-transform: rotate(129.6deg);
+  transform: rotate(129.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p37 .bar {
+  -webkit-transform: rotate(133.2deg);
+  transform: rotate(133.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p38 .bar {
+  -webkit-transform: rotate(136.8deg);
+  transform: rotate(136.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p39 .bar {
+  -webkit-transform: rotate(140.4deg);
+  transform: rotate(140.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p40 .bar {
+  -webkit-transform: rotate(144deg);
+  transform: rotate(144deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p41 .bar {
+  -webkit-transform: rotate(147.6deg);
+  transform: rotate(147.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p42 .bar {
+  -webkit-transform: rotate(151.2deg);
+  transform: rotate(151.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p43 .bar {
+  -webkit-transform: rotate(154.8deg);
+  transform: rotate(154.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p44 .bar {
+  -webkit-transform: rotate(158.4deg);
+  transform: rotate(158.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p45 .bar {
+  -webkit-transform: rotate(162deg);
+  transform: rotate(162deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p46 .bar {
+  -webkit-transform: rotate(165.6deg);
+  transform: rotate(165.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p47 .bar {
+  -webkit-transform: rotate(169.2deg);
+  transform: rotate(169.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p48 .bar {
+  -webkit-transform: rotate(172.8deg);
+  transform: rotate(172.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p49 .bar {
+  -webkit-transform: rotate(176.4deg);
+  transform: rotate(176.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p50 .bar {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p51 .bar {
+  -webkit-transform: rotate(183.6deg);
+  transform: rotate(183.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p52 .bar {
+  -webkit-transform: rotate(187.2deg);
+  transform: rotate(187.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p53 .bar {
+  -webkit-transform: rotate(190.8deg);
+  transform: rotate(190.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p54 .bar {
+  -webkit-transform: rotate(194.4deg);
+  transform: rotate(194.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p55 .bar {
+  -webkit-transform: rotate(198deg);
+  transform: rotate(198deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p56 .bar {
+  -webkit-transform: rotate(201.6deg);
+  transform: rotate(201.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p57 .bar {
+  -webkit-transform: rotate(205.2deg);
+  transform: rotate(205.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p58 .bar {
+  -webkit-transform: rotate(208.8deg);
+  transform: rotate(208.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p59 .bar {
+  -webkit-transform: rotate(212.4deg);
+  transform: rotate(212.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p60 .bar {
+  -webkit-transform: rotate(216deg);
+  transform: rotate(216deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p61 .bar {
+  -webkit-transform: rotate(219.6deg);
+  transform: rotate(219.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p62 .bar {
+  -webkit-transform: rotate(223.2deg);
+  transform: rotate(223.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p63 .bar {
+  -webkit-transform: rotate(226.8deg);
+  transform: rotate(226.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p64 .bar {
+  -webkit-transform: rotate(230.4deg);
+  transform: rotate(230.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p65 .bar {
+  -webkit-transform: rotate(234deg);
+  transform: rotate(234deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p66 .bar {
+  -webkit-transform: rotate(237.6deg);
+  transform: rotate(237.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p67 .bar {
+  -webkit-transform: rotate(241.2deg);
+  transform: rotate(241.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p68 .bar {
+  -webkit-transform: rotate(244.8deg);
+  transform: rotate(244.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p69 .bar {
+  -webkit-transform: rotate(248.4deg);
+  transform: rotate(248.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p70 .bar {
+  -webkit-transform: rotate(252deg);
+  transform: rotate(252deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p71 .bar {
+  -webkit-transform: rotate(255.6deg);
+  transform: rotate(255.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p72 .bar {
+  -webkit-transform: rotate(259.2deg);
+  transform: rotate(259.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p73 .bar {
+  -webkit-transform: rotate(262.8deg);
+  transform: rotate(262.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p74 .bar {
+  -webkit-transform: rotate(266.4deg);
+  transform: rotate(266.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p75 .bar {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p76 .bar {
+  -webkit-transform: rotate(273.6deg);
+  transform: rotate(273.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p77 .bar {
+  -webkit-transform: rotate(277.2deg);
+  transform: rotate(277.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p78 .bar {
+  -webkit-transform: rotate(280.8deg);
+  transform: rotate(280.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p79 .bar {
+  -webkit-transform: rotate(284.4deg);
+  transform: rotate(284.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p80 .bar {
+  -webkit-transform: rotate(288deg);
+  transform: rotate(288deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p81 .bar {
+  -webkit-transform: rotate(291.6deg);
+  transform: rotate(291.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p82 .bar {
+  -webkit-transform: rotate(295.2deg);
+  transform: rotate(295.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p83 .bar {
+  -webkit-transform: rotate(298.8deg);
+  transform: rotate(298.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p84 .bar {
+  -webkit-transform: rotate(302.4deg);
+  transform: rotate(302.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p85 .bar {
+  -webkit-transform: rotate(306deg);
+  transform: rotate(306deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p86 .bar {
+  -webkit-transform: rotate(309.6deg);
+  transform: rotate(309.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p87 .bar {
+  -webkit-transform: rotate(313.2deg);
+  transform: rotate(313.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p88 .bar {
+  -webkit-transform: rotate(316.8deg);
+  transform: rotate(316.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p89 .bar {
+  -webkit-transform: rotate(320.4deg);
+  transform: rotate(320.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p90 .bar {
+  -webkit-transform: rotate(324deg);
+  transform: rotate(324deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p91 .bar {
+  -webkit-transform: rotate(327.6deg);
+  transform: rotate(327.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p92 .bar {
+  -webkit-transform: rotate(331.2deg);
+  transform: rotate(331.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p93 .bar {
+  -webkit-transform: rotate(334.8deg);
+  transform: rotate(334.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p94 .bar {
+  -webkit-transform: rotate(338.4deg);
+  transform: rotate(338.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p95 .bar {
+  -webkit-transform: rotate(342deg);
+  transform: rotate(342deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p96 .bar {
+  -webkit-transform: rotate(345.6deg);
+  transform: rotate(345.6deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p97 .bar {
+  -webkit-transform: rotate(349.2deg);
+  transform: rotate(349.2deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p98 .bar {
+  -webkit-transform: rotate(352.8deg);
+  transform: rotate(352.8deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p99 .bar {
+  -webkit-transform: rotate(356.4deg);
+  transform: rotate(356.4deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.p100 .bar {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.dark {
+  background-color: #777;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.dark .bar,
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.dark .fill {
+  border-color: #c6ff00 !important;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.dark > span {
+  color: #777;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.dark:after {
+  background-color: #666;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.dark:hover > span {
+  color: #c6ff00;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.green .bar,
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.green .fill {
+  border-color: #4db53c !important;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.green:hover > span {
+  color: #4db53c;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.green.dark .bar,
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.green.dark .fill {
+  border-color: #5fd400 !important;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.green.dark:hover > span {
+  color: #5fd400;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.orange .bar,
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.orange .fill {
+  border-color: #dd9d22 !important;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.orange:hover > span {
+  color: #dd9d22;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.orange.dark .bar,
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.orange.dark .fill {
+  border-color: #e08833 !important;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.orange.dark:hover > span {
+  color: #e08833;
+}
+
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.main-color .bar,
+#profile .profile-stat .user-profile-stat-win-ratio-percentage .c100.main-color .fill {
+  border-color: #720909 !important;
+}
+
+.user-profile-image {
+  height: 180px;
+  width: 180px;
+}
+
+.user-profile-image img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 body {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { PlayedMatchModel, PlayersModel, SerieModel } from "../../../models/serieModel";
 import UserModel from "../../../models/userModel";
 import "../../../scss/_lastMatchesPlayed.scss";
