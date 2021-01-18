@@ -2279,7 +2279,7 @@ body {
   padding: 0;
   font-family: 'Overpass', sans-serif;
   max-width: 375px;
-  background-color: #FAFAFA;
+  background-color: white;
   margin-bottom: 90px;
   cursor: default;
 }

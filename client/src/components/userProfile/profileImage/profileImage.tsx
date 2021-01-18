@@ -13,7 +13,7 @@ interface IProfileImageProps{
 export default function ProfileImage(props: IProfileImageProps){
 
 
-    let dude = ronaldo;
+    let dude;
 
 
     if (props.name === "Hasse") {
@@ -34,10 +34,10 @@ export default function ProfileImage(props: IProfileImageProps){
     if (props.name === "Unde") {
         dude = ronaldo;
     }
-
+    
     return(
         <div className="user-profile-image">
-            <img src={dude} alt="profile"/>
+            {dude === undefined ? <span></span> : <img src={dude} alt="profile"/>}
         </div>
     );
 }

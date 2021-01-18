@@ -67,7 +67,7 @@ export default function UserProfile(){
     <div id="profile">
         <PageHeader header="Spelarprofil"/>
         <div className="profile-stat">
-            <ProfileImage name="Hasse"/>
+            <ProfileImage name={user.userName}/>
             <ProfileStatWinRatio header="Matchsnitt" value={winRatio}/>
         </div>
         <div className="profile-stat-headers">
