@@ -76,7 +76,7 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        margin-bottom: 28px;
+        margin-bottom: 40px;
 
         .profile-stat-header{
             width: 180px;
@@ -87,7 +87,7 @@
         .profile-stat-header:nth-child(2){
             width: 180px;
             text-align: center;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 400;
         }
     }

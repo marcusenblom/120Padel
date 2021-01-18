@@ -10,9 +10,15 @@
     justify-content: center;
     height: $header-height;
     background-color: white;
+    position: relative;
 
     h2{
         margin: 0;
+    }
+
+    i{
+        position: absolute;
+        right: 20px;
     }
 
 }

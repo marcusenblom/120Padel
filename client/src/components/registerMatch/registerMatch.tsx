@@ -93,7 +93,7 @@ export default function RegisterMatch() {
   
   return (
     <div id="register-match-container">
-      <PageHeader header="Registrera match"/>
+      <PageHeader header="Registrera match" settings={false}/>
       <div className="serie-select-container">
         <h3>Serie</h3>
           <div className="serie-select">

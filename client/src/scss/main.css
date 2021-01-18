@@ -1559,7 +1559,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 40px;
 }
 
 #profile .profile-stat-headers .profile-stat-header {
@@ -1572,7 +1572,7 @@
 #profile .profile-stat-headers .profile-stat-header:nth-child(2) {
   width: 180px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
 }
 

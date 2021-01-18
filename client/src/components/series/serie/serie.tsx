@@ -186,8 +186,8 @@ export default function Serie(props: ISerie) {
           {favoriteStar()}
           <span className="settings" onClick={showSettings}>
             {/* <img src={settingsLogo} alt="settings-logo"/> */}
-            <i className="fas fa-cogs"></i>
-            {/* <i className="fas fa-ellipsis-h"></i> */}
+            {/* <i className="fas fa-cogs"></i> */}
+            <i className="fas fa-ellipsis-v"></i>
           </span>
         </div>
       </section>

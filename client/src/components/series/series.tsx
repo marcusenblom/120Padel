@@ -63,7 +63,7 @@ export default function Series(){
 
     return (
         <section id="series">
-            <PageHeader header="Mina serier"/>
+            <PageHeader header="Mina serier" settings={false}/>
 
             {noSerie ? <NoSerie header="Du är ännu inte kopplad till någon serie. Kom igång genom att skapa en ny serie här nedan"/> : <Serie serieId={serieIdToShow} userId={user.userId} updateSerie={fetchPlayerSeries} displayOtherSeries={setDisplayOtherSeries} isFavorite={serieIdToShow === favorite && favorite !== 0} updateParentFavorite={setFavorite}/>}
 
