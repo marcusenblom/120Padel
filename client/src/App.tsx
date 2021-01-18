@@ -1,7 +1,6 @@
 import React from 'react';
 import './scss/main.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/header/header";
 import Series from "./components/series/series";
 import Home from './components/home/home';
 import RegisterMatch from './components/registerMatch/registerMatch';
@@ -11,7 +10,6 @@ import UserProfile from './components/userProfile/userProfile';
 function App() {
   return (
     <div className="App">
-      <Header/>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -27,8 +25,8 @@ function App() {
             <UserProfile/>
           </Route>
         </Switch>
+        <Navbar/>
       </Router>
-      <Navbar/>
     </div>
   );
 }

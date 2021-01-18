@@ -8,9 +8,48 @@
     display: flex;
     position: fixed;
     bottom: 0;
+    left: 0;
     align-items: center;
     justify-content: space-evenly;
-    border-top: 1px solid #dbdbdb;
-    // -webkit-box-shadow: $box-shadow; 
-    // box-shadow: $box-shadow;
+    // border-top: 1px solid #dbdbdb;
+    -webkit-box-shadow: $box-shadow; 
+    box-shadow: $box-shadow;
+
+    a{
+        text-decoration: none;
+    }
+
+    .icon-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+
+        img{
+            opacity: 0.5;
+        }
+    
+
+        .fa-circle{
+            opacity: 0;
+            font-size: 8px;
+            border: none;
+            text-decoration: none;
+            color: $blue-color;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+    }
+
+    .active{
+    
+        img{
+            opacity: 1;
+        }
+
+        .fa-circle{
+            opacity: 1;
+        }
+    }
 }

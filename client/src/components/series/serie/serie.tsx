@@ -163,7 +163,9 @@ export default function Serie(props: ISerie) {
 
   let filledStarPopup = (<div className="popup-star"><i className="fas fa-star filled-star"></i><i className="far fa-star empty-star"></i></div>);
   
-  let emptyStarPopup = (<div className="popup-star"><i className="far fa-star empty-star"></i></div>)
+  let emptyStarPopup = (<div className="popup-star"><i className="far fa-star empty-star"></i></div>);
+
+
 
   function renderComponent(){
     if (displaySection === "serie") {
@@ -210,7 +212,7 @@ export default function Serie(props: ISerie) {
         {renderComponent()}
       </section>
 
-      {favoritePopup && props.isFavorite ? <PopUp icon={emptyStarPopup} header="Favoritserie" name={name} buttonOne="Fortsätt" buttonTwo="Tillbaka" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
+      {favoritePopup && props.isFavorite ? <PopUp icon={emptyStarPopup} header="Favoritserie" name={name} buttonOne="Ta bort" buttonTwo="Tillbaka" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
       {favoritePopup && !props.isFavorite ? <PopUp icon={filledStarPopup} header="Favoritserie" name={name} buttonOne="Fortsätt" buttonTwo="Avbryt" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
     </div>
   );

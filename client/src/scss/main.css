@@ -29,13 +29,57 @@
   display: flex;
   position: fixed;
   bottom: 0;
+  left: 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  border-top: 1px solid #dbdbdb;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 0px 3px 0px #C4C4C4;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar .icon-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.navbar .icon-container img {
+  opacity: 0.5;
+}
+
+.navbar .icon-container .fa-circle {
+  opacity: 0;
+  font-size: 8px;
+  border: none;
+  text-decoration: none;
+  color: #720909;
+}
+
+.navbar .icon-container a:hover {
+  text-decoration: none;
+}
+
+.navbar .active img {
+  opacity: 1;
+}
+
+.navbar .active .fa-circle {
+  opacity: 1;
 }
 
 #series {
@@ -953,7 +997,7 @@
 
 #last-matches-container .last-matches-header h2 {
   display: inline-block;
-  margin: 16px 0;
+  margin: 0 0 16px 0;
 }
 
 #last-matches-container .last-matches {
@@ -1462,6 +1506,7 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  margin-top: -8px;
 }
 
 #profile #user-profile-stats .user-profile-stat-win-ratio {
@@ -2265,8 +2310,8 @@
 body {
   margin: 0 auto;
   padding: 0;
-  font-family: 'Overpass', sans-serif;
   max-width: 375px;
+  font-family: 'Overpass', sans-serif;
   background-color: white;
   margin-bottom: 90px;
   cursor: default;
