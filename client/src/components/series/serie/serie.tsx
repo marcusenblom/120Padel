@@ -31,9 +31,6 @@ export default function Serie(props: ISerie) {
   const [serieNameChanged, setSerieNameChanged] = useState(false);
   const [favoritePopup, setFavoritePopup] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(props.isFavorite);
-
-  // console.log(props.isFavorite);
-  // console.log(isFavorite);
   
 
   useEffect(() => {

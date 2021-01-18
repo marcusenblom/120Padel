@@ -14,14 +14,23 @@ interface IAddMatchProps{
 
 export default function AddMatch(props: IAddMatchProps) {
   const [date, setDate] = useState(new Date());
-  const [teamOnePlayerOne, setTeamOnePlayerOne] = useState(0);
-  const [teamOnePlayerTwo, setTeamOnePlayerTwo] = useState(0);
-  const [teamTwoPlayerOne, setTeamTwoPlayerOne] = useState(0);
-  const [teamTwoPlayerTwo, setTeamTwoPlayerTwo] = useState(0);
-  const [teamOneGames, setTeamOneGames] = useState(99);
-  const [teamTwoGames, setTeamTwoGames] = useState(99);
+  // const [teamOnePlayerOne, setTeamOnePlayerOne] = useState(0);
+  // const [teamOnePlayerTwo, setTeamOnePlayerTwo] = useState(0);
+  // const [teamTwoPlayerOne, setTeamTwoPlayerOne] = useState(0);
+  // const [teamTwoPlayerTwo, setTeamTwoPlayerTwo] = useState(0);
+  // const [teamOneGames, setTeamOneGames] = useState(99);
+  // const [teamTwoGames, setTeamTwoGames] = useState(99);
   const [gameCreated, setGameCreated] = useState(false);
-  const [gameRegistered, setGameRegistered] = useState(false); 
+  const [gameRegistered, setGameRegistered] = useState(false);
+
+  const [gameStats, setGameStats] = useState({
+    teamOnePlayerOne: 0,
+    teamOnePlayerTwo: 0,
+    teamTwoPlayerOne: 0,
+    teamTwoPlayerTwo: 0,
+    teamOneGames: 99,
+    teamTwoGames: 99
+  });
 
   const [duplicatePlayerError, setDuplicatePlayerError] = useState(false);
   const [missingGameError, setMissingGameError] = useState(false);
@@ -32,22 +41,27 @@ export default function AddMatch(props: IAddMatchProps) {
     clearState();
   }, [gameCreated]);
 
-  useEffect(() => {
-    if (props.matchRegistered) {
-      setGameRegistered(true);
-      setTimeout(() => {
-        setGameRegistered(false);
-      }, 5000);
-    }
-  }, [props.matchRegistered]);
+  // useEffect(() => {
+  //   if (props.matchRegistered) {
+  //     setGameRegistered(true);
+  //     setTimeout(() => {
+  //       setGameRegistered(false);
+  //     }, 5000);
+  //   }
+  // }, []);
+
+  if (props.matchRegistered) {
+    setGameRegistered(true);
+    setTimeout(() => {
+      setGameRegistered(false);
+    }, 5000);
+  }
 
   function clearState(){ 
-    setTeamOneGames(99);
-    setTeamTwoGames(99);
+    gameStats.teamOneGames = 99;
+    gameStats.teamTwoGames = 99;
 
     setGameCreated(false);
-
-    console.log(teamOnePlayerOne);
   }
   
   function updateDate(e: ChangeEvent<HTMLInputElement>){
@@ -56,32 +70,43 @@ export default function AddMatch(props: IAddMatchProps) {
   }
   let today = new Date().toISOString().split("T")[0];
 
-  function changeTeamOnePlayerOne(e: ChangeEvent<HTMLSelectElement>){
-    setTeamOnePlayerOne(Number(e.currentTarget.value));
+
+  function handleChange(e: ChangeEvent<HTMLSelectElement>){
+    setGameStats(gameStats => ({
+      ...gameStats,
+      [e.target.name]: e.target.value
+    }));
+  }
+
+  console.log(gameStats);
+  
+
+  // function changeTeamOnePlayerOne(e: ChangeEvent<HTMLSelectElement>){
+  //   setTeamOnePlayerOne(Number(e.currentTarget.value));
     
-  }
+  // }
 
-  function changeTeamOnePlayerTwo(e: ChangeEvent<HTMLSelectElement>){
-    setTeamOnePlayerTwo(Number(e.currentTarget.value));
-  }
+  // function changeTeamOnePlayerTwo(e: ChangeEvent<HTMLSelectElement>){
+  //   setTeamOnePlayerTwo(Number(e.currentTarget.value));
+  // }
 
-  function changeTeamTwoPlayerOne(e: ChangeEvent<HTMLSelectElement>){
-    setTeamTwoPlayerOne(Number(e.currentTarget.value));
-  }
+  // function changeTeamTwoPlayerOne(e: ChangeEvent<HTMLSelectElement>){
+  //   setTeamTwoPlayerOne(Number(e.currentTarget.value));
+  // }
 
-  function changeTeamTwoPlayerTwo(e: ChangeEvent<HTMLSelectElement>){
-    setTeamTwoPlayerTwo(Number(e.currentTarget.value));
-  }
+  // function changeTeamTwoPlayerTwo(e: ChangeEvent<HTMLSelectElement>){
+  //   setTeamTwoPlayerTwo(Number(e.currentTarget.value));
+  // }
 
-  function changeTeamOneGame(e: ChangeEvent<HTMLSelectElement>){
-    let gameFromSelect = parseInt(e.currentTarget.value);
-    setTeamOneGames(gameFromSelect);
-  }
+  // function changeTeamOneGame(e: ChangeEvent<HTMLSelectElement>){
+  //   let gameFromSelect = parseInt(e.currentTarget.value);
+  //   setTeamOneGames(gameFromSelect);
+  // }
 
-  function changeTeamTwoGame(e: ChangeEvent<HTMLSelectElement>){
-    let gameFromSelect = parseInt(e.currentTarget.value);
-    setTeamTwoGames(gameFromSelect);
-  }
+  // function changeTeamTwoGame(e: ChangeEvent<HTMLSelectElement>){
+  //   let gameFromSelect = parseInt(e.currentTarget.value);
+  //   setTeamTwoGames(gameFromSelect);
+  // }
 
   class DataToParentModel{
     date: Date;
@@ -101,25 +126,25 @@ export default function AddMatch(props: IAddMatchProps) {
   }
 
   function getDataToSend(){
-    if (teamOneGames > teamTwoGames) {
+    if (gameStats.teamOneGames > gameStats.teamTwoGames) {
       let data = new DataToParentModel(
         date, 
-        props.serieId, 
-        [teamOnePlayerOne, teamOnePlayerTwo], 
-        [teamTwoPlayerOne, teamTwoPlayerTwo], 
-        teamOneGames, 
-        teamTwoGames
+        props.serieId,
+        [gameStats.teamOnePlayerOne, gameStats.teamOnePlayerTwo], 
+        [gameStats.teamTwoPlayerOne, gameStats.teamTwoPlayerTwo], 
+        gameStats.teamOneGames, 
+        gameStats.teamTwoGames
       );
       return data;
     }
-    if (teamOneGames < teamTwoGames) {
+    if (gameStats.teamOneGames < gameStats.teamTwoGames) {
       let data = new DataToParentModel(
         date, 
         props.serieId, 
-        [teamTwoPlayerOne, teamTwoPlayerTwo], 
-        [teamOnePlayerOne, teamOnePlayerTwo], 
-        teamTwoGames, 
-        teamOneGames
+        [gameStats.teamTwoPlayerOne, gameStats.teamTwoPlayerTwo], 
+        [gameStats.teamOnePlayerOne, gameStats.teamOnePlayerTwo], 
+        gameStats.teamTwoGames, 
+        gameStats.teamOneGames
       );
       return data;
     }
@@ -138,7 +163,7 @@ export default function AddMatch(props: IAddMatchProps) {
       props.updateParentWithPostData(data);
       setGameCreated(true);
     }
-  }
+  };
 
   let listOfPlayers = props.players?.map(player => {
     return <option className="select-option" key={player.user.userName} value={player.user.userId}>{player.user.userName}</option>
@@ -162,7 +187,7 @@ export default function AddMatch(props: IAddMatchProps) {
   let invalidGameErrorMEssage = "Ej tillåten vinstmarginal"
 
   function confirmNoDuplicatePlayers(data: DataToParentModel | undefined){
-    let players = [teamOnePlayerOne, teamOnePlayerTwo, teamTwoPlayerOne, teamTwoPlayerTwo];
+    let players = [gameStats.teamOnePlayerOne, gameStats.teamOnePlayerTwo, gameStats.teamTwoPlayerOne, gameStats.teamTwoPlayerTwo];
     let startLength = players.length;
     let newLength = new Set(players).size;
     if (startLength !== newLength) {
@@ -183,6 +208,7 @@ export default function AddMatch(props: IAddMatchProps) {
       return true;
     }
   };
+
   function confirmIfGameExists(data: DataToParentModel | undefined){
     if (data?.losersGame === 99 || data?.winnersGame === 99) {
       setMissingGameError(true);
@@ -192,10 +218,15 @@ export default function AddMatch(props: IAddMatchProps) {
       return true;
     }
   };
+
   function confirmValidResult(data: DataToParentModel | undefined){
     let twoGameDifferenceAtSevenGamesWon = ((data?.losersGame === 7 && data?.winnersGame >= 5) || (data?.winnersGame === 7 && data?.losersGame >= 5));
+    console.log(twoGameDifferenceAtSevenGamesWon);
+    
     
     let twoGameDifferenceAtSixGamesWon = ((data?.losersGame === 6 && data?.winnersGame < 5) || (data?.winnersGame === 6 &&  data?.losersGame < 5));
+    console.log(twoGameDifferenceAtSixGamesWon);
+    
 
     if (twoGameDifferenceAtSevenGamesWon || twoGameDifferenceAtSixGamesWon) {
       setInvalidGameError(false);
@@ -204,8 +235,7 @@ export default function AddMatch(props: IAddMatchProps) {
       setInvalidGameError(true);
       return false;
     }
-  }
-
+  };
 
   let registeringGame = (
     <span className="registering">Registrerar match..</span>
@@ -230,14 +260,14 @@ export default function AddMatch(props: IAddMatchProps) {
           <h3>Lag 1</h3>
           <div className="player-select-container">
             <div className="select-wrapper">
-              <select name="teamOnePlayerOne" id="teamOnePlayerOne" className="player-select" onChange={changeTeamOnePlayerOne}>
+              <select name="teamOnePlayerOne" id="teamOnePlayerOne" className="player-select" onChange={handleChange}>
                 <option value="">Välj spelare</option>
                 {listOfPlayers}
               </select>
               <i className="fas fa-chevron-down"></i>
             </div>
             <div className="select-wrapper">
-              <select name="teamOnePlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamOnePlayerTwo}>
+              <select name="teamOnePlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={handleChange}>
                 <option value="">Välj spelare</option>
                 {listOfPlayers}
               </select>
@@ -250,7 +280,7 @@ export default function AddMatch(props: IAddMatchProps) {
         <h3>Lag 2</h3>
           <div className="player-select-container">
             <div className="select-wrapper">
-              <select name="teamTwoPlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={changeTeamTwoPlayerTwo}>
+              <select name="teamTwoPlayerTwo" id="teamOnePlayerTwo" className="player-select" onChange={handleChange}>
                 <option value="">Välj spelare</option>
                 {listOfPlayers}
               </select>
@@ -259,7 +289,7 @@ export default function AddMatch(props: IAddMatchProps) {
           </div>
           <div className="player-select-container">
             <div className="select-wrapper">
-              <select name="teamTwoPlayerOne" id="teamTwoPlayerOne" className="player-select" onChange={changeTeamTwoPlayerOne}>
+              <select name="teamTwoPlayerOne" id="teamTwoPlayerOne" className="player-select" onChange={handleChange}>
                 <option value="">Välj spelare</option>
                 {listOfPlayers}
               </select>
@@ -276,7 +306,7 @@ export default function AddMatch(props: IAddMatchProps) {
         <div className="add-game">
           <h4>Vunna game</h4>
           <div className="game-select-container">
-            <select name="teamOneGame" id="teamOneGame" className="game-select" onChange={changeTeamOneGame} value={teamOneGames.toString()}>
+            <select name="teamOneGames" id="teamOneGame" className="game-select" onChange={handleChange} value={gameStats.teamOneGames.toString()}>
               <option value={99}>Game</option>
               {listOfGameTeamOne}
             </select>
@@ -287,7 +317,7 @@ export default function AddMatch(props: IAddMatchProps) {
         <div className="add-game">
           <h4>Vunna game</h4>
           <div className="game-select-container">
-            <select name="teamTwoGame" id="teamTwoGame" className="game-select" onChange={changeTeamTwoGame} value={teamTwoGames.toString()}>
+            <select name="teamTwoGames" id="teamTwoGame" className="game-select" onChange={handleChange} value={gameStats.teamTwoGames.toString()}>
               <option value={99}>Game</option>
               {listOfGameTeamTwo}
             </select>

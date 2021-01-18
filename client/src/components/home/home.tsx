@@ -37,8 +37,6 @@ export default function Home() {
       setPlayerSeries(serieData);
     });
   }
-
-  console.log(JSON.stringify(user));
   
   let playerMatches: PlayedMatchModel[] = [];
 

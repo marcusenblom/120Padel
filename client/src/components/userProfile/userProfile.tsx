@@ -57,12 +57,13 @@ export default function UserProfile(){
             gameWon += player.gameWon;
             gameLost += player.gameLost;
         }
+        
     });
     // Sort all players played matches as date
     matches.sort((a, b) => (a.date < b.date) ? 1 : -1);
 
     let winRatio = (wins / matches.length).toFixed(4).slice(0, 4);    
-
+    
   return(
     <div id="profile">
         <PageHeader header="Spelarprofil" settings={true}/>

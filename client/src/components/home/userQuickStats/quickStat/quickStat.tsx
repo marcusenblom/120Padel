@@ -23,6 +23,7 @@ export default function QuickStat(props: IQuickStats) {
     } else {
         icon = (props.change < 0 ? arrowDown:arrowUp);
     }
+    
 
     // If props.mainstat is NaN (player has 0 games played)
     if (!Number(props.mainStat)) {

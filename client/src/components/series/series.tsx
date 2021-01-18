@@ -49,7 +49,6 @@ export default function Series(){
 
     }, []);
 
-    console.log(favorite);
     function fetchPlayerSeries(userId: Number){
         axios
         .get(`${DATABASE_URL}/userSeries/${userId}`)

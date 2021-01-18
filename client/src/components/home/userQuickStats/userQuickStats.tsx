@@ -15,7 +15,6 @@ export default function UserQuickStats(props: IUserQuickStats) {
   let winRatioBeforeLastGames: number = getWinRatioBeforeLastGames(lastGamesAmount);
   // let winChange = Number((totalWinRatio - winRatioBeforeLastGames).toFixed(2).slice(0, 5));
   let winChange = Number((totalWinRatio - winRatioBeforeLastGames).toFixed(2).slice(0, 5));
-  
 
   let gamePlusMinus: number = getGamePlusMinus();
   let gamePlusMinusBeforeLastGames: number = (gamePlusMinus - getGamePlusMinusBeforeLastGames(lastGamesAmount));
@@ -99,6 +98,7 @@ export default function UserQuickStats(props: IUserQuickStats) {
     
     return totalGameWon - totalGameLost;
   };
+  
 
   return (
     <div id="quick-stats-container">
