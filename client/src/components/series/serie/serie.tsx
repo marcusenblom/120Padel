@@ -210,8 +210,8 @@ export default function Serie(props: ISerie) {
         {renderComponent()}
       </section>
 
-      {favoritePopup && props.isFavorite ? <PopUp icon={emptyStarPopup} header="Favoritserie" text={"Vill du ta bort " + name + " som din favoritserie?"} buttonOne="Fortsätt" buttonTwo="Tillbaka" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
-      {favoritePopup && !props.isFavorite ? <PopUp icon={filledStarPopup} header="Favoritserie" text={"Vill du göra " + name + " till din favoritserie?"} buttonOne="Fortsätt" buttonTwo="Avbryt" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
+      {favoritePopup && props.isFavorite ? <PopUp icon={emptyStarPopup} header="Favoritserie" name={name} buttonOne="Fortsätt" buttonTwo="Tillbaka" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
+      {favoritePopup && !props.isFavorite ? <PopUp icon={filledStarPopup} header="Favoritserie" name={name} buttonOne="Fortsätt" buttonTwo="Avbryt" closeFunction={setFavoritePopup} function={toggleFavorite} isFavorite={props.isFavorite}/> : ""}
     </div>
   );
 }

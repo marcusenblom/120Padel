@@ -67,14 +67,19 @@
             }
         }
 
-        .popup-text{
+        .popup-text-container{
             width: 100%;
             display: flex;
             justify-content: center;
             margin: 8px 0;
-            span{
+
+            .popup-text{
                 text-align: center;
                 width: 90%;
+                
+                .serie-name{
+                    font-weight: 800;
+                }
             }
         }
 

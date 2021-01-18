@@ -3,7 +3,7 @@ import "../../scss/_popup.scss";
 interface IPopUp{
     icon: any;
     header: string;
-    text: string;
+    name: string;
     buttonOne: string;
     buttonTwo: string;
     isFavorite: boolean;
@@ -27,8 +27,8 @@ export default function PopUp(props: IPopUp){
                 <div className="popup-header">
                     <h4>{props.header}</h4>
                 </div>
-                <div className="popup-text">
-                    <span>{props.text}</span>
+                <div className="popup-text-container">
+                    {props.isFavorite ? <span className="popup-text">Vill du ta bort <span className="serie-name">{props.name}</span> som din favoritserie?</span> : <span className="popup-text">Vill göra <span className="serie-name">{props.name}</span> till din favoritserie?</span> }
                 </div>
                 <div className="popup-buttons">
                     <button type="button" className={props.isFavorite ? "red-button ok-button" : "green-button ok-button"} onClick={props.function}>
