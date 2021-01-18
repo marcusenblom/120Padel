@@ -183,10 +183,7 @@
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-#serie #rendered-component .serie-button-container .serie-button-container-inner .serie-button:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #serie #rendered-component .serie-button-container .serie-button-container-inner .serie-button-active {
@@ -194,9 +191,10 @@
 }
 
 #serie #rendered-component .serie-button-container .serie-button-container-inner .active {
-  background-color: #FAFAFA;
+  background-color: white;
   color: black;
-  border-bottom: thin solid #FAFAFA;
+  border-bottom: thin solid white;
+  text-decoration: none;
 }
 
 #serie #rendered-component .back-to-serie {
