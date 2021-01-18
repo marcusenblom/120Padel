@@ -28,7 +28,7 @@ export default function PopUp(props: IPopUp){
                     <h4>{props.header}</h4>
                 </div>
                 <div className="popup-text-container">
-                    {props.isFavorite ? <span className="popup-text">Vill du ta bort <span className="serie-name">{props.name}</span> som din favoritserie?</span> : <span className="popup-text">Vill göra <span className="serie-name">{props.name}</span> till din favoritserie?</span> }
+                    {props.isFavorite ? <span className="popup-text">Vill du ta bort <span className="serie-name">{props.name}</span> som din favoritserie?</span> : <span className="popup-text">Vill du göra <span className="serie-name">{props.name}</span> till din favoritserie?</span> }
                 </div>
                 <div className="popup-buttons">
                     <button type="button" className={props.isFavorite ? "red-button ok-button" : "green-button ok-button"} onClick={props.function}>
