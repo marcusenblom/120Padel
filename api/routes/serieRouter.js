@@ -147,7 +147,7 @@ router.post("/addMatch", async (req, res) => {
 
     await serie.addMatch(gameStats);
 
-    res.send("Match added: " + gameStats);
+    res.send("Match added: " + JSON.stringify(gameStats));
 
 });
 

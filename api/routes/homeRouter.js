@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
         userId: 1
     }).populate("series.serie");
 
-    res.send(user)
+    res.send(user);
 });
 
 module.exports = router;

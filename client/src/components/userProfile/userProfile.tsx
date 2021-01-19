@@ -24,17 +24,22 @@ export default function UserProfile(){
             let userData = axiosObject.data;
 
             setUser(userData);
-            fetchPlayerSeries(userData.userId);
+
+            userData.series.forEach((serie: any) => {
+                fetchSerie(serie.serieId);
+            });
         });
 
     }, []);
 
-    function fetchPlayerSeries(userId: Number){
+    function fetchSerie(serieId: number){
         axios
-        .get(`${DATABASE_URL}/userSeries/${userId}`)
+        .get(`${DATABASE_URL}/serie/${serieId}`)
         .then(axiosObject => {
             let serieData = axiosObject.data;
-            setPlayerSeries(serieData);
+            
+            setPlayerSeries(playerSeries => [...playerSeries, serieData]);
+            
         });
     }
   
@@ -44,20 +49,21 @@ export default function UserProfile(){
     let gameWon: number = 0;
     let gameLost: number = 0;
     playerSeries.forEach(serie => {
-        serie.playedMatches.forEach(match => {
-            if ( (match.winners.players.find(player => player.userId === user.userId)) || (match.losers.players.find(player => player.userId === user.userId)) ) {
-                matches.push(match);
+        if (serie.serieId !== 0) {
+            serie.playedMatches.forEach(match => {
+                if ( (match.winners.players.find(player => player.userId === user.userId)) || (match.losers.players.find(player => player.userId === user.userId)) ) {
+                    matches.push(match);
+                }
+            });
+    
+            let player = serie.players.find(player => player.user.userId === user.userId);
+            if (player) {
+                wins += player.matchesWon;
+                gamePlayed += (player.gameWon + player.gameLost);
+                gameWon += player.gameWon;
+                gameLost += player.gameLost;
             }
-        });
-
-        let player = serie.players.find(player => player.user.userId === user.userId);
-        if (player) {
-            wins += player.matchesWon;
-            gamePlayed += (player.gameWon + player.gameLost);
-            gameWon += player.gameWon;
-            gameLost += player.gameLost;
         }
-        
     });
     // Sort all players played matches as date
     matches.sort((a, b) => (a.date < b.date) ? 1 : -1);

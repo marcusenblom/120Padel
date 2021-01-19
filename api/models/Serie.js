@@ -105,34 +105,33 @@ serieSchema.methods.updateScoreBoard = function(){
         // How many game the winners won (consequently losers lost) and vice versa
         let winningGameWon = match.winners.gameWon;
         let losingGameWon = match.losers.gameWon;
-
         // How much each game won is worth. This will be added to the winners total points
         let winPoints = 2;
 
-        match.winners.players.forEach(winnerOfMatch => {
-            listOfPlayers.forEach(playerInSerie => {
-                if (playerInSerie.user.userId == winnerOfMatch.userId) {
-                    // Add games played, points, game won and game lost to winners
-                    playerInSerie.points += winPoints;
-                    playerInSerie.gameWon += winningGameWon;
-                    playerInSerie.gameLost += losingGameWon;
-                    playerInSerie.matchesPlayed += 1;
-                    playerInSerie.matchesWon += 1;
-                }
-            });
+        match.winners.players.forEach(winner => {
+            let player = listOfPlayers.find(player => player.user.userId === winner.userId);
+            if (player !== undefined) {
+                player.points += winPoints;
+                player.gameWon += winningGameWon;
+                player.gameLost += losingGameWon;
+                player.matchesPlayed += 1;
+                player.matchesWon += 1;
+            } else {
+                console.log("found undefined: " + winner.userId);
+            }
         });
-
-        match.losers.players.forEach(loserOfMatch => {
-            listOfPlayers.forEach(playerInSerie => {
-                if (playerInSerie.user.userId == loserOfMatch.userId) {
-                    // Add games played, game won and loss to losers
-                    playerInSerie.gameWon += losingGameWon;
-                    playerInSerie.gameLost += winningGameWon;
-                    playerInSerie.matchesPlayed += 1;
-                }
-            });
+        match.losers.players.forEach(loser => {
+            let player = listOfPlayers.find(player => player.user.userId === loser.userId);
+            if (player !== undefined) {
+                player.gameWon += winningGameWon;
+                player.gameLost += losingGameWon;
+                player.matchesPlayed += 1;
+            } else {
+                console.log("found undefined: " + loser.userId);
+            }
         });
     });
+
     // Game ppg
     this.players.forEach(player => {
         if (player.matchesPlayed > 0) {
@@ -215,7 +214,7 @@ serieSchema.methods.addMatch = function(gameStats){
     // Sort games by date
     this.playedMatches.sort((a, b) => (a.date < b.date) ? 1 : -1)
 
-    this.updateScoreBoard();
+    return this.save();
 };
 
 serieSchema.methods.changeName = function(newName){

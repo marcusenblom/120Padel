@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import "../../../../../scss/_addMatch.scss";
 import { PlayersModel } from "../../../../../models/serieModel";
 import moment from "moment";
@@ -30,8 +30,6 @@ export default function AddMatch(props: IAddMatchProps) {
   const [invalidGameError, setInvalidGameError] = useState(false);
 
   console.log(props.matchRegistered);
-
-
   
   function clearState(){ 
     gameStats.teamOneGames = 99;
