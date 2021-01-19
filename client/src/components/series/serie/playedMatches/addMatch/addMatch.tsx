@@ -14,15 +14,8 @@ interface IAddMatchProps{
 
 export default function AddMatch(props: IAddMatchProps) {
   const [date, setDate] = useState(new Date());
-  // const [teamOnePlayerOne, setTeamOnePlayerOne] = useState(0);
-  // const [teamOnePlayerTwo, setTeamOnePlayerTwo] = useState(0);
-  // const [teamTwoPlayerOne, setTeamTwoPlayerOne] = useState(0);
-  // const [teamTwoPlayerTwo, setTeamTwoPlayerTwo] = useState(0);
-  // const [teamOneGames, setTeamOneGames] = useState(99);
-  // const [teamTwoGames, setTeamTwoGames] = useState(99);
   const [gameCreated, setGameCreated] = useState(false);
   const [gameRegistered, setGameRegistered] = useState(false);
-
   const [gameStats, setGameStats] = useState({
     teamOnePlayerOne: 0,
     teamOnePlayerTwo: 0,
@@ -31,37 +24,23 @@ export default function AddMatch(props: IAddMatchProps) {
     teamOneGames: 99,
     teamTwoGames: 99
   });
-
   const [duplicatePlayerError, setDuplicatePlayerError] = useState(false);
   const [missingGameError, setMissingGameError] = useState(false);
   const [noWinnerError, setNoWinnerError] = useState(false);
   const [invalidGameError, setInvalidGameError] = useState(false);
+
+  console.log(props.matchRegistered);
+
+
   
-  useEffect(() => {
-    clearState();
-  }, [gameCreated]);
-
-  // useEffect(() => {
-  //   if (props.matchRegistered) {
-  //     setGameRegistered(true);
-  //     setTimeout(() => {
-  //       setGameRegistered(false);
-  //     }, 5000);
-  //   }
-  // }, []);
-
-  if (props.matchRegistered) {
-    setGameRegistered(true);
-    setTimeout(() => {
-      setGameRegistered(false);
-    }, 5000);
-  }
-
   function clearState(){ 
     gameStats.teamOneGames = 99;
     gameStats.teamTwoGames = 99;
 
-    setGameCreated(false);
+    setGameRegistered(true);
+      setTimeout(() => {
+        setGameRegistered(false);
+      }, 5000);
   }
   
   function updateDate(e: ChangeEvent<HTMLInputElement>){
@@ -74,40 +53,12 @@ export default function AddMatch(props: IAddMatchProps) {
   function handleChange(e: ChangeEvent<HTMLSelectElement>){
     setGameStats(gameStats => ({
       ...gameStats,
-      [e.target.name]: e.target.value
+      [e.target.name]: Number(e.target.value)
     }));
   }
 
   console.log(gameStats);
   
-
-  // function changeTeamOnePlayerOne(e: ChangeEvent<HTMLSelectElement>){
-  //   setTeamOnePlayerOne(Number(e.currentTarget.value));
-    
-  // }
-
-  // function changeTeamOnePlayerTwo(e: ChangeEvent<HTMLSelectElement>){
-  //   setTeamOnePlayerTwo(Number(e.currentTarget.value));
-  // }
-
-  // function changeTeamTwoPlayerOne(e: ChangeEvent<HTMLSelectElement>){
-  //   setTeamTwoPlayerOne(Number(e.currentTarget.value));
-  // }
-
-  // function changeTeamTwoPlayerTwo(e: ChangeEvent<HTMLSelectElement>){
-  //   setTeamTwoPlayerTwo(Number(e.currentTarget.value));
-  // }
-
-  // function changeTeamOneGame(e: ChangeEvent<HTMLSelectElement>){
-  //   let gameFromSelect = parseInt(e.currentTarget.value);
-  //   setTeamOneGames(gameFromSelect);
-  // }
-
-  // function changeTeamTwoGame(e: ChangeEvent<HTMLSelectElement>){
-  //   let gameFromSelect = parseInt(e.currentTarget.value);
-  //   setTeamTwoGames(gameFromSelect);
-  // }
-
   class DataToParentModel{
     date: Date;
     serieId: Number;
@@ -152,7 +103,8 @@ export default function AddMatch(props: IAddMatchProps) {
   
   function sendNewMatchDataToParent(e: any){
     let data = getDataToSend();
-
+    console.log(data);
+    
     let winners = confirmIfWinnerExist(data);
     let defaultGames = confirmIfGameExists(data);
     let duplicatePlayers = confirmNoDuplicatePlayers(data);
@@ -162,6 +114,7 @@ export default function AddMatch(props: IAddMatchProps) {
       console.log("skapar match");
       props.updateParentWithPostData(data);
       setGameCreated(true);
+      clearState();
     }
   };
 
@@ -221,10 +174,13 @@ export default function AddMatch(props: IAddMatchProps) {
 
   function confirmValidResult(data: DataToParentModel | undefined){
     let twoGameDifferenceAtSevenGamesWon = ((data?.losersGame === 7 && data?.winnersGame >= 5) || (data?.winnersGame === 7 && data?.losersGame >= 5));
-    console.log(twoGameDifferenceAtSevenGamesWon);
-    
+    console.log(data?.losersGame);
+    console.log(data?.winnersGame);
     
     let twoGameDifferenceAtSixGamesWon = ((data?.losersGame === 6 && data?.winnersGame < 5) || (data?.winnersGame === 6 &&  data?.losersGame < 5));
+
+    // let twoGameDifferenceAtSixGamesWon = (6 > 3)
+    
     console.log(twoGameDifferenceAtSixGamesWon);
     
 
@@ -340,8 +296,8 @@ export default function AddMatch(props: IAddMatchProps) {
       </div>
 
       <div id="registering-game">
-        {props.creatingGame && !props.matchRegistered? registeringGame : ""}
-        {gameRegistered ? registeredGame : ""}
+        {props.creatingGame && !props.matchRegistered ? registeringGame : ""}
+        {gameRegistered && !props.creatingGame ? registeredGame : ""}
       </div>
     </div>
   );

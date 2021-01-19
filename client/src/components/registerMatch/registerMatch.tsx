@@ -65,7 +65,6 @@ export default function RegisterMatch() {
       console.log(response);
       setCreatingGame(false);
       setMatchRegistered(true);
-      setMatchRegistered(false);
     }).catch(function(err) {
       console.log(err);
       setCreatingGame(false);
