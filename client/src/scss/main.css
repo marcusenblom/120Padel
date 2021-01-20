@@ -951,7 +951,7 @@
           justify-content: center;
 }
 
-#add-match .submit-button-container span {
+#add-match .submit-button-container .content-container span {
   color: white;
   font-size: 18px;
   font-weight: 700;
@@ -1145,27 +1145,47 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 30px 0 20px 0;
+  margin: 60px 0 20px 0;
+  position: relative;
 }
 
-#home-button-container .home-button {
+#home-button-container button {
   height: 60px;
   width: 335px;
-  margin: 20px 0;
+  background-color: #720909;
   border: none;
   border-radius: 30px;
-  background-color: #720909;
-  color: white;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: inherit;
-  font-weight: 700;
+  -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
+  box-shadow: 0px 2px 5px 0px #7a7a7a;
   cursor: pointer;
 }
 
-#home-button-container .home-button i {
-  margin-left: 12px;
-  font-size: 14px;
+#home-button-container button:focus {
+  outline: none;
+}
+
+#home-button-container .content-container {
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#home-button-container .content-container span {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 12px;
 }
 
 #register-match-container {

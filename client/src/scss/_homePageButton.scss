@@ -5,25 +5,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px 0 20px 0;
+    margin: 60px 0 20px 0;
+    position: relative;
 
-    .home-button{
+    button {
         height: 60px;
         width: 335px;
-        margin: 20px 0;
+        background-color: $blue-color;
         border: none;
         border-radius: 30px;
-        background-color: $blue-color;
-        color: white;
-        font-size: 14px;
-        text-transform: uppercase;
-        font-family: inherit;
-        font-weight: 700;
+        -webkit-box-shadow: $box-shadow; 
+        box-shadow: 0px 2px 5px 0px #7a7a7a;
         cursor: pointer;
-
-        i{
-            margin-left: 12px;
-            font-size: 14px;
+    }
+    button:focus {
+        outline: none;
+    }
+    
+    .content-container{
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+        justify-content: center;
+        span{
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin-right: 12px;
         }
     }
 }
