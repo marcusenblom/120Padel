@@ -539,7 +539,7 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 600;
 }
 
@@ -1112,7 +1112,7 @@
 }
 
 #quick-stats-container .quick-stats #quick-stat .stat .stat-main {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 600;
 }
 
