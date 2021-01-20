@@ -16,7 +16,7 @@ export default function HomePageButton(props: IHomePageButton) {
         <button type="button"></button>
       </Link>
       <div className="content-container">
-        <span>Registrera match</span>
+        <span>Registrera ny match</span>
         <img src={ball} alt="tennis-ball" className="ball"/>
       </div>
     </div>

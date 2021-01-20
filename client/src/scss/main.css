@@ -496,7 +496,7 @@
   width: 100%;
   text-align: center;
   width: inherit;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 #singlePlayedMatch .date {
@@ -504,7 +504,8 @@
   padding: 6px 0;
   text-align: center;
   font-size: 14px;
-  font-weight: 100;
+  font-weight: 600;
+  color: #5f5f5f;
 }
 
 #singlePlayedMatch .result {
@@ -953,7 +954,8 @@
 
 #add-match .submit-button-container .content-container span {
   color: white;
-  font-size: 18px;
+  font-size: 14px;
+  text-transform: uppercase;
   font-weight: 700;
   margin-right: 12px;
 }
@@ -1109,6 +1111,8 @@
 
 #quick-stats-container .quick-stats #quick-stat .stat .stat-greyed {
   color: #5f5f5f;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 #quick-stats-container .quick-stats #quick-stat .stat .stat-main {
@@ -1118,6 +1122,7 @@
 
 #quick-stats-container .quick-stats #quick-stat .stat .stat-change {
   font-weight: 700;
+  font-size: 16px;
 }
 
 #quick-stats-container .quick-stats #quick-stat .stat span .fas {
@@ -1152,7 +1157,7 @@
 #home-button-container button {
   height: 60px;
   width: 335px;
-  background-color: #720909;
+  background-color: #050437;
   border: none;
   border-radius: 30px;
   -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;
@@ -1183,9 +1188,10 @@
 
 #home-button-container .content-container span {
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   margin-right: 12px;
+  text-transform: uppercase;
 }
 
 #register-match-container {
@@ -1486,7 +1492,7 @@
 .create-new-serie button {
   height: 60px;
   width: 100%;
-  background-color: #02ac02;
+  background-color: #050437;
   border: none;
   border-radius: 30px;
   -webkit-box-shadow: 0px 0px 3px 0px #C4C4C4;

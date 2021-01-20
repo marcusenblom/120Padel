@@ -11,7 +11,7 @@
     button {
         height: 60px;
         width: 335px;
-        background-color: $blue-color;
+        background-color: $main-color;
         border: none;
         border-radius: 30px;
         -webkit-box-shadow: $box-shadow; 
@@ -33,9 +33,10 @@
         justify-content: center;
         span{
             color: white;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 700;
             margin-right: 12px;
+            text-transform: uppercase;
         }
     }
 }

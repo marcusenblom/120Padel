@@ -8,13 +8,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    height: 70px;
     font-size: 12px;
-    color: black;
+    color: white;
+    background-color: $main-color;
     position: relative;
     text-transform: uppercase;
     box-shadow: 0px 2px 20px 0px #C4C4C4;
     -webkit-box-shadow: $box-shadow;
+
+    img{
+        height: 60px;
+    }
 
     h2{
         margin: 0;

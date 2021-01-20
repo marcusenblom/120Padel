@@ -288,7 +288,7 @@ export default function AddMatch(props: IAddMatchProps) {
       <div className="submit-button-container">
         <button type="submit" onClick={sendNewMatchDataToParent}></button>
         <div className="content-container">
-          <span>Registrera match</span>
+          <span>Registrera</span>
           <img src={ball} alt="tennis-ball" className="ball"/>
         </div>
       </div>
