@@ -22,6 +22,7 @@
             .serie-name{
                 text-align: center;
                 margin: 0;
+                // font-size: 1.2em;
             }
 
             .star{
@@ -65,7 +66,7 @@
     }
 
     #rendered-component{
-        margin: 0 0 20px 0;
+        margin: 0 0 32px 0;
         padding: 0 4px;
         // border: thin solid rgb(199, 199, 199);
         border-top: none;
@@ -94,9 +95,13 @@
                     border-top-right-radius: 4px;
                     background-color: #e9e9e9;
                     border: thin solid  rgb(199, 199, 199);
+                    border-bottom: none;
                     cursor: pointer;
-                    font-weight: 600;
+                    font-weight: 700;
+                    font-size: 10px;
                     font-family: inherit;
+                    text-transform: uppercase;
+
                 }
                 .serie-button:focus {
                     outline: none;
@@ -121,10 +126,11 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            text-transform: uppercase;
             
             span{
                 font-size: 12px;
-                // color: $greyed-font;
+                font-weight: 600;
             }
             i{
                 font-size: 14px;

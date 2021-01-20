@@ -56,7 +56,7 @@ export default function Home() {
   return (
 
     <div id="home">
-      <PageHeader header="Startsida" settings={false}/>
+      <PageHeader header="Hem" settings={false}/>
       <LastMatchesPlayed player={user} playerSeries={playerSeries} matchesExist={playerSeries.length > 0} playerMatches={playerMatches}/>
       <UserQuickStats userId={user.userId} playerMatches={playerMatches} />
       <HomePageButton content="Registrera match" link="/registerMatch"/>

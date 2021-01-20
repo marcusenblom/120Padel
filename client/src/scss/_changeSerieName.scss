@@ -19,6 +19,9 @@
         h3{
             text-align: center;
             margin: 0;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 600;
         }
     }
 
@@ -54,8 +57,9 @@
             font-family: inherit;
             border-radius: 3px;
             border: none;
-            font-weight: 600;
+            font-size: 12px;
             margin: 0 0 0 12px;
+            text-transform: uppercase;
         }
     }
 

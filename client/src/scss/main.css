@@ -22,6 +22,7 @@
 .navbar {
   width: 375px;
   height: 70px;
+  margin: 0 auto;
   background-color: white;
   color: black;
   display: -webkit-box;
@@ -29,7 +30,6 @@
   display: flex;
   position: fixed;
   bottom: 0;
-  left: 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -173,7 +173,7 @@
 }
 
 #serie #rendered-component {
-  margin: 0 0 20px 0;
+  margin: 0 0 32px 0;
   padding: 0 4px;
   border-top: none;
   border-radius: 4px;
@@ -208,9 +208,12 @@
   border-top-right-radius: 4px;
   background-color: #e9e9e9;
   border: thin solid #c7c7c7;
+  border-bottom: none;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 10px;
   font-family: inherit;
+  text-transform: uppercase;
 }
 
 #serie #rendered-component .serie-button-container .serie-button-container-inner .serie-button:focus {
@@ -244,10 +247,12 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  text-transform: uppercase;
 }
 
 #serie #rendered-component .back-to-serie span {
   font-size: 12px;
+  font-weight: 600;
 }
 
 #serie #rendered-component .back-to-serie i {
@@ -283,6 +288,8 @@
 
 #standings table thead tr th {
   text-align: left;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 #standings table thead tr th:nth-child(1) {
@@ -417,6 +424,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 20px;
 }
 
 #add-match-container .register-match h3 {
@@ -995,9 +1003,11 @@
           justify-content: space-between;
 }
 
-#last-matches-container .last-matches-header h2 {
+#last-matches-container .last-matches-header h3 {
   display: inline-block;
   margin: 0 0 16px 0;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
 #last-matches-container .last-matches {
@@ -1041,9 +1051,11 @@
           justify-content: space-between;
 }
 
-#quick-stats-container .quick-stats-header h2 {
+#quick-stats-container .quick-stats-header h3 {
   display: inline-block;
   margin: 16px 0;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
 #quick-stats-container .quick-stats {
@@ -1144,10 +1156,16 @@
   border-radius: 30px;
   background-color: #720909;
   color: white;
-  font-size: 18px;
+  font-size: 14px;
+  text-transform: uppercase;
   font-family: inherit;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
+}
+
+#home-button-container .home-button i {
+  margin-left: 12px;
+  font-size: 14px;
 }
 
 #register-match-container {
@@ -1217,10 +1235,12 @@
   width: 100%;
   text-align: center;
   margin: 0 0 20px 0;
+  text-transform: uppercase;
 }
 
 #add-player-to-serie .add-player-header h3 {
   margin: 0;
+  font-size: 16px;
 }
 
 #add-player-to-serie .player-search {
@@ -1338,6 +1358,9 @@
 #change-name-container .change-name-header h3 {
   text-align: center;
   margin: 0;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 #change-name-container .change-name-input-container {
@@ -1375,8 +1398,9 @@
   font-family: inherit;
   border-radius: 3px;
   border: none;
-  font-weight: 600;
+  font-size: 12px;
   margin: 0 0 0 12px;
+  text-transform: uppercase;
 }
 
 #all-series {
@@ -1404,6 +1428,8 @@
 
 #all-series .all-series-header h3 {
   margin: 0;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 #all-series .serie-button {
@@ -1475,9 +1501,10 @@
 
 .create-new-serie .content-container span {
   color: white;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   margin-right: 12px;
+  text-transform: uppercase;
 }
 
 .create-new-serie .content-container i {

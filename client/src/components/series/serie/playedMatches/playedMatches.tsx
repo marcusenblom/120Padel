@@ -59,7 +59,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
       {showAddMatchComponent}
     </div>
     <div id="played-matches">
-      <h3>Spelade matcher</h3>
+      <h2>Spelade matcher</h2>
       {listOfMatches}
     </div>
     </>

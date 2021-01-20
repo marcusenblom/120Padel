@@ -23,7 +23,7 @@ interface ISerieNavigation{
 
     let backToSerie = (
         <div className="back-to-serie">
-            <i className="fas fa-arrow-left"></i><span onClick={props.showSerie}>Tillbaka till serie</span>
+            <i className="fas fa-arrow-left"></i><span onClick={props.showSerie}>Till serie</span>
         </div>
     );
 

@@ -195,7 +195,7 @@ export default function Serie(props: ISerie) {
     <div id="serie">
       <section className="serie-name-section">
         <div className="serie-name-container">
-          <h1 className="serie-name">{name}</h1>
+          <h3 className="serie-name">{name}</h3>
           {favoriteStar()}
           <span className="settings" onClick={showSettings}>
             {/* <img src={settingsLogo} alt="settings-logo"/> */}

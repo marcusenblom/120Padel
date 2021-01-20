@@ -48,7 +48,7 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
   return (
     <div id="last-matches-container">
       <div className="last-matches-header">
-        <h2>Senaste matcher</h2>
+        <h3>Senaste matcher</h3>
         {/* <span>Se alla</span> */}
       </div>
 

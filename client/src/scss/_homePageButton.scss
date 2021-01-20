@@ -15,9 +15,15 @@
         border-radius: 30px;
         background-color: $blue-color;
         color: white;
-        font-size: 18px;
+        font-size: 14px;
+        text-transform: uppercase;
         font-family: inherit;
-        font-weight: 800;
+        font-weight: 700;
         cursor: pointer;
+
+        i{
+            margin-left: 12px;
+            font-size: 14px;
+        }
     }
 }
