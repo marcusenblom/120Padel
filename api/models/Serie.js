@@ -154,6 +154,7 @@ serieSchema.methods.updateScoreBoard = function(){
     return this.save();
 };
 
+// Add player to serie
 serieSchema.methods.addPlayer = function(user){
 
     let playerExistsInSerie = false;
@@ -172,6 +173,8 @@ serieSchema.methods.addPlayer = function(user){
 
     return this.save();
 };
+
+// Remove player from serie
 serieSchema.methods.removePlayer = function(user){
 
     let listOfPlayers = this.players;
@@ -187,8 +190,10 @@ serieSchema.methods.removePlayer = function(user){
     return this.save();
 };
 
+// Register match to serie
 serieSchema.methods.addMatch = function(gameStats){
 
+    // Set matchID
     let matchId;
     if (this.playedMatches.length < 1) {
         matchId = 1;
@@ -196,7 +201,8 @@ serieSchema.methods.addMatch = function(gameStats){
         let lastGameId = this.playedMatches.sort((a, b) => (a.matchId < b.matchId) ? 1 : -1)[0].matchId;
         matchId = lastGameId+1;
     }
-     
+    
+    // Populate match object with data from post request
     let newMatch = {
         date: gameStats.date,
         matchId: matchId,
@@ -217,6 +223,7 @@ serieSchema.methods.addMatch = function(gameStats){
     return this.save();
 };
 
+// Change serie name
 serieSchema.methods.changeName = function(newName){
 
     if (newName.length > 0) {

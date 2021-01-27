@@ -13,6 +13,7 @@ router.get("/serie/:serieId", async (req, res) => {
     .populate("playedMatches.winners.players")
     .populate("playedMatches.losers.players");
 
+    // Update scoreboard in case another player already has registered games or added new players
     if (serie) {
         await serie.updateScoreBoard();
     }
@@ -20,6 +21,7 @@ router.get("/serie/:serieId", async (req, res) => {
     res.send(serie);
 });
 
+// Locate and fetch all seriedata that belongs to a player
 router.get("/userSeries/:userId", async (req, res) => {
 
     const user = await User.findOne({
@@ -41,6 +43,7 @@ router.get("/userSeries/:userId", async (req, res) => {
     res.send(userSeries);
 });
 
+// Create new serie
 router.post("/createSerie", async (req, res) => {
 
     const newSerie = new Serie({
@@ -58,6 +61,7 @@ router.post("/createSerie", async (req, res) => {
 
 });
 
+// Change serie name
 router.post("/serieName", async (req, res) => {
 
     const serie = await Serie.findOne({
@@ -75,6 +79,7 @@ router.post("/serieName", async (req, res) => {
     
 });
 
+// Add player to serie. Also add serie to player
 router.post("/addPlayer", async (req, res) => {
 
     const playerToAdd = await User.findOne({
@@ -92,6 +97,7 @@ router.post("/addPlayer", async (req, res) => {
 
 });
 
+// Remove player from serie. Also remove serie from player
 router.post("/removePlayer", async (req, res) => {
 
     const playerToRemove = await User.findOne({
@@ -109,6 +115,7 @@ router.post("/removePlayer", async (req, res) => {
 
 });
 
+// Register new game with data from user input
 router.post("/addMatch", async (req, res) => {
 
     const winnerOne = await User.findOne({

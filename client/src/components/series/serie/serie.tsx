@@ -20,7 +20,6 @@ interface ISerie{
 
 export default function Serie(props: ISerie) {
 
-  // const [serieId, setId] = useState(props.serieId);
   const [name, setName] = useState("");
   const [players, setPlayers] = useState([new PlayersModel()]);
   const [playedMatches, setPlayedMatches] = useState([new PlayedMatchModel()]);
@@ -30,9 +29,8 @@ export default function Serie(props: ISerie) {
   const [newPlayerAdded, setNewPlayerAdded] = useState(false);
   const [serieNameChanged, setSerieNameChanged] = useState(false);
   const [favoritePopup, setFavoritePopup] = useState(false);
-  // const [isFavorite, setIsFavorite] = useState(props.isFavorite);
   
-
+  // fetch seriedata on component mount
   useEffect(() => {
     setSerieNameChanged(false);
     fetchSerieData();
@@ -53,6 +51,7 @@ export default function Serie(props: ISerie) {
     }
   }
 
+  // Conditional rendering of what user should see
   function showSerie(){
     setDisplaySection("serie");
     props.displayOtherSeries(true);
@@ -75,6 +74,7 @@ export default function Serie(props: ISerie) {
     
   };
 
+  // Register game. This is getting called from child component
   function postMatchToSerie(matchData: {
     date: Date;
     serieId: Number;
@@ -95,6 +95,7 @@ export default function Serie(props: ISerie) {
     });
   }
 
+  // Add player to serie. This is getting called from child component
   function addPlayerToSerie(userId: number){
 
     let data = {
@@ -110,6 +111,7 @@ export default function Serie(props: ISerie) {
     });
   };
 
+  // Change serie name. This is getting called from child component
   function changeSerieName(newName: string){
     let data = {
       serieId: props.serieId,
@@ -126,6 +128,7 @@ export default function Serie(props: ISerie) {
     });
   };
 
+  // Toggle favorite serie
   function toggleFavorite(){
     axios.post(`${DATABASE_URL}/favorite`, {
       serieId: props.serieId,
@@ -152,6 +155,7 @@ export default function Serie(props: ISerie) {
 
   
 
+  // Displays an empty or filled star next to serie name, depending on favorite or not
   function favoriteStar(){
     let star = props.isFavorite ? (<div className="star" onClick={openFavoritePopup}><i className="fas fa-star filled-star"></i><i className="far fa-star empty-star"></i></div>) : (<div className="star" onClick={openFavoritePopup}><i className="far fa-star empty-star"></i></div>);
 
@@ -164,6 +168,7 @@ export default function Serie(props: ISerie) {
 
 
 
+  // Conditional rendering on serie page. renderComponent is getting called in react function return
   function renderComponent(){
     if (displaySection === "serie") {
       return(

@@ -29,8 +29,7 @@ export default function AddMatch(props: IAddMatchProps) {
   const [noWinnerError, setNoWinnerError] = useState(false);
   const [invalidGameError, setInvalidGameError] = useState(false);
 
-  console.log(props.matchRegistered);
-  
+  // Clears state (input fields of selected games and set them to default 99) when user submits a match
   function clearState(){ 
     gameStats.teamOneGames = 99;
     gameStats.teamTwoGames = 99;
@@ -41,13 +40,14 @@ export default function AddMatch(props: IAddMatchProps) {
       }, 5000);
   }
   
+  // Update date by user
   function updateDate(e: ChangeEvent<HTMLInputElement>){
     let inputDate = e.currentTarget.value;
     setDate(new Date(inputDate));
   }
   let today = new Date().toISOString().split("T")[0];
 
-
+  // Handle user changes done to inputs
   function handleChange(e: ChangeEvent<HTMLSelectElement>){
     setGameStats(gameStats => ({
       ...gameStats,
@@ -55,8 +55,7 @@ export default function AddMatch(props: IAddMatchProps) {
     }));
   }
 
-  console.log(gameStats);
-  
+  // Model of what data is to be sent to parent
   class DataToParentModel{
     date: Date;
     serieId: Number;
@@ -74,6 +73,7 @@ export default function AddMatch(props: IAddMatchProps) {
     }
   }
 
+  // Get what data to send to parent. Data is taken from states regulated by front end inputs
   function getDataToSend(){
     if (gameStats.teamOneGames > gameStats.teamTwoGames) {
       let data = new DataToParentModel(
@@ -99,6 +99,7 @@ export default function AddMatch(props: IAddMatchProps) {
     }
   }
   
+  // Send the match data to parent
   function sendNewMatchDataToParent(e: any){
     let data = getDataToSend();
     console.log(data);
@@ -116,10 +117,12 @@ export default function AddMatch(props: IAddMatchProps) {
     }
   };
 
+  // Array containing all players in the chosen serie. Render these as select options
   let listOfPlayers = props.players?.map(player => {
     return <option className="select-option" key={player.user.userName} value={player.user.userId}>{player.user.userName}</option>
   });
 
+  // Array containing select options for games in match
   let listOfGameTeamOne = [];
   let listOfGameTeamTwo = [];
 
@@ -137,6 +140,8 @@ export default function AddMatch(props: IAddMatchProps) {
   let playerErrorMessage = "En spelare kan ej registrerars två gånger";
   let invalidGameErrorMEssage = "Ej tillåten vinstmarginal"
 
+
+  // Validation of user inputs before registering game 
   function confirmNoDuplicatePlayers(data: DataToParentModel | undefined){
     let players = [gameStats.teamOnePlayerOne, gameStats.teamOnePlayerTwo, gameStats.teamTwoPlayerOne, gameStats.teamTwoPlayerTwo];
     let startLength = players.length;
@@ -175,12 +180,7 @@ export default function AddMatch(props: IAddMatchProps) {
     console.log(data?.losersGame);
     console.log(data?.winnersGame);
     
-    let twoGameDifferenceAtSixGamesWon = ((data?.losersGame === 6 && data?.winnersGame < 5) || (data?.winnersGame === 6 &&  data?.losersGame < 5));
-
-    // let twoGameDifferenceAtSixGamesWon = (6 > 3)
-    
-    console.log(twoGameDifferenceAtSixGamesWon);
-    
+    let twoGameDifferenceAtSixGamesWon = ((data?.losersGame === 6 && data?.winnersGame < 5) || (data?.winnersGame === 6 &&  data?.losersGame < 5));    
 
     if (twoGameDifferenceAtSevenGamesWon || twoGameDifferenceAtSixGamesWon) {
       setInvalidGameError(false);
@@ -191,6 +191,7 @@ export default function AddMatch(props: IAddMatchProps) {
     }
   };
 
+  // Feedback to user while match is being registered and when it has been registered
   let registeringGame = (
     <span className="registering">Registrerar match..</span>
   );

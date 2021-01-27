@@ -26,11 +26,12 @@ export default function LastMatchesPlayed(props: ILastMatchesPlayed) {
     }
   }
 
+  // If player has 0 matches played
   if (!props.matchesExist) {
     noGamesMessage = "Du har ännu inga registrerade matcher. Klicka på knappen \"Registrera match\" för att komma igång";
   }
   
-  
+  // Array of players last 3 matches. Render these on the start page
   let singlePlayedMatches = playersMatches.map(match => {
     let serieName = "";
     let players: PlayersModel[] = [];

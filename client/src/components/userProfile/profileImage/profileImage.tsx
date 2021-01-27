@@ -12,7 +12,7 @@ interface IProfileImageProps{
 
 export default function ProfileImage(props: IProfileImageProps){
 
-
+    // Hard coded profile pictures. This will be fixed once the user can log in and add a profile picture
     let dude;
 
 

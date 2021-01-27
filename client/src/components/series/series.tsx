@@ -20,6 +20,7 @@ export default function Series(){
     const [displayOtherSeries, setDisplayOtherSeries] = useState(true);
     const [favorite, setFavorite] = useState(0);
   
+    // Fetch user data
     useEffect(() => {
         axios
         .get(`${DATABASE_URL}/`)
@@ -49,6 +50,7 @@ export default function Series(){
 
     }, []);
 
+    // Fetch user series data
     function fetchPlayerSeries(userId: Number){
         axios
         .get(`${DATABASE_URL}/userSeries/${userId}`)

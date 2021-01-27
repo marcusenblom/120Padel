@@ -10,15 +10,18 @@ interface IUserQuickStats{
 
 export default function UserQuickStats(props: IUserQuickStats) {
 
+  // Variable which decides how many matches should be displayed on the start page
   let lastGamesAmount = 3;
   let totalWinRatio: number = getTotalWinRatio();
   let winRatioBeforeLastGames: number = getWinRatioBeforeLastGames(lastGamesAmount);
   // let winChange = Number((totalWinRatio - winRatioBeforeLastGames).toFixed(2).slice(0, 5));
   let winChange = Number((totalWinRatio - winRatioBeforeLastGames).toFixed(2).slice(0, 5));
 
+  // Calculate +/- statistics for all matches
   let gamePlusMinus: number = getGamePlusMinus();
   let gamePlusMinusBeforeLastGames: number = (gamePlusMinus - getGamePlusMinusBeforeLastGames(lastGamesAmount));
 
+  // Calculate winratio of player
   function getTotalWinRatio(){
     let numberOfWins: number = 0;
     props.playerMatches.forEach(match => {
@@ -34,6 +37,7 @@ export default function UserQuickStats(props: IUserQuickStats) {
     return winLossRatio;
   };
 
+  // Calculate winratio for all matches played before last ones (to be able to compare statistics)
   function getWinRatioBeforeLastGames(amountOfLastGames: number){
     let numberOfWins: number = 0;
     let numberOfGames: number = 0;
@@ -54,6 +58,7 @@ export default function UserQuickStats(props: IUserQuickStats) {
     return winLossRatio;
   };
 
+  // Calculate players +/- 
   function getGamePlusMinus(){
     let totalGameWon: number = 0;
     let totalGameLost: number = 0;
@@ -76,6 +81,7 @@ export default function UserQuickStats(props: IUserQuickStats) {
     return totalGameWon - totalGameLost;
   };
 
+  // Calculate players +/- without last played matches (to be able to compare statistics)
   function getGamePlusMinusBeforeLastGames(amountOfLastGames: number){
     let totalGameWon: number = 0;
     let totalGameLost: number = 0;

@@ -12,6 +12,7 @@ interface ISerieNavigation{
 
     let navToShow;
 
+    // Change navigation depending on parent props
     let serieButtonContainer = (
         <div className="serie-button-container">
             <div className="serie-button-container-inner">

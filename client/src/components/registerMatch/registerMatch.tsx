@@ -16,6 +16,7 @@ export default function RegisterMatch() {
   const [creatingGame, setCreatingGame] = useState(false);
   const [favoriteSerie, setFavoriteSerie] = useState(0);
 
+  // Fetch logged in user data
   useEffect(() => {
     axios
       .get(`${DATABASE_URL}/`)
@@ -29,6 +30,7 @@ export default function RegisterMatch() {
       });
   }, []);
 
+  // Find what serie is the favorite (must be done due to user and serie is different schemas in DB)
   function findFavoriteSerie(user: UserModel){
     let favorite = user.series.find((serie: any) => serie.favoriteSerie === true);
     if (favorite !== undefined) {
@@ -42,6 +44,7 @@ export default function RegisterMatch() {
     }
   }
 
+  // Fetch users data
   function fetchPlayerSeries(userId: number){
     axios
     .get(`${DATABASE_URL}/userSeries/${userId}`)
@@ -51,6 +54,7 @@ export default function RegisterMatch() {
     });
   }
   
+  // Function which takes in data from child component and registers a match in the DB
   function postMatchToSerie(matchData: {
     date: Date;
     serieId: Number;
@@ -71,6 +75,7 @@ export default function RegisterMatch() {
     });
   }
 
+  // Display different data when a new serie is selected by user
   function changeSerie(e: ChangeEvent<HTMLSelectElement>){
     let serieFromSelect = Number(e.currentTarget.value);
     setSerieIdChosen(serieFromSelect);
@@ -84,6 +89,7 @@ export default function RegisterMatch() {
     }
   });
   
+  // Array containing series as select options
   let serieOptions = playerSeries.map(serie => {
     return <option key={serie.serieId} value={serie.serieId}>{serie.name}</option>
   });

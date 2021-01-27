@@ -12,6 +12,7 @@ interface ISinglePlayedMatchProps{
 
 export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
   
+  // Find players standings and display as two teams
   let teamOnePlayers = props.match.winners.players.map(user => {
 
     let playerStanding = props.players.find(player => player.user.userId === user.userId)?.standing;
@@ -30,6 +31,7 @@ export default function SinglePlayedMatch(props: ISinglePlayedMatchProps) {
     );
   });
 
+  // Date when match was played
   let date = new Date(props.match.date);
   let serieName = props.serieName;
   

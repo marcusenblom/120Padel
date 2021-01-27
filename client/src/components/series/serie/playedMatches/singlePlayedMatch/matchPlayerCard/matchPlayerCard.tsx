@@ -13,8 +13,8 @@ interface IMatchPlayerCardProps{
 
 export default function MatchPlayerCard(props: IMatchPlayerCardProps) {
 
+    // Hard coded profile pictures. This will be fixed once the user can log in and add a profile picture
     let dude = ronaldo;
-
 
     if (props.name === "Hasse") {
         dude = buffon;

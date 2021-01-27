@@ -17,6 +17,7 @@ interface IPlayedMatchesProps{
 export default function PlayedMatches(props: IPlayedMatchesProps) {
   const [showAddMatch, setShowAddMatch] = useState(false);
 
+  // Array containing all played matches. Create a child component for each
   let listOfMatches = props.playedMatches.map(match => {
     return (<div className="single-played-match" key={match.matchId}><SinglePlayedMatch showSerieName={false} match={match} players={props.players} serieName={""}/></div>);
   });
@@ -32,6 +33,7 @@ export default function PlayedMatches(props: IPlayedMatchesProps) {
     setShowAddMatch(!showAddMatch);
   }
   
+  // Update parent with data to register match
   function registerMatch(postData: {
     serieId: Number;
     winners: Number[];

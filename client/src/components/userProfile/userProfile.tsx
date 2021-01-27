@@ -16,6 +16,7 @@ export default function UserProfile(){
     const [user, setUser] = useState(new UserModel());
     const [playerSeries, setPlayerSeries] = useState([new SerieModel()]);    
 
+    // Fetch user data
     useEffect(() => {
         axios
             .get(`${DATABASE_URL}/`)
@@ -32,6 +33,7 @@ export default function UserProfile(){
 
     }, []);
 
+    // Fetch user serie data
     function fetchSerie(serieId: number){
         axios
         .get(`${DATABASE_URL}/serie/${serieId}`)
@@ -43,6 +45,7 @@ export default function UserProfile(){
         });
     }
   
+    // Array containing all played matches for the user
     let matches: PlayedMatchModel[] = [];
     let wins: number = 0;
     let gamePlayed: number = 0;

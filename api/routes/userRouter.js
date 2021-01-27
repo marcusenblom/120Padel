@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {User, validateUser} = require('../models/User');
 
+// Fetch user data
 router.get("/profile/:id", async (req, res) => {
 
     const user = await User.findOne({
@@ -16,6 +17,7 @@ router.get("/allUsers", async (req, res) =>{
     res.send(allUsers);
 });
 
+// Create new user
 router.post("/createUser", async (req, res) => {
 
     const newUser = new User({
@@ -36,6 +38,7 @@ router.post("/createUser", async (req, res) => {
 
 });
 
+// Change favorite serie on user
 router.post("/favorite", async (req, res) => {
 
     const user = await User.findOne({

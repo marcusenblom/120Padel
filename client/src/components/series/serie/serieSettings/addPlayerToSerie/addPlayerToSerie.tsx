@@ -24,6 +24,7 @@ export default function AddPlayerToSerie(props: IAddPlayerToSerie){
         return player.user.userId;
     });
 
+    // Fetch all users in database
     useEffect(() => {
         axios
           .get(`${DATABASE_URL}/allUsers`)
@@ -34,6 +35,7 @@ export default function AddPlayerToSerie(props: IAddPlayerToSerie){
         });
       }, []);
 
+    // Find players in serie
     function updateInput(input: string){
         const filtered = allUsers.filter(user => {
          return user.userName.toLowerCase().includes(input.toLowerCase()) && !playersInSerieIds.includes(user.userId);

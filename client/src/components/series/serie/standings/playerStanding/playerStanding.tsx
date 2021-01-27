@@ -19,6 +19,7 @@ interface IPlayerStandingProps{
 
 export default function PlayerStanding(props: IPlayerStandingProps) {
 
+  // Hard coded profile pictures. This will be fixed once the user can log in and add a profile picture
   let dude = ronaldo;
 
   if (props.userName === "Hasse") {

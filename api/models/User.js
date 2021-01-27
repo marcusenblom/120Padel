@@ -48,7 +48,7 @@ const userSchema = new Schema({
     }]
 });
 
-// Add serie to user
+// Add serie to user. This is needed in order to fetch all series that the user is currently active in
 userSchema.methods.addSerie = function(serie){
 
     let listOfSeries = this.series;
@@ -88,6 +88,7 @@ userSchema.methods.removeSerie = function(serie){
     this.save();
 };
 
+// Toggle favorite serie. Only one serie can be favorite at any time
 userSchema.methods.toggleFavorite = function(serieId){
 
     let userSeries = this.series;

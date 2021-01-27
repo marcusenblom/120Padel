@@ -13,6 +13,7 @@ export default function QuickStat(props: IQuickStats) {
         main = (props.mainStat > 0 ? "+":"") + main;
     }
 
+    // Change what kind of icon is displayed depending on if the player has positive or negative statistics
     let icon: any;
     let arrowUp = (<i className="fas fa-arrow-up"></i>);
     let arrowDown = (<i className="fas fa-arrow-down"></i>);
